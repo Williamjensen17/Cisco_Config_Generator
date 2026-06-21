@@ -3,18 +3,21 @@ A program to semi automatically generate code for cisco devices, mainly focusing
 
 
 
-- [x] Port selection
-- [x] Enable / disable port
-- [ ] Interface descriptions
-- [ ] VLAN creation
-- [ ] VLAN naming
-- [ ] Access port configuration
-- [ ] Trunk configuration
-- [ ] EtherChannel
-- [ ] ACL support
-- [ ] Port security
-- [ ] STP settings
-- [ ] Management VLAN
-- [ ] SVI configuration
-- [ ] SSH setup
-- [ ] Save / export config
+
+|   |   |
+|---|---|
+|Port selection|[x]|
+|Enable / disable port|[x]|
+|Interface description|[ ]|
+|VLAN creation|[ ]|
+|VLAN naming|[ ]|
+|Access port configuration|[ ]|
+|Trunk port configuration|[ ]|
+|EtherChannel|[ ]|
+|ACL support|[ ]|
+|Port security|[ ]|
+|STP features|[ ]|
+|Management VLAN|[ ]|
+|SVI configuration|[ ]|
+|SSH / remote access|[ ]|
+|Export config|[ ]|
