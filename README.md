@@ -4,20 +4,20 @@ A program to semi automatically generate code for cisco devices, mainly focusing
 
 
 
-| Feature                   | Status |
-| ------------------------- | ------ |
-| Port selection            | [x]    |
-| Enable / disable port     | [x]    |
-| Interface description     | [ ]    |
-| VLAN creation             | [ ]    |
-| VLAN naming               | [ ]    |
-| Access port configuration | [ ]    |
-| Trunk port configuration  | [ ]    |
-| EtherChannel              | [ ]    |
-| ACL support               | [ ]    |
-| Port security             | [ ]    |
-| STP features              | [ ]    |
-| Management VLAN           | [ ]    |
-| SVI configuration         | [ ]    |
-| SSH / remote access       | [ ]    |
-| Export config             | [ ]    |
+| Feature                   | Status                        |
+| ------------------------- | ----------------------------- |
+| Port selection            | :negative_squared_cross_mark: |
+| Enable / disable port     | :negative_squared_cross_mark: |
+| Interface description     | :x:                           |
+| VLAN creation             | :x:                           |
+| VLAN naming               | :x:                           |
+| Access port configuration | :x:                           |
+| Trunk port configuration  | :x:                           |
+| EtherChannel              | :x:                           |
+| ACL support               | :x:                           |
+| Port security             | :x:                           |
+| STP features              | :x:                           |
+| Management VLAN           | :x:                           |
+| SVI configuration         | :x:                           |
+| SSH / remote access       | :x:                           |
+| Export config             | :x:                           |
