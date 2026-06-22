@@ -17,8 +17,8 @@ _Settings_
 
 | Feature                   | Status                        |
 | ------------------------- | ----------------------------- |
-| Port selection            | :negative_squared_cross_mark: |
-| Enable / disable port     | :negative_squared_cross_mark: |
+| Port selection            | :White_Heavy_Check_Mark:      |
+| Enable / disable port     | :White_Heavy_Check_Mark:      |
 | Interface description     | :x:                           |
 | VLAN creation             | :x:                           |
 | VLAN naming               | :x:                           |
