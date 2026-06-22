@@ -17,8 +17,8 @@ _Settings_
 
 | Feature                   | Status                        |
 | ------------------------- | ----------------------------- |
-| Port selection            | :White_Heavy_Check_Mark:      |
-| Enable / disable port     | :White_Heavy_Check_Mark:      |
+| Port selection            | ✅                            |
+| Enable / disable port     | ✅                            |
 | Interface description     | :x:                           |
 | VLAN creation             | :x:                           |
 | VLAN naming               | :x:                           |
