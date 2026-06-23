@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Drawing.Drawing2D;
 
 namespace SwitchConfigGenerator;
@@ -9,24 +10,67 @@ public partial class ciscoConfigGenerator : Form
 
     bool?[] portActive = new bool?[24];
 
+    string?[] portDesc = new string?[24];
+
     public ciscoConfigGenerator()
     {
         InitializeComponent();
     }
 
+    bool isLoading = false;
+
     private void LoadSettings()
     {
-        //Load port number into label
+        isLoading = true;
+
         lblPort.Text = "Port: " + currentport.ToString();
 
-        //if current port is active turn the checkbox on
         if (currentport != null && portActive[currentport.Value - 1] == true)
         {
             switchPortEnabled.Checked = true;
         }
-        else { switchPortEnabled.Checked = false; }
+        else
+        {
+            switchPortEnabled.Checked = false;
+        }
+
+        if (currentport != null)
+        {
+            string? desc = portDesc[currentport.Value - 1];
+
+            if (string.IsNullOrWhiteSpace(desc))
+            {
+                ShowDescriptionPlaceholder();
+            }
+            else
+            {
+                txtDesc.Text = desc;
+                txtDesc.ForeColor = Color.Black;
+            }
+        }
+        else
+        {
+            ShowDescriptionPlaceholder();
+        }
+
+        isLoading = false;
     }
 
+    private void txtDesc_TextChanged(object sender, EventArgs e)
+    {
+        if (isLoading || currentport == null)
+            return;
+
+        if (txtDesc.ForeColor == Color.Gray)
+            return;
+
+        portDesc[currentport.Value - 1] = txtDesc.Text;
+    }
+    private void ShowDescriptionPlaceholder()
+    {
+        txtDesc.Text = "Port Description";
+        txtDesc.ForeColor = Color.Gray;
+    }
 
     private void switchPortEnabled_CheckedChanged(object sender, EventArgs e)
     {
@@ -34,8 +78,36 @@ public partial class ciscoConfigGenerator : Form
             return;
         portActive[currentport.Value - 1] = switchPortEnabled.Checked;
     }
-    
 
+    private void btnDebug_Click(object sender, EventArgs e)
+    {
+        string output = "";
+
+        for (int i = 0; i < 24; i++)
+        {
+            string activeText = portActive[i].HasValue
+                ? portActive[i].Value.ToString()
+                : "null";
+
+            string descText = portDesc[i] ?? "null";
+
+            output += $"Port {i}: Active = {activeText}, Desc = {descText}{Environment.NewLine}";
+        }
+
+        rtbOutput.Text = output;
+    }
+
+
+    private void txtDesc_Leave(object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(txtDesc.Text))
+        {
+            if (currentport != null)
+                portDesc[currentport.Value - 1] = null;
+
+            ShowDescriptionPlaceholder();
+        }
+    }
     private void ciscoConfigGenerator_Load(object sender, EventArgs e)
     {
         int radius = 20;
@@ -70,7 +142,7 @@ public partial class ciscoConfigGenerator : Form
 
 
     //When button X is clicked, set current port to X and load settings visually
-    
+
     private void switchPort_01_Click(object sender, EventArgs e) { currentport = 1; LoadSettings(); }
     private void switchPort_02_Click(object sender, EventArgs e) { currentport = 2; LoadSettings(); }
     private void switchPort_03_Click(object sender, EventArgs e) { currentport = 3; LoadSettings(); }
@@ -95,15 +167,24 @@ public partial class ciscoConfigGenerator : Form
     private void switchPort_22_Click(object sender, EventArgs e) { currentport = 22; LoadSettings(); }
     private void switchPort_23_Click(object sender, EventArgs e) { currentport = 23; LoadSettings(); }
     private void switchPort_24_Click(object sender, EventArgs e) { currentport = 24; LoadSettings(); }
-    
-    private void btnSubmit_Click(object sender, EventArgs e) {}
+
+    private void btnSubmit_Click(object sender, EventArgs e) { }
 
     private void btnFile_Click(object sender, EventArgs e) { fileMenu.Show(btnFile, 0, btnFile.Height); }
 
     private void btnSettings_Click(object sender, EventArgs e) { SettingsForm settingsForm = new SettingsForm(); settingsForm.ShowDialog(); }
-    
+
     private void importFileToolStripMenuItem_Click(object sender, EventArgs e) { }
     private void exportFileToolStripMenuItem_Click(object sender, EventArgs e) { }
 
     private void button1_Click(object sender, EventArgs e) { Application.Exit(); }
+
+    private void txtDesc_Enter(object sender, EventArgs e)
+    {
+        if (txtDesc.ForeColor == Color.Gray)
+        {
+            txtDesc.Text = "";
+            txtDesc.ForeColor = Color.Black;
+        }
+    }
 }
