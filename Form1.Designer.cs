@@ -89,7 +89,7 @@ partial class ciscoConfigGenerator
         fileMenu = new ContextMenuStrip(components);
         importFileToolStripMenuItem = new ToolStripMenuItem();
         exportFileToolStripMenuItem = new ToolStripMenuItem();
-        button1 = new Button();
+        btnQuit = new Button();
         txtDesc = new TextBox();
         contextMenuStrip1 = new ContextMenuStrip(components);
         btnDebug = new Button();
@@ -788,17 +788,17 @@ partial class ciscoConfigGenerator
         exportFileToolStripMenuItem.Text = "Save File";
         exportFileToolStripMenuItem.Click += exportFileToolStripMenuItem_Click;
         // 
-        // button1
+        // btnQuit
         // 
-        button1.BackColor = Color.Red;
-        button1.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button1.Location = new Point(1243, 12);
-        button1.Name = "button1";
-        button1.Size = new Size(36, 36);
-        button1.TabIndex = 57;
-        button1.Text = "X";
-        button1.UseVisualStyleBackColor = false;
-        button1.Click += button1_Click;
+        btnQuit.BackColor = Color.Red;
+        btnQuit.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnQuit.Location = new Point(1243, 12);
+        btnQuit.Name = "btnQuit";
+        btnQuit.Size = new Size(36, 36);
+        btnQuit.TabIndex = 57;
+        btnQuit.Text = "X";
+        btnQuit.UseVisualStyleBackColor = false;
+        btnQuit.Click += btnQuit_Click;
         // 
         // txtDesc
         // 
@@ -810,6 +810,7 @@ partial class ciscoConfigGenerator
         txtDesc.Text = "Port description";
         txtDesc.TextChanged += txtDesc_TextChanged;
         txtDesc.Enter += txtDesc_Enter;
+        txtDesc.Leave += txtDesc_Leave;
         // 
         // contextMenuStrip1
         // 
@@ -836,7 +837,7 @@ partial class ciscoConfigGenerator
         ClientSize = new Size(1291, 623);
         Controls.Add(btnDebug);
         Controls.Add(txtDesc);
-        Controls.Add(button1);
+        Controls.Add(btnQuit);
         Controls.Add(btnSettings);
         Controls.Add(btnFile);
         Controls.Add(label24);
@@ -967,7 +968,7 @@ partial class ciscoConfigGenerator
     private ContextMenuStrip fileMenu;
     private ToolStripMenuItem importFileToolStripMenuItem;
     private ToolStripMenuItem exportFileToolStripMenuItem;
-    private Button button1;
+    private Button btnQuit;
     private TextBox txtDesc;
     private ContextMenuStrip contextMenuStrip1;
     private Button btnDebug;
