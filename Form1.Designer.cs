@@ -89,7 +89,10 @@ partial class ciscoConfigGenerator
         fileMenu = new ContextMenuStrip(components);
         importFileToolStripMenuItem = new ToolStripMenuItem();
         exportFileToolStripMenuItem = new ToolStripMenuItem();
-        button1 = new Button();
+        btnQuit = new Button();
+        txtDesc = new TextBox();
+        contextMenuStrip1 = new ContextMenuStrip(components);
+        btnDebug = new Button();
         fileMenu.SuspendLayout();
         SuspendLayout();
         // 
@@ -460,7 +463,7 @@ partial class ciscoConfigGenerator
         // 
         btnSubmit.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         btnSubmit.ForeColor = SystemColors.ActiveCaptionText;
-        btnSubmit.Location = new Point(873, 360);
+        btnSubmit.Location = new Point(873, 315);
         btnSubmit.Name = "btnSubmit";
         btnSubmit.Size = new Size(75, 30);
         btnSubmit.TabIndex = 29;
@@ -785,17 +788,46 @@ partial class ciscoConfigGenerator
         exportFileToolStripMenuItem.Text = "Save File";
         exportFileToolStripMenuItem.Click += exportFileToolStripMenuItem_Click;
         // 
-        // button1
+        // btnQuit
         // 
-        button1.BackColor = Color.Red;
-        button1.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button1.Location = new Point(1243, 12);
-        button1.Name = "button1";
-        button1.Size = new Size(36, 36);
-        button1.TabIndex = 57;
-        button1.Text = "X";
-        button1.UseVisualStyleBackColor = false;
-        button1.Click += button1_Click;
+        btnQuit.BackColor = Color.Red;
+        btnQuit.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnQuit.Location = new Point(1243, 12);
+        btnQuit.Name = "btnQuit";
+        btnQuit.Size = new Size(36, 36);
+        btnQuit.TabIndex = 57;
+        btnQuit.Text = "X";
+        btnQuit.UseVisualStyleBackColor = false;
+        btnQuit.Click += btnQuit_Click;
+        // 
+        // txtDesc
+        // 
+        txtDesc.ForeColor = Color.Gray;
+        txtDesc.Location = new Point(42, 150);
+        txtDesc.Name = "txtDesc";
+        txtDesc.Size = new Size(238, 23);
+        txtDesc.TabIndex = 58;
+        txtDesc.Text = "Port description";
+        txtDesc.TextChanged += txtDesc_TextChanged;
+        txtDesc.Enter += txtDesc_Enter;
+        txtDesc.Leave += txtDesc_Leave;
+        // 
+        // contextMenuStrip1
+        // 
+        contextMenuStrip1.Name = "contextMenuStrip1";
+        contextMenuStrip1.Size = new Size(61, 4);
+        // 
+        // btnDebug
+        // 
+        btnDebug.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnDebug.ForeColor = SystemColors.ActiveCaptionText;
+        btnDebug.Location = new Point(873, 351);
+        btnDebug.Name = "btnDebug";
+        btnDebug.Size = new Size(75, 30);
+        btnDebug.TabIndex = 59;
+        btnDebug.Text = "Debug";
+        btnDebug.UseVisualStyleBackColor = true;
+        btnDebug.Click += btnDebug_Click;
         // 
         // ciscoConfigGenerator
         // 
@@ -803,7 +835,9 @@ partial class ciscoConfigGenerator
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(46, 51, 73);
         ClientSize = new Size(1291, 623);
-        Controls.Add(button1);
+        Controls.Add(btnDebug);
+        Controls.Add(txtDesc);
+        Controls.Add(btnQuit);
         Controls.Add(btnSettings);
         Controls.Add(btnFile);
         Controls.Add(label24);
@@ -934,5 +968,8 @@ partial class ciscoConfigGenerator
     private ContextMenuStrip fileMenu;
     private ToolStripMenuItem importFileToolStripMenuItem;
     private ToolStripMenuItem exportFileToolStripMenuItem;
-    private Button button1;
+    private Button btnQuit;
+    private TextBox txtDesc;
+    private ContextMenuStrip contextMenuStrip1;
+    private Button btnDebug;
 }

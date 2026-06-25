@@ -19,7 +19,7 @@ _Settings_
 | ------------------------- | ----------------------------- |
 | Port selection            | ✅                            |
 | Enable / disable port     | ✅                            |
-| Interface description     | :x:                           |
+| Interface description     | ✅                            |
 | VLAN creation             | :x:                           |
 | VLAN naming               | :x:                           |
 | Access port configuration | :x:                           |
