@@ -94,8 +94,8 @@ public partial class ciscoConfigGenerator : Form
 
     private void ShowDescriptionPlaceholder()
     {
-        txtDesc.Text = "Port Description";
         txtDesc.ForeColor = Color.Gray;
+        txtDesc.Text = "Port Description";
     }
 
 
