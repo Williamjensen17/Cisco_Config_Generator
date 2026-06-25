@@ -94,8 +94,8 @@ public partial class ciscoConfigGenerator : Form
 
     private void ShowDescriptionPlaceholder()
     {
-        txtDesc.Text = "Port Description";
         txtDesc.ForeColor = Color.Gray;
+        txtDesc.Text = "Port Description";
     }
 
 
@@ -159,10 +159,18 @@ public partial class ciscoConfigGenerator : Form
 
         for (int i = 0; i < portActive.Length; i++)
         {
-            if (portActive[i] == null) { continue; }
+            bool hasDesc = !string.IsNullOrWhiteSpace(portDesc[i]);
+
+            if (portActive[i] == null && !hasDesc) { continue; }
 
             sb.AppendLine($"  interface fa0/{i + 1}");
-            sb.AppendLine(portActive[i] == true ? "    no shutdown" : "    shutdown");
+
+            if (hasDesc) { sb.AppendLine($"    description {portDesc[i]}"); }
+
+            if (portActive[i] != null)
+            {
+                sb.AppendLine(portActive[i] == true ? "    no shutdown" : "    shutdown");
+            }
         }
         rtbOutput.Text = sb.ToString();
     }
