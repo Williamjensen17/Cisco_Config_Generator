@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Text;
 
 namespace SwitchConfigGenerator.Core
 {
@@ -6,15 +6,15 @@ namespace SwitchConfigGenerator.Core
     {
         public string GenerateDebug()
         {
-            string output = "";
+            var sb = new StringBuilder();
 
             foreach (var port in Variables.Ports)
             {
                 string activeText = port.IsEnabled.HasValue ? port.IsEnabled.Value.ToString() : "null";
                 string descText = port.Description ?? "null";
-                output += $"Port {port.Number}: Active = {activeText}, Desc = {descText}{Environment.NewLine}";
+                sb.AppendLine($"Port {port.Number}: Active = {activeText}, Desc = {descText}");
             }
-            return output;
+            return sb.ToString();
         }
     }
 }
