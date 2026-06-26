@@ -164,22 +164,25 @@ public partial class ciscoConfigGenerator : Form
         rtbOutput.Text = debug.GenerateDebug();
     }
 
-    private void LoadSettings(int currentport)
+    private void LoadSettings(int port)
     {
-
+        currentport = port;
+        Variables.currentport = port;
+        isLoading = true;
 
         Settings settings = new();
-        var (f1,f2,f3) = settings.Load(currentport);
+        var (f1, f2, f3) = settings.Load(port);
 
         lblPort.Text = "Port: " + f1.ToString();
 
         if (string.IsNullOrWhiteSpace(f3)) { ShowDescriptionPlaceholder(); }
         else
         {
-            txtDesc.Text = f3;
+            txtDesc.Text = f3!;
             txtDesc.ForeColor = Color.Black;
-
         }
         switchPortEnabled.Checked = f2;
+
+        isLoading = false;
     }
 }
