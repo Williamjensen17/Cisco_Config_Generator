@@ -1,23 +1,18 @@
+using System.ComponentModel.Design.Serialization;
 using System.Diagnostics;
 using System.Drawing.Drawing2D;
+using SwitchConfigGenerator.Core;
 
 namespace SwitchConfigGenerator;
+
 
 public partial class ciscoConfigGenerator : Form
 {
 
-
-    // initialize Variables
-
-    //ints
-    int? currentport = null;
-
-    //bools
-    bool?[] portActive = new bool?[24];
-    bool isLoading = false;
-
-    //strings
-    string?[] portDesc = new string?[24];
+    public bool isLoading = Variables.isLoading;
+    public int? currentport = Variables.currentport;
+    public bool?[] portActive = Variables.portActive;
+    public string?[] portDesc = Variables.portDesc;
 
 
 
@@ -88,6 +83,12 @@ public partial class ciscoConfigGenerator : Form
 
 
 
+
+
+
+
+
+    //Down her works ()i hope
     //Fucntions getting called
 
 
@@ -98,86 +99,12 @@ public partial class ciscoConfigGenerator : Form
         txtDesc.Text = "Port Description";
     }
 
+    
 
 
-    private void LoadSettings(int Current)
-    {
-        currentport = Convert.ToInt32(Current);
-        isLoading = true;
-
-        lblPort.Text = "Port: " + currentport.ToString();
-
-        if (currentport != null && portActive[currentport.Value - 1] == true) { switchPortEnabled.Checked = true; }
-        else { switchPortEnabled.Checked = false; }
-
-        if (currentport != null)
-        {
-            string? desc = portDesc[currentport.Value - 1];
-
-            if (string.IsNullOrWhiteSpace(desc)) { ShowDescriptionPlaceholder(); }
-            else
-            {
-                txtDesc.Text = desc;
-                txtDesc.ForeColor = Color.Black;
-            }
-        }
-        else { ShowDescriptionPlaceholder(); }
-
-        isLoading = false;
-    }
 
 
     // buttonclicks
-
-    private void btnDebug_Click(object sender, EventArgs e)
-    {
-        string output = "";
-
-        for (int i = 0; i < 24; i++)
-        {
-
-            //make a string variable, if the port[i] has a value, set activeText to that value, otherwise set to "null"
-            string activeText = portActive[i].HasValue ? portActive[i].Value.ToString() : "null";
-
-            //sets the string variable to portDesc if not null
-            string descText = portDesc[i] ?? "null";
-
-            //generate the output
-            output += $"Port {i}: Active = {activeText}, Desc = {descText}{Environment.NewLine}";
-        }
-
-        rtbOutput.Text = output;
-    }
-
-
-    private void btnGenConfig_Click(object sender, EventArgs e)
-    {
-        var sb = new System.Text.StringBuilder();
-        //Add Enable and Configure Terminal to the top of output
-        sb.AppendLine("enable");
-        sb.AppendLine("  configure terminal");
-
-        for (int i = 0; i < portActive.Length; i++)
-        {
-            bool hasDesc = !string.IsNullOrWhiteSpace(portDesc[i]);
-
-            if (portActive[i] == null && !hasDesc) { continue; }
-
-            sb.AppendLine($"  interface fa0/{i + 1}");
-
-            if (hasDesc) { sb.AppendLine($"    description {portDesc[i]}"); }
-
-            if (portActive[i] != null)
-            {
-                sb.AppendLine(portActive[i] == true ? "    no shutdown" : "    shutdown");
-            }
-        }
-        rtbOutput.Text = sb.ToString();
-    }
-
-
-
-
 
     //When button X is clicked, set current port to X and load settings visually
 
@@ -222,4 +149,40 @@ public partial class ciscoConfigGenerator : Form
     private void btnQuit_Click(object sender, EventArgs e) { Application.Exit(); }
 
 
+
+
+
+    private void btnGenConfig_Click(object sender, EventArgs e)
+    {
+        Generate GenerateClass = new();
+        rtbOutput.Text = GenerateClass.GenerateConfig();
+    }
+
+    private void btnDebug_Click(object sender, EventArgs e)
+    {
+        Debug debug = new();
+        rtbOutput.Text = debug.GenerateDebug();
+    }
+
+    private void LoadSettings(int port)
+    {
+        currentport = port;
+        Variables.currentport = port;
+        isLoading = true;
+
+        Settings settings = new();
+        var (f1, f2, f3) = settings.Load(port);
+
+        lblPort.Text = "Port: " + f1.ToString();
+
+        if (string.IsNullOrWhiteSpace(f3)) { ShowDescriptionPlaceholder(); }
+        else
+        {
+            txtDesc.Text = f3!;
+            txtDesc.ForeColor = Color.Black;
+        }
+        switchPortEnabled.Checked = f2;
+
+        isLoading = false;
+    }
 }

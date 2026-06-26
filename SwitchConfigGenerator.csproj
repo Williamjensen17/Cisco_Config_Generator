@@ -6,10 +6,16 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\RJ45.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="SwitchConfigGenerator.Core\SwitchConfigGenerator.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
