@@ -4,6 +4,13 @@ namespace SwitchConfigGenerator.Core
 {
     public class Generate
     {
+        private readonly string _interfacePrefix;
+
+        public Generate(string interfacePrefix = "fa0/")
+        {
+            _interfacePrefix = interfacePrefix;
+        }
+
         public string GenerateConfig()
         {
             var sb = new StringBuilder();
@@ -16,7 +23,7 @@ namespace SwitchConfigGenerator.Core
 
                 if (port.IsEnabled == null && !hasDesc) continue;
 
-                sb.AppendLine($"  interface fa0/{port.Number}");
+                sb.AppendLine($"  interface {_interfacePrefix}{port.Number}");
 
                 if (hasDesc) sb.AppendLine($"    description {port.Description}");
 
@@ -25,6 +32,7 @@ namespace SwitchConfigGenerator.Core
                     sb.AppendLine(port.IsEnabled == true ? "    no shutdown" : "    shutdown");
                 }
             }
+
             return sb.ToString();
         }
     }
