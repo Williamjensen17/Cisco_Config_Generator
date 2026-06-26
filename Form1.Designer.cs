@@ -107,7 +107,7 @@ partial class ciscoConfigGenerator
         switchPort_01.TabIndex = 0;
         switchPort_01.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_01.UseVisualStyleBackColor = true;
-        switchPort_01.Click += switchPort_01_Click;
+        switchPort_01.Click += switchPort_Click;
         // 
         // switchPort_02
         // 
@@ -120,7 +120,7 @@ partial class ciscoConfigGenerator
         switchPort_02.TabIndex = 1;
         switchPort_02.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_02.UseVisualStyleBackColor = true;
-        switchPort_02.Click += switchPort_02_Click;
+        switchPort_02.Click += switchPort_Click;
         // 
         // switchPort_14
         // 
@@ -133,7 +133,7 @@ partial class ciscoConfigGenerator
         switchPort_14.TabIndex = 3;
         switchPort_14.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_14.UseVisualStyleBackColor = true;
-        switchPort_14.Click += switchPort_14_Click;
+        switchPort_14.Click += switchPort_Click;
         // 
         // switchPort_13
         // 
@@ -146,7 +146,7 @@ partial class ciscoConfigGenerator
         switchPort_13.TabIndex = 2;
         switchPort_13.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_13.UseVisualStyleBackColor = true;
-        switchPort_13.Click += switchPort_13_Click;
+        switchPort_13.Click += switchPort_Click;
         // 
         // switchPort_04
         // 
@@ -159,7 +159,7 @@ partial class ciscoConfigGenerator
         switchPort_04.TabIndex = 5;
         switchPort_04.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_04.UseVisualStyleBackColor = true;
-        switchPort_04.Click += switchPort_04_Click;
+        switchPort_04.Click += switchPort_Click;
         // 
         // switchPort_03
         // 
@@ -172,7 +172,7 @@ partial class ciscoConfigGenerator
         switchPort_03.TabIndex = 4;
         switchPort_03.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_03.UseVisualStyleBackColor = true;
-        switchPort_03.Click += switchPort_03_Click;
+        switchPort_03.Click += switchPort_Click;
         // 
         // switchPort_06
         // 
@@ -185,7 +185,7 @@ partial class ciscoConfigGenerator
         switchPort_06.TabIndex = 7;
         switchPort_06.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_06.UseVisualStyleBackColor = true;
-        switchPort_06.Click += switchPort_06_Click;
+        switchPort_06.Click += switchPort_Click;
         // 
         // switchPort_05
         // 
@@ -198,7 +198,7 @@ partial class ciscoConfigGenerator
         switchPort_05.TabIndex = 6;
         switchPort_05.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_05.UseVisualStyleBackColor = true;
-        switchPort_05.Click += switchPort_05_Click;
+        switchPort_05.Click += switchPort_Click;
         // 
         // switchPort_08
         // 
@@ -211,7 +211,7 @@ partial class ciscoConfigGenerator
         switchPort_08.TabIndex = 9;
         switchPort_08.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_08.UseVisualStyleBackColor = true;
-        switchPort_08.Click += switchPort_08_Click;
+        switchPort_08.Click += switchPort_Click;
         // 
         // switchPort_07
         // 
@@ -224,7 +224,7 @@ partial class ciscoConfigGenerator
         switchPort_07.TabIndex = 8;
         switchPort_07.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_07.UseVisualStyleBackColor = true;
-        switchPort_07.Click += switchPort_07_Click;
+        switchPort_07.Click += switchPort_Click;
         // 
         // switchPort_10
         // 
@@ -237,7 +237,7 @@ partial class ciscoConfigGenerator
         switchPort_10.TabIndex = 11;
         switchPort_10.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_10.UseVisualStyleBackColor = true;
-        switchPort_10.Click += switchPort_10_Click;
+        switchPort_10.Click += switchPort_Click;
         // 
         // switchPort_09
         // 
@@ -250,7 +250,7 @@ partial class ciscoConfigGenerator
         switchPort_09.TabIndex = 10;
         switchPort_09.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_09.UseVisualStyleBackColor = true;
-        switchPort_09.Click += switchPort_09_Click;
+        switchPort_09.Click += switchPort_Click;
         // 
         // switchPort_12
         // 
@@ -263,7 +263,7 @@ partial class ciscoConfigGenerator
         switchPort_12.TabIndex = 13;
         switchPort_12.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_12.UseVisualStyleBackColor = true;
-        switchPort_12.Click += switchPort_12_Click;
+        switchPort_12.Click += switchPort_Click;
         // 
         // switchPort_11
         // 
@@ -276,7 +276,7 @@ partial class ciscoConfigGenerator
         switchPort_11.TabIndex = 12;
         switchPort_11.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_11.UseVisualStyleBackColor = true;
-        switchPort_11.Click += switchPort_11_Click;
+        switchPort_11.Click += switchPort_Click;
         // 
         // switchPort_16
         // 
@@ -289,7 +289,7 @@ partial class ciscoConfigGenerator
         switchPort_16.TabIndex = 15;
         switchPort_16.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_16.UseVisualStyleBackColor = true;
-        switchPort_16.Click += switchPort_16_Click;
+        switchPort_16.Click += switchPort_Click;
         // 
         // switchPort_15
         // 
@@ -302,7 +302,7 @@ partial class ciscoConfigGenerator
         switchPort_15.TabIndex = 14;
         switchPort_15.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_15.UseVisualStyleBackColor = true;
-        switchPort_15.Click += switchPort_15_Click;
+        switchPort_15.Click += switchPort_Click;
         // 
         // switchPort_18
         // 
@@ -315,7 +315,7 @@ partial class ciscoConfigGenerator
         switchPort_18.TabIndex = 17;
         switchPort_18.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_18.UseVisualStyleBackColor = true;
-        switchPort_18.Click += switchPort_18_Click;
+        switchPort_18.Click += switchPort_Click;
         // 
         // switchPort_17
         // 
@@ -328,7 +328,7 @@ partial class ciscoConfigGenerator
         switchPort_17.TabIndex = 16;
         switchPort_17.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_17.UseVisualStyleBackColor = true;
-        switchPort_17.Click += switchPort_17_Click;
+        switchPort_17.Click += switchPort_Click;
         // 
         // switchPort_20
         // 
@@ -341,7 +341,7 @@ partial class ciscoConfigGenerator
         switchPort_20.TabIndex = 19;
         switchPort_20.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_20.UseVisualStyleBackColor = true;
-        switchPort_20.Click += switchPort_20_Click;
+        switchPort_20.Click += switchPort_Click;
         // 
         // switchPort_19
         // 
@@ -354,7 +354,7 @@ partial class ciscoConfigGenerator
         switchPort_19.TabIndex = 18;
         switchPort_19.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_19.UseVisualStyleBackColor = true;
-        switchPort_19.Click += switchPort_19_Click;
+        switchPort_19.Click += switchPort_Click;
         // 
         // switchPort_22
         // 
@@ -367,7 +367,7 @@ partial class ciscoConfigGenerator
         switchPort_22.TabIndex = 21;
         switchPort_22.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_22.UseVisualStyleBackColor = true;
-        switchPort_22.Click += switchPort_22_Click;
+        switchPort_22.Click += switchPort_Click;
         // 
         // switchPort_21
         // 
@@ -380,7 +380,7 @@ partial class ciscoConfigGenerator
         switchPort_21.TabIndex = 20;
         switchPort_21.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_21.UseVisualStyleBackColor = true;
-        switchPort_21.Click += switchPort_21_Click;
+        switchPort_21.Click += switchPort_Click;
         // 
         // switchPort_24
         // 
@@ -393,7 +393,7 @@ partial class ciscoConfigGenerator
         switchPort_24.TabIndex = 23;
         switchPort_24.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_24.UseVisualStyleBackColor = true;
-        switchPort_24.Click += switchPort_24_Click;
+        switchPort_24.Click += switchPort_Click;
         // 
         // switchPort_23
         // 
@@ -406,7 +406,7 @@ partial class ciscoConfigGenerator
         switchPort_23.TabIndex = 22;
         switchPort_23.TextAlign = ContentAlignment.MiddleLeft;
         switchPort_23.UseVisualStyleBackColor = true;
-        switchPort_23.Click += switchPort_23_Click;
+        switchPort_23.Click += switchPort_Click;
         // 
         // comboBox1
         // 

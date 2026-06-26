@@ -181,30 +181,13 @@ public partial class ciscoConfigGenerator : Form
 
     //When button X is clicked, set current port to X and load settings visually
 
-    private void switchPort_01_Click(object sender, EventArgs e) { LoadSettings(1); }
-    private void switchPort_02_Click(object sender, EventArgs e) { LoadSettings(2); }
-    private void switchPort_03_Click(object sender, EventArgs e) { LoadSettings(3); }
-    private void switchPort_04_Click(object sender, EventArgs e) { LoadSettings(4); }
-    private void switchPort_05_Click(object sender, EventArgs e) { LoadSettings(5); }
-    private void switchPort_06_Click(object sender, EventArgs e) { LoadSettings(6); }
-    private void switchPort_07_Click(object sender, EventArgs e) { LoadSettings(7); }
-    private void switchPort_08_Click(object sender, EventArgs e) { LoadSettings(8); }
-    private void switchPort_09_Click(object sender, EventArgs e) { LoadSettings(9); }
-    private void switchPort_10_Click(object sender, EventArgs e) { LoadSettings(10); }
-    private void switchPort_11_Click(object sender, EventArgs e) { LoadSettings(11); }
-    private void switchPort_12_Click(object sender, EventArgs e) { LoadSettings(12); }
-    private void switchPort_13_Click(object sender, EventArgs e) { LoadSettings(13); }
-    private void switchPort_14_Click(object sender, EventArgs e) { LoadSettings(14); }
-    private void switchPort_15_Click(object sender, EventArgs e) { LoadSettings(15); }
-    private void switchPort_16_Click(object sender, EventArgs e) { LoadSettings(16); }
-    private void switchPort_17_Click(object sender, EventArgs e) { LoadSettings(17); }
-    private void switchPort_18_Click(object sender, EventArgs e) { LoadSettings(18); }
-    private void switchPort_19_Click(object sender, EventArgs e) { LoadSettings(19); }
-    private void switchPort_20_Click(object sender, EventArgs e) { LoadSettings(20); }
-    private void switchPort_21_Click(object sender, EventArgs e) { LoadSettings(21); }
-    private void switchPort_22_Click(object sender, EventArgs e) { LoadSettings(22); }
-    private void switchPort_23_Click(object sender, EventArgs e) { LoadSettings(23); }
-    private void switchPort_24_Click(object sender, EventArgs e) { LoadSettings(24); }
+    private void switchPort_Click(object sender, EventArgs e)
+    {
+        if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
+        {
+            LoadSettings(port);
+        }
+    }
 
 
     //Rest of button clicks
