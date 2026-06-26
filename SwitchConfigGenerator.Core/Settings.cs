@@ -17,23 +17,27 @@ namespace SwitchConfigGenerator.Core
         private string?[] portDesc = Variables.portDesc; 
 
 
-        public (int, bool, string) Load()
+        public (int, bool, string) Load(int port)
         {
-            
+
+
+            currentport = port;
+
+
             isLoading = true;
             bool f2;
             //lblPort.Text = "Port: " + currentport.ToString();
 
-            int f1 = currentport.Value;
+            int f1 = port;
 
 
 
 
-            if (currentport != null && portActive[currentport.Value - 1] == true) { f2 = true; }
+            if (currentport != null && portActive[port - 1] == true) { f2 = true; }
             else { f2 = false; }
 
 
-            string? d3 = portDesc[currentport.Value - 1];
+            string? d3 = portDesc[port - 1];
 
             isLoading = false;
 

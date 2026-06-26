@@ -9,6 +9,11 @@ namespace SwitchConfigGenerator;
 public partial class ciscoConfigGenerator : Form
 {
 
+    public bool isLoading = Variables.isLoading;
+    public int? currentport = Variables.currentport;
+    public bool?[] portActive = Variables.portActive;
+    public string?[] portDesc = Variables.portDesc;
+
 
 
     //startups
@@ -78,6 +83,12 @@ public partial class ciscoConfigGenerator : Form
 
 
 
+
+
+
+
+
+    //Down her works ()i hope
     //Fucntions getting called
 
 
@@ -141,9 +152,6 @@ public partial class ciscoConfigGenerator : Form
 
 
 
-    //Down her works ()i hope
-
-
     private void btnGenConfig_Click(object sender, EventArgs e)
     {
         Generate GenerateClass = new();
@@ -156,12 +164,12 @@ public partial class ciscoConfigGenerator : Form
         rtbOutput.Text = debug.GenerateDebug();
     }
 
-    private void LoadSettings()
+    private void LoadSettings(int currentport)
     {
 
 
         Settings settings = new();
-        var (f1,f2,f3) = settings.Load();
+        var (f1,f2,f3) = settings.Load(currentport);
 
         lblPort.Text = "Port: " + f1.ToString();
 
