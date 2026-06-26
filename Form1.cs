@@ -5,14 +5,12 @@ using SwitchConfigGenerator.Core;
 
 namespace SwitchConfigGenerator;
 
-
 public partial class ciscoConfigGenerator : Form
 {
 
     public bool isLoading = Variables.isLoading;
     public int? currentport = Variables.currentport;
-    public bool?[] portActive = Variables.portActive;
-    public string?[] portDesc = Variables.portDesc;
+    public Port[] ports = Variables.Ports;
 
 
 
@@ -43,7 +41,7 @@ public partial class ciscoConfigGenerator : Form
         if (isLoading || currentport == null)
             return;
 
-        portActive[currentport.Value - 1] = switchPortEnabled.Checked;
+        ports[currentport.Value - 1].IsEnabled = switchPortEnabled.Checked;
     }
 
 
@@ -55,7 +53,7 @@ public partial class ciscoConfigGenerator : Form
     {
         if (string.IsNullOrWhiteSpace(txtDesc.Text))
         {
-            if (currentport != null) { portDesc[currentport.Value - 1] = null; }
+            if (currentport != null) { ports[currentport.Value - 1].Description = null; }
 
             ShowDescriptionPlaceholder();
         }
@@ -78,7 +76,7 @@ public partial class ciscoConfigGenerator : Form
         if (txtDesc.ForeColor == Color.Gray)
             return;
 
-        portDesc[currentport.Value - 1] = txtDesc.Text;
+        ports[currentport.Value - 1].Description = txtDesc.Text;
     }
 
 
@@ -171,17 +169,17 @@ public partial class ciscoConfigGenerator : Form
         isLoading = true;
 
         Settings settings = new();
-        var (f1, f2, f3) = settings.Load(port);
+        Port portData = settings.Load(port);
 
-        lblPort.Text = "Port: " + f1.ToString();
+        lblPort.Text = "Port: " + portData.Number;
 
-        if (string.IsNullOrWhiteSpace(f3)) { ShowDescriptionPlaceholder(); }
+        if (string.IsNullOrWhiteSpace(portData.Description)) { ShowDescriptionPlaceholder(); }
         else
         {
-            txtDesc.Text = f3!;
+            txtDesc.Text = portData.Description;
             txtDesc.ForeColor = Color.Black;
         }
-        switchPortEnabled.Checked = f2;
+        switchPortEnabled.Checked = portData.IsEnabled == true;
 
         isLoading = false;
     }
