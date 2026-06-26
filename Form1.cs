@@ -7,13 +7,6 @@ namespace SwitchConfigGenerator;
 
 public partial class ciscoConfigGenerator : Form
 {
-
-    public bool isLoading = Variables.isLoading;
-    public int? currentport = Variables.currentport;
-    public Port[] ports = Variables.Ports;
-
-
-
     //startups
     public ciscoConfigGenerator()
     {
@@ -38,10 +31,10 @@ public partial class ciscoConfigGenerator : Form
     //Checkbox Handler
     private void switchPortEnabled_CheckedChanged(object sender, EventArgs e)
     {
-        if (isLoading || currentport == null)
+        if (Variables.isLoading || Variables.currentport == null)
             return;
 
-        ports[currentport.Value - 1].IsEnabled = switchPortEnabled.Checked;
+        Variables.Ports[Variables.currentport.Value - 1].IsEnabled = switchPortEnabled.Checked;
     }
 
 
@@ -53,7 +46,7 @@ public partial class ciscoConfigGenerator : Form
     {
         if (string.IsNullOrWhiteSpace(txtDesc.Text))
         {
-            if (currentport != null) { ports[currentport.Value - 1].Description = null; }
+            if (Variables.currentport != null) { Variables.Ports[Variables.currentport.Value - 1].Description = null; }
 
             ShowDescriptionPlaceholder();
         }
@@ -70,13 +63,13 @@ public partial class ciscoConfigGenerator : Form
 
     private void txtDesc_TextChanged(object sender, EventArgs e)
     {
-        if (isLoading || currentport == null)
+        if (Variables.isLoading || Variables.currentport == null)
             return;
 
         if (txtDesc.ForeColor == Color.Gray)
             return;
 
-        ports[currentport.Value - 1].Description = txtDesc.Text;
+        Variables.Ports[Variables.currentport.Value - 1].Description = txtDesc.Text;
     }
 
 
@@ -152,7 +145,8 @@ public partial class ciscoConfigGenerator : Form
 
     private void btnGenConfig_Click(object sender, EventArgs e)
     {
-        Generate GenerateClass = new();
+        string prefix = switchPortType.SelectedItem?.ToString()?.Replace("X", "") ?? "fa0/";
+        Generate GenerateClass = new(prefix);
         rtbOutput.Text = GenerateClass.GenerateConfig();
     }
 
@@ -164,9 +158,8 @@ public partial class ciscoConfigGenerator : Form
 
     private void LoadSettings(int port)
     {
-        currentport = port;
         Variables.currentport = port;
-        isLoading = true;
+        Variables.isLoading = true;
 
         Settings settings = new();
         Port portData = settings.Load(port);
@@ -179,8 +172,8 @@ public partial class ciscoConfigGenerator : Form
             txtDesc.Text = portData.Description;
             txtDesc.ForeColor = Color.Black;
         }
-        switchPortEnabled.Checked = portData.IsEnabled == true;
+        switchPortEnabled.Checked = portData.IsEnabled.GetValueOrDefault();
 
-        isLoading = false;
+        Variables.isLoading = false;
     }
 }
