@@ -1,7 +1,8 @@
+using SwitchConfigGenerator.Core;
 using System.ComponentModel.Design.Serialization;
 using System.Diagnostics;
 using System.Drawing.Drawing2D;
-using SwitchConfigGenerator.Core;
+using System.Windows.Forms;
 
 namespace SwitchConfigGenerator;
 
@@ -90,7 +91,7 @@ public partial class ciscoConfigGenerator : Form
         txtDesc.Text = "Port Description";
     }
 
-    
+
 
 
 
@@ -177,5 +178,18 @@ public partial class ciscoConfigGenerator : Form
         switchPortEnabled.Checked = portData.IsEnabled.GetValueOrDefault();
 
         Variables.isLoading = false;
+    }
+
+    private void clbVlans_ItemCheck(object sender, ItemCheckEventArgs e)
+    {
+        if (rbtnAccess.Checked)
+        {
+            if (e.NewValue == CheckState.Checked && clbVlans.CheckedItems.Count > 0)
+            {
+                clbVlans.ItemCheck -= clbVlans_ItemCheck;
+                clbVlans.SetItemChecked(clbVlans.CheckedIndices[0], false);
+                clbVlans.ItemCheck += clbVlans_ItemCheck;
+            }
+        }
     }
 }

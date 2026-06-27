@@ -93,6 +93,9 @@ partial class ciscoConfigGenerator
         txtDesc = new TextBox();
         contextMenuStrip1 = new ContextMenuStrip(components);
         btnDebug = new Button();
+        clbVlans = new CheckedListBox();
+        rbtnAccess = new RadioButton();
+        rbtnTrunk = new RadioButton();
         fileMenu.SuspendLayout();
         SuspendLayout();
         // 
@@ -829,12 +832,52 @@ partial class ciscoConfigGenerator
         btnDebug.UseVisualStyleBackColor = true;
         btnDebug.Click += btnDebug_Click;
         // 
+        // clbVlans
+        // 
+        clbVlans.CheckOnClick = true;
+        clbVlans.FormattingEnabled = true;
+        clbVlans.Items.AddRange(new object[] { "10 - mgmt", "20 - sales", "30 - IT", "40 - servers" });
+        clbVlans.Location = new Point(498, 125);
+        clbVlans.Name = "clbVlans";
+        clbVlans.Size = new Size(195, 184);
+        clbVlans.TabIndex = 60;
+        clbVlans.ItemCheck += clbVlans_ItemCheck;
+        // 
+        // rbtnAccess
+        // 
+        rbtnAccess.AutoSize = true;
+        rbtnAccess.Checked = true;
+        rbtnAccess.Font = new Font("Comic Sans MS", 9F);
+        rbtnAccess.ForeColor = SystemColors.Control;
+        rbtnAccess.Location = new Point(346, 125);
+        rbtnAccess.Name = "rbtnAccess";
+        rbtnAccess.Size = new Size(64, 21);
+        rbtnAccess.TabIndex = 61;
+        rbtnAccess.TabStop = true;
+        rbtnAccess.Text = "Access";
+        rbtnAccess.UseVisualStyleBackColor = true;
+        // 
+        // rbtnTrunk
+        // 
+        rbtnTrunk.AutoSize = true;
+        rbtnTrunk.Font = new Font("Comic Sans MS", 9F);
+        rbtnTrunk.ForeColor = SystemColors.Control;
+        rbtnTrunk.Location = new Point(346, 154);
+        rbtnTrunk.Name = "rbtnTrunk";
+        rbtnTrunk.Size = new Size(58, 21);
+        rbtnTrunk.TabIndex = 62;
+        rbtnTrunk.Text = "Trunk";
+        rbtnTrunk.UseVisualStyleBackColor = true;
+        // 
         // ciscoConfigGenerator
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(46, 51, 73);
         ClientSize = new Size(1291, 623);
+        Controls.Add(rbtnTrunk);
+        Controls.Add(rbtnAccess);
+        Controls.Add(clbVlans);
         Controls.Add(btnDebug);
         Controls.Add(txtDesc);
         Controls.Add(btnQuit);
@@ -972,4 +1015,7 @@ partial class ciscoConfigGenerator
     private TextBox txtDesc;
     private ContextMenuStrip contextMenuStrip1;
     private Button btnDebug;
+    private CheckedListBox clbVlans;
+    private RadioButton rbtnAccess;
+    private RadioButton rbtnTrunk;
 }
