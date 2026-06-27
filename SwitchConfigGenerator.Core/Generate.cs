@@ -1,46 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Text;
 
 namespace SwitchConfigGenerator.Core
 {
     public class Generate
     {
-        private bool?[] portActive = Variables.portActive;
-        private string?[] portDesc = Variables.portDesc;
+        private readonly string _interfacePrefix;
+
+        public Generate(string interfacePrefix = "fa0/")
+        {
+            _interfacePrefix = interfacePrefix;
+        }
+
         public string GenerateConfig()
         {
-            var sb = new System.Text.StringBuilder();
-            //Add Enable and Configure Terminal to the top of output
+            var sb = new StringBuilder();
             sb.AppendLine("enable");
             sb.AppendLine("  configure terminal");
 
-            for (int i = 0; i < portActive.Length; i++)
+            foreach (var port in Variables.Ports)
             {
-                bool hasDesc = !string.IsNullOrWhiteSpace(portDesc[i]);
+                bool hasDesc = !string.IsNullOrWhiteSpace(port.Description);
 
-                if (portActive[i] == null && !hasDesc) { continue; }
+                if (port.IsEnabled == null && !hasDesc) continue;
 
-                sb.AppendLine($"  interface fa0/{i + 1}");
+                sb.AppendLine($"  interface {_interfacePrefix}{port.Number}");
 
-                if (hasDesc) { sb.AppendLine($"    description {portDesc[i]}"); }
+                if (hasDesc) sb.AppendLine($"    description {port.Description}");
 
-                if (portActive[i] != null)
+                if (port.IsEnabled != null)
                 {
-                    sb.AppendLine(portActive[i] == true ? "    no shutdown" : "    shutdown");
+                    sb.AppendLine(port.IsEnabled == true ? "    no shutdown" : "    shutdown");
                 }
             }
+
             return sb.ToString();
-
         }
-
-
-
-
-
-
     }
 }
