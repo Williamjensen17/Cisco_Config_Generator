@@ -14,6 +14,19 @@ namespace SwitchConfigGenerator.Core
                 string descText = port.Description ?? "null";
                 sb.AppendLine($"Port {port.Number}: Active = {activeText}, Desc = {descText}");
             }
+
+
+
+
+
+            foreach (var vlan in Vlan.Vlans) 
+            {
+                
+                sb.AppendLine(vlan.ToString());
+            
+            }
+
+
             return sb.ToString();
         }
     }

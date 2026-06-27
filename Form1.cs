@@ -154,6 +154,8 @@ public partial class ciscoConfigGenerator : Form
     {
         Debug debug = new();
         rtbOutput.Text = debug.GenerateDebug();
+
+
     }
 
     private void LoadSettings(int port)
