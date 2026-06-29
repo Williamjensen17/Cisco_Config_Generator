@@ -12,10 +12,50 @@ public partial class ciscoConfigGenerator : Form
     public ciscoConfigGenerator()
     {
         InitializeComponent();
+
+        //event stuff
+        Vlan.VlanAdded += Vlan_VlanAdded;
     }
+
+    //event stuff
+    private void Vlan_VlanAdded(Vlan vlan)
+    {
+        if (InvokeRequired)
+        {
+            Invoke(new Action(() => Vlan_VlanAdded(vlan)));
+            return;
+        }
+
+        clbVlans.Items.Add(vlan, true);
+    }
+
+    private void RefreshVlanList()
+    {
+        clbVlans.Items.Clear();
+
+        foreach (var vlan in Vlan.Vlans)
+        {
+            clbVlans.Items.Add(vlan, true);
+        }
+    }
+
+
+
+    //To avoid memory leaks:
+    protected override void OnFormClosed(FormClosedEventArgs e)
+    {
+        Vlan.VlanAdded -= Vlan_VlanAdded;
+        base.OnFormClosed(e);
+    }
+
+
+
+
 
     private void ciscoConfigGenerator_Load(object sender, EventArgs e)
     {
+        RefreshVlanList();
+
         int radius = 20;
         GraphicsPath path = new GraphicsPath();
         path.StartFigure();

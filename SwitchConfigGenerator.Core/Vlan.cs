@@ -11,13 +11,18 @@ namespace SwitchConfigGenerator.Core
         public int ID { get; set; }
         public string? Name { get; set; }
 
+        //event stuff
+
+        public static event Action<Vlan>? VlanAdded;
+
+
         public static List<Vlan> Vlans { get;} = new List<Vlan>();
         public static Vlan AddVlan(int id, string name)
         {
             var vlan = new Vlan { ID = id, Name = name };
             Vlans.Add(vlan);
 
-
+            VlanAdded?.Invoke(vlan);
 
             return (vlan);
         }
