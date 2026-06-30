@@ -846,16 +846,15 @@ partial class ciscoConfigGenerator
         // rbtnAccess
         // 
         rbtnAccess.AutoSize = true;
-        rbtnAccess.Checked = true;
         rbtnAccess.Font = new Font("Comic Sans MS", 9F);
         rbtnAccess.ForeColor = SystemColors.Control;
         rbtnAccess.Location = new Point(346, 125);
         rbtnAccess.Name = "rbtnAccess";
         rbtnAccess.Size = new Size(64, 21);
         rbtnAccess.TabIndex = 61;
-        rbtnAccess.TabStop = true;
         rbtnAccess.Text = "Access";
         rbtnAccess.UseVisualStyleBackColor = true;
+        rbtnAccess.CheckedChanged += rbtnAccess_CheckedChanged;
         // 
         // rbtnTrunk
         // 
@@ -868,6 +867,7 @@ partial class ciscoConfigGenerator
         rbtnTrunk.TabIndex = 62;
         rbtnTrunk.Text = "Trunk";
         rbtnTrunk.UseVisualStyleBackColor = true;
+        rbtnTrunk.CheckedChanged += rbtnTrunk_CheckedChanged;
         // 
         // ciscoConfigGenerator
         // 

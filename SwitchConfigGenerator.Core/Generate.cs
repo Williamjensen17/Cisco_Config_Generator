@@ -14,8 +14,24 @@ namespace SwitchConfigGenerator.Core
         public string GenerateConfig()
         {
             var sb = new StringBuilder();
+
+            //enable and enter configuration
             sb.AppendLine("enable");
             sb.AppendLine("  configure terminal");
+
+            //Here we make the vlans
+            sb.AppendLine();
+            sb.AppendLine("!Initialize Vlans");
+
+            foreach (var vlan in Vlan.Vlans)
+            {
+                sb.AppendLine("    vlan " + vlan.ID);
+                sb.AppendLine("    name " + vlan.Name);
+            }
+
+
+            sb.AppendLine();
+            sb.AppendLine("!Setup Ports");
 
             foreach (var port in Variables.Ports)
             {
