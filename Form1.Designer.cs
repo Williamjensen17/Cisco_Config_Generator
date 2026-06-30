@@ -835,6 +835,7 @@ partial class ciscoConfigGenerator
         // clbVlans
         // 
         clbVlans.CheckOnClick = true;
+        clbVlans.Enabled = false;
         clbVlans.FormattingEnabled = true;
         clbVlans.Location = new Point(498, 125);
         clbVlans.Name = "clbVlans";

@@ -247,6 +247,12 @@ public partial class ciscoConfigGenerator : Form
         }
         clbVlans.ItemCheck += clbVlans_ItemCheck;
 
+
+        if (rbtnAccess.Checked) {clbVlans.Enabled = true; }
+        else if (rbtnTrunk.Checked) { clbVlans.Enabled = true; }
+        else { clbVlans.Enabled = false; }
+
+
         Variables.isLoading = false;
     }
 
@@ -316,7 +322,10 @@ public partial class ciscoConfigGenerator : Form
             return;
 
         if (rbtnTrunk.Checked)
+        {
             Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Trunk;
+            clbVlans.Enabled = true;
+        }
     }
 
     private void rbtnAccess_CheckedChanged(object sender, EventArgs e)
@@ -325,6 +334,10 @@ public partial class ciscoConfigGenerator : Form
             return;
 
         if (rbtnAccess.Checked)
+        {
             Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Access;
-    }
+            clbVlans.Enabled = true;
+        }
+
+        }
 }
