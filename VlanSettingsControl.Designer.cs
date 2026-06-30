@@ -44,6 +44,7 @@
             dgvVlans.Name = "dgvVlans";
             dgvVlans.Size = new Size(244, 354);
             dgvVlans.TabIndex = 1;
+            dgvVlans.CellContentClick += dgvVlans_CellContentClick;
             dgvVlans.CellValidating += dgvVlans_CellValidating;
             dgvVlans.DataError += dgvVlans_DataError;
             // 

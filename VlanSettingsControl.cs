@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SwitchConfigGenerator.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,37 +20,51 @@ namespace SwitchConfigGenerator
 
         private void dgvVlans_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            string columnName = dgvVlans.Columns[e.ColumnIndex].Name;
+            string columnName = dgvVlans.Columns[e.ColumnIndex].HeaderText;
             string input = e.FormattedValue?.ToString() ?? "";
+
+            var row = dgvVlans.Rows[e.RowIndex];
 
             if (columnName == "VlanId")
             {
                 if (!int.TryParse(input, out int vlanId) || vlanId < 1 || vlanId > 4094)
                 {
-                    dgvVlans.Rows[e.RowIndex].ErrorText =
-                        "VLAN ID must be a number from 1 to 4094.";
+                    row.ErrorText = "VLAN ID must be a number from 1 to 4094.";
                     e.Cancel = true;
+                    return;
                 }
-                else
+
+                row.ErrorText = "";
+
+                string vlanName = row.Cells["VlanName"].Value?.ToString();
+
+                if (!string.IsNullOrWhiteSpace(vlanName))
                 {
-                    dgvVlans.Rows[e.RowIndex].ErrorText = "";
+                    Vlan.AddVlan(vlanId, vlanName);
                 }
             }
             else if (columnName == "VlanName")
             {
                 if (string.IsNullOrWhiteSpace(input))
                 {
-                    dgvVlans.Rows[e.RowIndex].ErrorText = "VLAN Name cannot be empty.";
+                    row.ErrorText = "VLAN Name cannot be empty.";
                     e.Cancel = true;
+                    return;
                 }
-                else if (input.Contains(" "))
+
+                if (input.Contains(" "))
                 {
-                    dgvVlans.Rows[e.RowIndex].ErrorText = "VLAN Name cannot contain spaces.";
+                    row.ErrorText = "VLAN Name cannot contain spaces.";
                     e.Cancel = true;
+                    return;
                 }
-                else
+
+                row.ErrorText = "";
+
+                string vlanIdText = row.Cells["VlanId"].Value?.ToString();
+                if (int.TryParse(vlanIdText, out int vlanId))
                 {
-                    dgvVlans.Rows[e.RowIndex].ErrorText = "";
+                    Vlan.AddVlan(vlanId, input);
                 }
             }
         }
@@ -58,6 +73,11 @@ namespace SwitchConfigGenerator
         {
             e.ThrowException = false;
             e.Cancel = true;
+        }
+
+        private void dgvVlans_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

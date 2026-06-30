@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Xml.Linq;
 namespace SwitchConfigGenerator.Core;
 
 public static class Variables

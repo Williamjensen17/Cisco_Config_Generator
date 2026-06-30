@@ -14,22 +14,58 @@ namespace SwitchConfigGenerator.Core
         public string GenerateConfig()
         {
             var sb = new StringBuilder();
+
+            //enable and enter configuration
             sb.AppendLine("enable");
             sb.AppendLine("  configure terminal");
+
+            //Here we make the vlans
+            sb.AppendLine();
+            sb.AppendLine("!Initialize Vlans");
+
+            foreach (var vlan in Vlan.Vlans)
+            {
+                sb.AppendLine("    vlan " + vlan.ID);
+                sb.AppendLine("    name " + vlan.Name);
+            }
+
+
+            sb.AppendLine();
+            sb.AppendLine("!Setup Ports");
 
             foreach (var port in Variables.Ports)
             {
                 bool hasDesc = !string.IsNullOrWhiteSpace(port.Description);
+                bool hasEnabled = port.IsEnabled.HasValue;
+                bool hasMode = port.Mode != PortMode.Mode.Null;
 
-                if (port.IsEnabled == null && !hasDesc) continue;
+
+                if (!hasDesc && !hasMode && !hasEnabled) continue;
 
                 sb.AppendLine($"  interface {_interfacePrefix}{port.Number}");
 
-                if (hasDesc) sb.AppendLine($"    description {port.Description}");
+                if (hasDesc)
+                    sb.AppendLine($"    description {port.Description}");
 
-                if (port.IsEnabled != null)
-                {
+                if (hasEnabled)
                     sb.AppendLine(port.IsEnabled == true ? "    no shutdown" : "    shutdown");
+
+                if (port.Mode == PortMode.Mode.Access)
+                {
+                    sb.AppendLine("    switchport mode access");
+
+                    if (port.Vlans.Count > 0)
+                        sb.AppendLine($"    switchport access vlan {port.Vlans[0].ID}");
+                }
+                else if (port.Mode == PortMode.Mode.Trunk)
+                {
+                    sb.AppendLine("    switchport mode trunk");
+
+                    if (port.Vlans.Count > 0)
+                    {
+                        var vlanIds = string.Join(",", port.Vlans.Select(v => v.ID));
+                        sb.AppendLine($"    switchport trunk allowed vlan {vlanIds}");
+                    }
                 }
             }
 

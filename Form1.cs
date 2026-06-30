@@ -1,7 +1,8 @@
+using SwitchConfigGenerator.Core;
 using System.ComponentModel.Design.Serialization;
 using System.Diagnostics;
 using System.Drawing.Drawing2D;
-using SwitchConfigGenerator.Core;
+using System.Windows.Forms;
 
 namespace SwitchConfigGenerator;
 
@@ -11,10 +12,50 @@ public partial class ciscoConfigGenerator : Form
     public ciscoConfigGenerator()
     {
         InitializeComponent();
+
+        //event stuff
+        Vlan.VlanAdded += Vlan_VlanAdded;
     }
+
+    //event stuff
+    private void Vlan_VlanAdded(Vlan vlan)
+    {
+        if (InvokeRequired)
+        {
+            Invoke(new Action(() => Vlan_VlanAdded(vlan)));
+            return;
+        }
+
+        clbVlans.Items.Add(vlan, true);
+    }
+
+    private void RefreshVlanList()
+    {
+        clbVlans.Items.Clear();
+
+        foreach (var vlan in Vlan.Vlans)
+        {
+            clbVlans.Items.Add(vlan, true);
+        }
+    }
+
+
+
+    //To avoid memory leaks:
+    protected override void OnFormClosed(FormClosedEventArgs e)
+    {
+        Vlan.VlanAdded -= Vlan_VlanAdded;
+        base.OnFormClosed(e);
+    }
+
+
+
+
 
     private void ciscoConfigGenerator_Load(object sender, EventArgs e)
     {
+        RefreshVlanList();
+
         int radius = 20;
         GraphicsPath path = new GraphicsPath();
         path.StartFigure();
@@ -90,7 +131,7 @@ public partial class ciscoConfigGenerator : Form
         txtDesc.Text = "Port Description";
     }
 
-    
+
 
 
 
@@ -154,6 +195,8 @@ public partial class ciscoConfigGenerator : Form
     {
         Debug debug = new();
         rtbOutput.Text = debug.GenerateDebug();
+
+
     }
 
     private void LoadSettings(int port)
@@ -166,14 +209,151 @@ public partial class ciscoConfigGenerator : Form
 
         lblPort.Text = "Port: " + portData.Number;
 
-        if (string.IsNullOrWhiteSpace(portData.Description)) { ShowDescriptionPlaceholder(); }
+        if (string.IsNullOrWhiteSpace(portData.Description))
+        {
+            ShowDescriptionPlaceholder();
+        }
         else
         {
             txtDesc.Text = portData.Description;
             txtDesc.ForeColor = Color.Black;
         }
+
         switchPortEnabled.Checked = portData.IsEnabled.GetValueOrDefault();
+
+        rbtnAccess.CheckedChanged -= rbtnAccess_CheckedChanged;
+        rbtnTrunk.CheckedChanged -= rbtnTrunk_CheckedChanged;
+
+        rbtnAccess.Checked = portData.Mode == PortMode.Mode.Access;
+        rbtnTrunk.Checked = portData.Mode == PortMode.Mode.Trunk;
+
+        rbtnAccess.CheckedChanged += rbtnAccess_CheckedChanged;
+        rbtnTrunk.CheckedChanged += rbtnTrunk_CheckedChanged;
+
+        clbVlans.ItemCheck -= clbVlans_ItemCheck;
+        for (int i = 0; i < clbVlans.Items.Count; i++)
+            clbVlans.SetItemChecked(i, false);
+
+        foreach (var vlan in portData.Vlans)
+        {
+            for (int i = 0; i < clbVlans.Items.Count; i++)
+            {
+                if (clbVlans.Items[i] is Vlan listVlan && listVlan.ID == vlan.ID)
+                {
+                    clbVlans.SetItemChecked(i, true);
+                    break;
+                }
+            }
+        }
+        clbVlans.ItemCheck += clbVlans_ItemCheck;
+
+
+        if (rbtnAccess.Checked) {clbVlans.Enabled = true; }
+        else if (rbtnTrunk.Checked) { clbVlans.Enabled = true; }
+        else { clbVlans.Enabled = false; }
+
 
         Variables.isLoading = false;
     }
+
+    private void clbVlans_ItemCheck(object sender, ItemCheckEventArgs e)
+    {
+        if (Variables.isLoading || Variables.currentport == null)
+            return;
+
+        var port = Variables.Ports[Variables.currentport.Value - 1];
+
+        if (rbtnAccess.Checked)
+        {
+            if (e.NewValue == CheckState.Checked)
+            {
+                BeginInvoke(new Action(() =>
+                {
+                    clbVlans.ItemCheck -= clbVlans_ItemCheck;
+
+                    for (int i = 0; i < clbVlans.Items.Count; i++)
+                    {
+                        if (i != e.Index)
+                            clbVlans.SetItemChecked(i, false);
+                    }
+
+                    clbVlans.ItemCheck += clbVlans_ItemCheck;
+
+                    port.Vlans.Clear();
+
+                    if (clbVlans.Items[e.Index] is Vlan vlan)
+                        port.Vlans.Add(vlan);
+                }));
+            }
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                BeginInvoke(new Action(() =>
+                {
+                    port.Vlans.RemoveAll(v => v.ID == ((Vlan)clbVlans.Items[e.Index]).ID);
+                }));
+            }
+
+            return;
+        }
+
+        if (rbtnTrunk.Checked)
+        {
+            if (e.NewValue == CheckState.Checked)
+            {
+                if (clbVlans.Items[e.Index] is Vlan vlan &&
+                    !port.Vlans.Any(v => v.ID == vlan.ID))
+                {
+                    port.Vlans.Add(vlan);
+                }
+            }
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                if (clbVlans.Items[e.Index] is Vlan vlan)
+                {
+                    port.Vlans.RemoveAll(v => v.ID == vlan.ID);
+                }
+            }
+        }
+    }
+
+    private void rbtnTrunk_CheckedChanged(object sender, EventArgs e)
+    {
+        if (Variables.isLoading || Variables.currentport == null)
+            return;
+
+        if (rbtnTrunk.Checked)
+        {
+            Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Trunk;
+
+            // Clear checked items by unchecking them individually
+            for (int i = 0; i < clbVlans.Items.Count; i++)
+            {
+                clbVlans.SetItemChecked(i, false);
+            }
+
+            clbVlans.Enabled = true;
+        }
+    }
+
+    private void rbtnAccess_CheckedChanged(object sender, EventArgs e)
+    {
+        if (Variables.isLoading || Variables.currentport == null)
+            return;
+
+        if (rbtnAccess.Checked)
+        {
+            Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Access;
+            
+            
+            // Clear checked items by unchecking them individually
+            for (int i = 0; i < clbVlans.Items.Count; i++)
+            {
+                clbVlans.SetItemChecked(i, false);
+            }
+            clbVlans.Enabled = true;
+
+
+        }
+
+        }
 }
