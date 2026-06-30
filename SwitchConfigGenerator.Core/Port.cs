@@ -6,20 +6,21 @@ public class Port
     public bool? IsEnabled { get; set; }
     public string? Description { get; set; }
 
-    public PortMode.Mode Mode { get; set; }
-    
+    public PortMode.Mode Mode { get; set; } = PortMode.Mode.Null;
 
-    public Vlan?[] Vlan { get; set; }
+
+    public List<Vlan> Vlans { get; set; } = new();
 
 
     public Port() { }
 
-    public Port(int number, bool? isEnabled = null, string? description = null, Vlan?[] vlan = null)
+    public Port(int number, bool? isEnabled = null, string? description = null, Vlan?[] vlan = null, IEnumerable<Vlan> ? vlans = null)
     {
         Number = number;
         IsEnabled = isEnabled;
         Description = description;
-        Vlan = vlan;
+        if (vlans != null)
+            Vlans = vlans.ToList();
 
     }
 }

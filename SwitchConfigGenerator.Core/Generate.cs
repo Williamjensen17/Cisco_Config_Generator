@@ -53,11 +53,19 @@ namespace SwitchConfigGenerator.Core
                 if (port.Mode == PortMode.Mode.Access)
                 {
                     sb.AppendLine("    switchport mode access");
-                    if (port.Vlan != null) sb.AppendLine("    switchport access vlan "+ port.Vlan);
+
+                    if (port.Vlans.Count > 0)
+                        sb.AppendLine($"    switchport access vlan {port.Vlans[0].ID}");
                 }
                 else if (port.Mode == PortMode.Mode.Trunk)
                 {
                     sb.AppendLine("    switchport mode trunk");
+
+                    if (port.Vlans.Count > 0)
+                    {
+                        var vlanIds = string.Join(",", port.Vlans.Select(v => v.ID));
+                        sb.AppendLine($"    switchport trunk allowed vlan {vlanIds}");
+                    }
                 }
             }
 

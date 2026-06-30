@@ -209,49 +209,122 @@ public partial class ciscoConfigGenerator : Form
 
         lblPort.Text = "Port: " + portData.Number;
 
-        if (string.IsNullOrWhiteSpace(portData.Description)) { ShowDescriptionPlaceholder(); }
+        if (string.IsNullOrWhiteSpace(portData.Description))
+        {
+            ShowDescriptionPlaceholder();
+        }
         else
         {
             txtDesc.Text = portData.Description;
             txtDesc.ForeColor = Color.Black;
         }
+
         switchPortEnabled.Checked = portData.IsEnabled.GetValueOrDefault();
+
+        rbtnAccess.CheckedChanged -= rbtnAccess_CheckedChanged;
+        rbtnTrunk.CheckedChanged -= rbtnTrunk_CheckedChanged;
+
+        rbtnAccess.Checked = portData.Mode == PortMode.Mode.Access;
+        rbtnTrunk.Checked = portData.Mode == PortMode.Mode.Trunk;
+
+        rbtnAccess.CheckedChanged += rbtnAccess_CheckedChanged;
+        rbtnTrunk.CheckedChanged += rbtnTrunk_CheckedChanged;
+
+        clbVlans.ItemCheck -= clbVlans_ItemCheck;
+        for (int i = 0; i < clbVlans.Items.Count; i++)
+            clbVlans.SetItemChecked(i, false);
+
+        foreach (var vlan in portData.Vlans)
+        {
+            for (int i = 0; i < clbVlans.Items.Count; i++)
+            {
+                if (clbVlans.Items[i] is Vlan listVlan && listVlan.ID == vlan.ID)
+                {
+                    clbVlans.SetItemChecked(i, true);
+                    break;
+                }
+            }
+        }
+        clbVlans.ItemCheck += clbVlans_ItemCheck;
 
         Variables.isLoading = false;
     }
 
     private void clbVlans_ItemCheck(object sender, ItemCheckEventArgs e)
     {
+        if (Variables.isLoading || Variables.currentport == null)
+            return;
+
+        var port = Variables.Ports[Variables.currentport.Value - 1];
+
         if (rbtnAccess.Checked)
         {
-            if (e.NewValue == CheckState.Checked && clbVlans.CheckedItems.Count > 0)
+            if (e.NewValue == CheckState.Checked)
             {
-                clbVlans.ItemCheck -= clbVlans_ItemCheck;
-                clbVlans.SetItemChecked(clbVlans.CheckedIndices[0], false);
-                clbVlans.ItemCheck += clbVlans_ItemCheck;
+                BeginInvoke(new Action(() =>
+                {
+                    clbVlans.ItemCheck -= clbVlans_ItemCheck;
+
+                    for (int i = 0; i < clbVlans.Items.Count; i++)
+                    {
+                        if (i != e.Index)
+                            clbVlans.SetItemChecked(i, false);
+                    }
+
+                    clbVlans.ItemCheck += clbVlans_ItemCheck;
+
+                    port.Vlans.Clear();
+
+                    if (clbVlans.Items[e.Index] is Vlan vlan)
+                        port.Vlans.Add(vlan);
+                }));
             }
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                BeginInvoke(new Action(() =>
+                {
+                    port.Vlans.RemoveAll(v => v.ID == ((Vlan)clbVlans.Items[e.Index]).ID);
+                }));
+            }
+
+            return;
         }
+
         if (rbtnTrunk.Checked)
         {
-
-        }
-        else
-        {
+            if (e.NewValue == CheckState.Checked)
+            {
+                if (clbVlans.Items[e.Index] is Vlan vlan &&
+                    !port.Vlans.Any(v => v.ID == vlan.ID))
+                {
+                    port.Vlans.Add(vlan);
+                }
+            }
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                if (clbVlans.Items[e.Index] is Vlan vlan)
+                {
+                    port.Vlans.RemoveAll(v => v.ID == vlan.ID);
+                }
+            }
         }
     }
 
     private void rbtnTrunk_CheckedChanged(object sender, EventArgs e)
     {
-        if (rbtnTrunk.Checked) Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Trunk;
+        if (Variables.isLoading || Variables.currentport == null)
+            return;
 
-        //Switch(config -if)#switchport mode trunk
-        //Switch(config -if)#switchport trunk allowed vlan 10,20,30}
+        if (rbtnTrunk.Checked)
+            Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Trunk;
     }
 
     private void rbtnAccess_CheckedChanged(object sender, EventArgs e)
     {
-        if (rbtnAccess.Checked) Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Access;
-        //Switch(config-if)#switchport mode access 
-        //Switch(config-if)#switchport access vlan (ID)
+        if (Variables.isLoading || Variables.currentport == null)
+            return;
+
+        if (rbtnAccess.Checked)
+            Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Access;
     }
 }

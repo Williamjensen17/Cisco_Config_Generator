@@ -836,7 +836,6 @@ partial class ciscoConfigGenerator
         // 
         clbVlans.CheckOnClick = true;
         clbVlans.FormattingEnabled = true;
-        clbVlans.Items.AddRange(new object[] { "10 - mgmt", "20 - sales", "30 - IT", "40 - servers" });
         clbVlans.Location = new Point(498, 125);
         clbVlans.Name = "clbVlans";
         clbVlans.Size = new Size(195, 184);
