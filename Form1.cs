@@ -324,6 +324,13 @@ public partial class ciscoConfigGenerator : Form
         if (rbtnTrunk.Checked)
         {
             Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Trunk;
+
+            // Clear checked items by unchecking them individually
+            for (int i = 0; i < clbVlans.Items.Count; i++)
+            {
+                clbVlans.SetItemChecked(i, false);
+            }
+
             clbVlans.Enabled = true;
         }
     }
@@ -336,7 +343,16 @@ public partial class ciscoConfigGenerator : Form
         if (rbtnAccess.Checked)
         {
             Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Access;
+            
+            
+            // Clear checked items by unchecking them individually
+            for (int i = 0; i < clbVlans.Items.Count; i++)
+            {
+                clbVlans.SetItemChecked(i, false);
+            }
             clbVlans.Enabled = true;
+
+
         }
 
         }
