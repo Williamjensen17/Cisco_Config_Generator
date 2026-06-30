@@ -36,16 +36,28 @@ namespace SwitchConfigGenerator.Core
             foreach (var port in Variables.Ports)
             {
                 bool hasDesc = !string.IsNullOrWhiteSpace(port.Description);
+                bool hasEnabled = port.IsEnabled.HasValue;
+                bool hasMode = port.Mode != PortMode.Mode.Null;
 
-                if (port.IsEnabled == null && !hasDesc) continue;
+
+                if (!hasDesc && !hasMode && !hasEnabled) continue;
 
                 sb.AppendLine($"  interface {_interfacePrefix}{port.Number}");
 
-                if (hasDesc) sb.AppendLine($"    description {port.Description}");
+                if (hasDesc)
+                    sb.AppendLine($"    description {port.Description}");
 
-                if (port.IsEnabled != null)
-                {
+                if (hasEnabled)
                     sb.AppendLine(port.IsEnabled == true ? "    no shutdown" : "    shutdown");
+
+                if (port.Mode == PortMode.Mode.Access)
+                {
+                    sb.AppendLine("    switchport mode access");
+                    if (port.Vlan != null) sb.AppendLine("    switchport access vlan "+ port.Vlan);
+                }
+                else if (port.Mode == PortMode.Mode.Trunk)
+                {
+                    sb.AppendLine("    switchport mode trunk");
                 }
             }
 

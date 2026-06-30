@@ -12,7 +12,8 @@ namespace SwitchConfigGenerator.Core
             {
                 string activeText = port.IsEnabled.HasValue ? port.IsEnabled.Value.ToString() : "null";
                 string descText = port.Description ?? "null";
-                sb.AppendLine($"Port {port.Number}: Active = {activeText}, Desc = {descText}");
+                string modeText = port.Mode.ToString();
+                sb.AppendLine($"Port {port.Number}: Active = {activeText}, Desc = {descText}, Mode = {modeText}");
             }
 
 
@@ -25,6 +26,10 @@ namespace SwitchConfigGenerator.Core
                 sb.AppendLine(vlan.ToString());
             
             }
+
+
+
+
 
 
             return sb.ToString();

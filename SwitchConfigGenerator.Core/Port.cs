@@ -6,6 +6,9 @@ public class Port
     public bool? IsEnabled { get; set; }
     public string? Description { get; set; }
 
+    public PortMode.Mode Mode { get; set; }
+    
+
     public Vlan?[] Vlan { get; set; }
 
 
@@ -17,5 +20,6 @@ public class Port
         IsEnabled = isEnabled;
         Description = description;
         Vlan = vlan;
+
     }
 }

@@ -242,12 +242,15 @@ public partial class ciscoConfigGenerator : Form
 
     private void rbtnTrunk_CheckedChanged(object sender, EventArgs e)
     {
+        if (rbtnTrunk.Checked) Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Trunk;
+
         //Switch(config -if)#switchport mode trunk
-        //Switch(config -if)#switchport trunk allowed vlan 10,20,30
+        //Switch(config -if)#switchport trunk allowed vlan 10,20,30}
     }
 
     private void rbtnAccess_CheckedChanged(object sender, EventArgs e)
     {
+        if (rbtnAccess.Checked) Variables.Ports[Variables.currentport.Value - 1].Mode = PortMode.Mode.Access;
         //Switch(config-if)#switchport mode access 
         //Switch(config-if)#switchport access vlan (ID)
     }
