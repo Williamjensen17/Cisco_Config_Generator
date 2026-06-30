@@ -19,12 +19,17 @@ namespace SwitchConfigGenerator.Core
         public static List<Vlan> Vlans { get;} = new List<Vlan>();
         public static Vlan AddVlan(int id, string name)
         {
+            if (Vlans.Any(v => string.Equals(v.Name, name, StringComparison.OrdinalIgnoreCase)))
+            {
+                return null;
+            }
+
             var vlan = new Vlan { ID = id, Name = name };
             Vlans.Add(vlan);
 
             VlanAdded?.Invoke(vlan);
 
-            return (vlan);
+            return vlan;
         }
 
         public Vlan() { }
