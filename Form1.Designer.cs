@@ -97,6 +97,9 @@ partial class ciscoConfigGenerator
         rbtnAccess = new RadioButton();
         rbtnTrunk = new RadioButton();
         chkNonegotiate = new CheckBox();
+        chkChannelGroup = new CheckBox();
+        cmbChannelGroup = new ComboBox();
+        comboBox2 = new ComboBox();
         fileMenu.SuspendLayout();
         SuspendLayout();
         // 
@@ -875,7 +878,7 @@ partial class ciscoConfigGenerator
         chkNonegotiate.AutoSize = true;
         chkNonegotiate.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
         chkNonegotiate.ForeColor = SystemColors.Control;
-        chkNonegotiate.Location = new Point(42, 179);
+        chkNonegotiate.Location = new Point(41, 288);
         chkNonegotiate.Name = "chkNonegotiate";
         chkNonegotiate.Size = new Size(95, 21);
         chkNonegotiate.TabIndex = 64;
@@ -883,12 +886,51 @@ partial class ciscoConfigGenerator
         chkNonegotiate.UseVisualStyleBackColor = true;
         chkNonegotiate.CheckedChanged += chkNonegotiate_CheckedChanged;
         // 
+        // chkChannelGroup
+        // 
+        chkChannelGroup.AutoSize = true;
+        chkChannelGroup.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        chkChannelGroup.ForeColor = SystemColors.Control;
+        chkChannelGroup.Location = new Point(41, 205);
+        chkChannelGroup.Name = "chkChannelGroup";
+        chkChannelGroup.Size = new Size(104, 21);
+        chkChannelGroup.TabIndex = 65;
+        chkChannelGroup.Text = "Channel Group";
+        chkChannelGroup.UseVisualStyleBackColor = true;
+        chkChannelGroup.CheckedChanged += chkChannelGroup_CheckedChanged;
+        // 
+        // cmbChannelGroup
+        // 
+        cmbChannelGroup.BackColor = SystemColors.WindowFrame;
+        cmbChannelGroup.DropDownStyle = ComboBoxStyle.DropDownList;
+        cmbChannelGroup.FormattingEnabled = true;
+        cmbChannelGroup.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6" });
+        cmbChannelGroup.Location = new Point(41, 232);
+        cmbChannelGroup.Name = "cmbChannelGroup";
+        cmbChannelGroup.Size = new Size(92, 23);
+        cmbChannelGroup.TabIndex = 66;
+        cmbChannelGroup.SelectedIndexChanged += cmbChannelGroup_SelectedIndexChanged;
+        // 
+        // comboBox2
+        // 
+        comboBox2.BackColor = SystemColors.WindowFrame;
+        comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+        comboBox2.FormattingEnabled = true;
+        comboBox2.Items.AddRange(new object[] { "desirable", "auto" });
+        comboBox2.Location = new Point(143, 232);
+        comboBox2.Name = "comboBox2";
+        comboBox2.Size = new Size(137, 23);
+        comboBox2.TabIndex = 67;
+        // 
         // ciscoConfigGenerator
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(46, 51, 73);
         ClientSize = new Size(1291, 623);
+        Controls.Add(comboBox2);
+        Controls.Add(cmbChannelGroup);
+        Controls.Add(chkChannelGroup);
         Controls.Add(chkNonegotiate);
         Controls.Add(rbtnTrunk);
         Controls.Add(rbtnAccess);
@@ -1034,4 +1076,7 @@ partial class ciscoConfigGenerator
     private RadioButton rbtnAccess;
     private RadioButton rbtnTrunk;
     private CheckBox chkNonegotiate;
+    private CheckBox chkChannelGroup;
+    private ComboBox cmbChannelGroup;
+    private ComboBox comboBox2;
 }

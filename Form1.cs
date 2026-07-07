@@ -646,4 +646,26 @@ public partial class ciscoConfigGenerator : Form
             port.NoNegotiate = chkNonegotiate.Checked;
         }
     }
+
+    private void chkChannelGroup_CheckedChanged(object sender, EventArgs e)
+    {
+        if (Variables.isLoading)
+            return;
+        foreach (var port in GetTargetPorts())
+        {
+            port.IsGrouped = chkChannelGroup.Checked;
+        }
+    }
+
+    private void cmbChannelGroup_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (Variables.isLoading)
+            return;
+        if (cmbChannelGroup.SelectedItem == null)
+            return;
+        foreach (var port in GetTargetPorts())
+        {
+            port.GroupID = Convert.ToInt32(cmbChannelGroup.SelectedItem);
+        }
+    }
 }

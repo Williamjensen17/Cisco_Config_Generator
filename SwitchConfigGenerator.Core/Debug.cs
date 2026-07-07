@@ -14,7 +14,9 @@ namespace SwitchConfigGenerator.Core
                 string descText = port.Description ?? "null";
                 string modeText = port.Mode.ToString();
                 string negotiateText = port.NoNegotiate.HasValue ? port.NoNegotiate.Value.ToString() : "null";
-                sb.AppendLine($"Port {port.Number}: Active = {activeText}, Desc = {descText}, Mode = {modeText}, Nonegotiate = {negotiateText}");
+                string channelGroupActive = port.IsGrouped.HasValue ? port.IsGrouped.Value.ToString() : "null";
+                string channelGroupId = port.GroupID.HasValue ? port.GroupID.Value.ToString() : "null";
+                sb.AppendLine($"Port {port.Number}: Active = {activeText}, Desc = {descText}, Mode = {modeText}, Nonegotiate = {negotiateText}, CG A = {channelGroupActive}, CG ID {channelGroupId}");
             }
 
 
