@@ -103,7 +103,7 @@ public partial class ciscoConfigGenerator : Form
 
     //When button X is clicked, set current port to X and load settings visually
 
-    private void switchPort_01_Click(object sender, EventArgs e) 
+    private void switchPort_01_Click(object sender, EventArgs e)
     {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
@@ -119,11 +119,11 @@ public partial class ciscoConfigGenerator : Form
     {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(2,true);
+            LoadSettings(2, true);
         }
         else
         {
-            LoadSettings(2,false);
+            LoadSettings(2, false);
 
         }
     }
@@ -139,206 +139,246 @@ public partial class ciscoConfigGenerator : Form
 
         }
     }
-    private void switchPort_04_Click(object sender, EventArgs e) {         
+    private void switchPort_04_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(4,true);
+            LoadSettings(4, true);
         }
         else
         {
-            LoadSettings(4,false);
+            LoadSettings(4, false);
 
-        }}
-    private void switchPort_05_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_05_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(5,true);
+            LoadSettings(5, true);
         }
         else
         {
-            LoadSettings(5,false);
+            LoadSettings(5, false);
 
-        }}
-    private void switchPort_06_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_06_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(6,true);
+            LoadSettings(6, true);
         }
         else
         {
-            LoadSettings(6,false);
+            LoadSettings(6, false);
 
-        }}
-    private void switchPort_07_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_07_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(7,true);
+            LoadSettings(7, true);
         }
         else
         {
-            LoadSettings(7,false);
+            LoadSettings(7, false);
 
-        }}
-    private void switchPort_08_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_08_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(8,true);
+            LoadSettings(8, true);
         }
         else
         {
-            LoadSettings(8,false);
+            LoadSettings(8, false);
 
-        }}
-    private void switchPort_09_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_09_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(9,true);
+            LoadSettings(9, true);
         }
         else
         {
-            LoadSettings(9,false);
+            LoadSettings(9, false);
 
-        }}
-    private void switchPort_10_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_10_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(10,true);
+            LoadSettings(10, true);
         }
         else
         {
-            LoadSettings(10,false);
+            LoadSettings(10, false);
 
-        }}
-    private void switchPort_11_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_11_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(11,true);
+            LoadSettings(11, true);
         }
         else
         {
-            LoadSettings(11,false);
+            LoadSettings(11, false);
 
-        }}
-    private void switchPort_12_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_12_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(12,true);
+            LoadSettings(12, true);
         }
         else
         {
-            LoadSettings(12,false);
+            LoadSettings(12, false);
 
-        }}
-    private void switchPort_13_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_13_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(13,true);
+            LoadSettings(13, true);
         }
         else
         {
-            LoadSettings(13,false);
+            LoadSettings(13, false);
 
-        }}
-    private void switchPort_14_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_14_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(14,true);
+            LoadSettings(14, true);
         }
         else
         {
-            LoadSettings(14,false);
+            LoadSettings(14, false);
 
-        }}
-    private void switchPort_15_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_15_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(15,true);
+            LoadSettings(15, true);
         }
         else
         {
-            LoadSettings(15,false);
+            LoadSettings(15, false);
 
-        }}
-    private void switchPort_16_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_16_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(16,true);
+            LoadSettings(16, true);
         }
         else
         {
-            LoadSettings(16,false);
+            LoadSettings(16, false);
 
-        }}
-    private void switchPort_17_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_17_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(17,true);
+            LoadSettings(17, true);
         }
         else
         {
-            LoadSettings(17,false);
+            LoadSettings(17, false);
 
-        }}
-    private void switchPort_18_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_18_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(18,true);
+            LoadSettings(18, true);
         }
         else
         {
-            LoadSettings(18,false);
+            LoadSettings(18, false);
 
-        }}
-    private void switchPort_19_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_19_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(19,true);
+            LoadSettings(19, true);
         }
         else
         {
-            LoadSettings(19,false);
+            LoadSettings(19, false);
 
-        }}
-    private void switchPort_20_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_20_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(20,true);
+            LoadSettings(20, true);
         }
         else
         {
-            LoadSettings(20,false);
+            LoadSettings(20, false);
 
-        }}
-    private void switchPort_21_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_21_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(21,true);
+            LoadSettings(21, true);
         }
         else
         {
-            LoadSettings(21,false);
+            LoadSettings(21, false);
 
-        }}
-    private void switchPort_22_Click(object sender, EventArgs e) {         
+        }
+    }
+    private void switchPort_22_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(22,true);
+            LoadSettings(22, true);
         }
         else
         {
-            LoadSettings(22,false);
+            LoadSettings(22, false);
 
-        }}
-    private void switchPort_23_Click(object sender, EventArgs e) {        
+        }
+    }
+    private void switchPort_23_Click(object sender, EventArgs e)
+    {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
         {
-            LoadSettings(23,true);
+            LoadSettings(23, true);
         }
         else
         {
-            LoadSettings(23,false);
+            LoadSettings(23, false);
 
-        }}
+        }
+    }
     private void switchPort_24_Click(object sender, EventArgs e)
     {
         if (Control.ModifierKeys.HasFlag(Keys.Shift))
@@ -401,7 +441,9 @@ public partial class ciscoConfigGenerator : Form
             Variables.startport = port;
             Variables.endport = null;
         }
-        else { Variables.endport = port; 
+        else
+        {
+            Variables.endport = port;
         }
 
 
@@ -456,7 +498,7 @@ public partial class ciscoConfigGenerator : Form
         clbVlans.ItemCheck += clbVlans_ItemCheck;
 
 
-        if (rbtnAccess.Checked) {clbVlans.Enabled = true; }
+        if (rbtnAccess.Checked) { clbVlans.Enabled = true; }
         else if (rbtnTrunk.Checked) { clbVlans.Enabled = true; }
         else { clbVlans.Enabled = false; }
 
@@ -592,6 +634,16 @@ public partial class ciscoConfigGenerator : Form
         foreach (var port in GetTargetPorts())
         {
             port.IsEnabled = switchPortEnabled.Checked;
+        }
+    }
+
+    private void chkNonegotiate_CheckedChanged(object sender, EventArgs e)
+    {
+        if (Variables.isLoading)
+            return;
+        foreach (var port in GetTargetPorts())
+        {
+            port.NoNegotiate = chkNonegotiate.Checked;
         }
     }
 }

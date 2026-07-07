@@ -13,7 +13,8 @@ namespace SwitchConfigGenerator.Core
                 string activeText = port.IsEnabled.HasValue ? port.IsEnabled.Value.ToString() : "null";
                 string descText = port.Description ?? "null";
                 string modeText = port.Mode.ToString();
-                sb.AppendLine($"Port {port.Number}: Active = {activeText}, Desc = {descText}, Mode = {modeText}");
+                string negotiateText = port.NoNegotiate.HasValue ? port.NoNegotiate.Value.ToString() : "null";
+                sb.AppendLine($"Port {port.Number}: Active = {activeText}, Desc = {descText}, Mode = {modeText}, Nonegotiate = {negotiateText}");
             }
 
 

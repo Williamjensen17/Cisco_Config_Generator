@@ -96,6 +96,7 @@ partial class ciscoConfigGenerator
         clbVlans = new CheckedListBox();
         rbtnAccess = new RadioButton();
         rbtnTrunk = new RadioButton();
+        chkNonegotiate = new CheckBox();
         fileMenu.SuspendLayout();
         SuspendLayout();
         // 
@@ -869,12 +870,26 @@ partial class ciscoConfigGenerator
         rbtnTrunk.UseVisualStyleBackColor = true;
         rbtnTrunk.CheckedChanged += rbtnTrunk_CheckedChanged;
         // 
+        // chkNonegotiate
+        // 
+        chkNonegotiate.AutoSize = true;
+        chkNonegotiate.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        chkNonegotiate.ForeColor = SystemColors.Control;
+        chkNonegotiate.Location = new Point(42, 179);
+        chkNonegotiate.Name = "chkNonegotiate";
+        chkNonegotiate.Size = new Size(95, 21);
+        chkNonegotiate.TabIndex = 64;
+        chkNonegotiate.Text = "Nonegotiate";
+        chkNonegotiate.UseVisualStyleBackColor = true;
+        chkNonegotiate.CheckedChanged += chkNonegotiate_CheckedChanged;
+        // 
         // ciscoConfigGenerator
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(46, 51, 73);
         ClientSize = new Size(1291, 623);
+        Controls.Add(chkNonegotiate);
         Controls.Add(rbtnTrunk);
         Controls.Add(rbtnAccess);
         Controls.Add(clbVlans);
@@ -1018,4 +1033,5 @@ partial class ciscoConfigGenerator
     private CheckedListBox clbVlans;
     private RadioButton rbtnAccess;
     private RadioButton rbtnTrunk;
+    private CheckBox chkNonegotiate;
 }
