@@ -4,6 +4,9 @@ namespace SwitchConfigGenerator.Core;
 
 public static class Variables
 {
+    public static int? startport = null;
+    public static int? endport = null;
+
     public static int? currentport = null;
 
     public static bool isLoading = false;
