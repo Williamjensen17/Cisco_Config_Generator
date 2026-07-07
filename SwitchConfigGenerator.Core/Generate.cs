@@ -39,9 +39,12 @@ namespace SwitchConfigGenerator.Core
                 bool hasEnabled = port.IsEnabled.HasValue;
                 bool hasNegotiate = port.NoNegotiate.HasValue;
                 bool hasMode = port.Mode != PortMode.Mode.Null;
+                bool hasGroup = port.IsGrouped.HasValue;
+                bool hasGroupID = port.GroupID.HasValue;
 
-
-                if (!hasDesc && !hasNegotiate && !hasMode && !hasEnabled) continue;
+                //when ready, add this back to the if statement
+                //&& !hasGroup && !hasGroupID
+                if (!hasDesc && !hasNegotiate && !hasMode && !hasEnabled ) continue;
 
                 sb.AppendLine($"  interface {_interfacePrefix}{port.Number}");
 
@@ -68,6 +71,18 @@ namespace SwitchConfigGenerator.Core
                         sb.AppendLine($"    switchport trunk allowed vlan {vlanIds}");
                     }
                 }
+
+                //if (port.IsGrouped == true && port.GroupID.HasValue)
+                //{
+                //    sb.AppendLine($"    channel-group {port.GroupID.Value} mode active");
+                //}
+                //else if (port.IsGrouped == false && port.GroupID.HasValue)
+                //{
+                //    sb.AppendLine($"    no channel-group {port.GroupID.Value} mode active");
+                //}
+
+
+
                 if (hasNegotiate)
                 {
                     sb.AppendLine(port.NoNegotiate == true ? "    switchport nonegotiate" : "    no switchport nonegotiate");

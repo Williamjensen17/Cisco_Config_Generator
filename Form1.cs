@@ -502,6 +502,13 @@ public partial class ciscoConfigGenerator : Form
         else if (rbtnTrunk.Checked) { clbVlans.Enabled = true; }
         else { clbVlans.Enabled = false; }
 
+        // Load new checkbox and combobox values
+        chkNonegotiate.Checked = portData.NoNegotiate.GetValueOrDefault();
+        chkChannelGroup.Checked = portData.IsGrouped.GetValueOrDefault();
+
+        cmbChannelGroup.SelectedIndexChanged -= cmbChannelGroup_SelectedIndexChanged;
+        cmbChannelGroup.SelectedItem = portData.GroupID.HasValue ? portData.GroupID.ToString() : null;
+        cmbChannelGroup.SelectedIndexChanged += cmbChannelGroup_SelectedIndexChanged;
 
         Variables.isLoading = false;
     }
