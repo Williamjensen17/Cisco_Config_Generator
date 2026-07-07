@@ -6,6 +6,8 @@ public class Port
     public bool? IsEnabled { get; set; }
     public string? Description { get; set; }
 
+    public bool? NoNegotiate { get; set; }
+
     public PortMode.Mode Mode { get; set; } = PortMode.Mode.Null;
 
 
@@ -14,13 +16,14 @@ public class Port
 
     public Port() { }
 
-    public Port(int number, bool? isEnabled = null, string? description = null, Vlan?[] vlan = null, IEnumerable<Vlan> ? vlans = null)
+    public Port(int number, bool? isEnabled = null, string? description = null, Vlan?[] vlan = null, IEnumerable<Vlan> ? vlans = null, bool? nonegotiate = null)
     {
         Number = number;
         IsEnabled = isEnabled;
         Description = description;
         if (vlans != null)
             Vlans = vlans.ToList();
+        NoNegotiate = nonegotiate;
 
     }
 }

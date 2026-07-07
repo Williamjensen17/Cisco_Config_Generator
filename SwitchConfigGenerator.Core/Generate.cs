@@ -37,10 +37,11 @@ namespace SwitchConfigGenerator.Core
             {
                 bool hasDesc = !string.IsNullOrWhiteSpace(port.Description);
                 bool hasEnabled = port.IsEnabled.HasValue;
+                bool hasNegotiate = port.NoNegotiate.HasValue;
                 bool hasMode = port.Mode != PortMode.Mode.Null;
 
 
-                if (!hasDesc && !hasMode && !hasEnabled) continue;
+                if (!hasDesc && !hasNegotiate && !hasMode && !hasEnabled) continue;
 
                 sb.AppendLine($"  interface {_interfacePrefix}{port.Number}");
 
@@ -66,6 +67,10 @@ namespace SwitchConfigGenerator.Core
                         var vlanIds = string.Join(",", port.Vlans.Select(v => v.ID));
                         sb.AppendLine($"    switchport trunk allowed vlan {vlanIds}");
                     }
+                }
+                if (hasNegotiate)
+                {
+                    sb.AppendLine(port.NoNegotiate == true ? "    switchport nonegotiate" : "    no switchport nonegotiate");
                 }
             }
 
