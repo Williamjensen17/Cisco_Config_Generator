@@ -26,7 +26,7 @@ _Settings_
 | VLAN naming               | ✅                            |
 | Access port configuration | ✅                            |
 | Trunk port configuration  | ✅                            |
-| EtherChannel              | :x:                           |
+| EtherChannel              | ✅                            |
 | ACL support               | :x:                           |
 | Port security             | :x:                           |
 | STP features              | :x:                           |
