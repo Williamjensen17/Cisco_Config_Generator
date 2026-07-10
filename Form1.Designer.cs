@@ -58,7 +58,7 @@ partial class ciscoConfigGenerator
         rtbOutput = new RichTextBox();
         switchPortEnabled = new CheckBox();
         btnGenConfig = new Button();
-        btnSubmit = new Button();
+        btnClear = new Button();
         lblPort = new Label();
         label1 = new Label();
         label2 = new Label();
@@ -100,6 +100,19 @@ partial class ciscoConfigGenerator
         chkChannelGroup = new CheckBox();
         cmbChannelGroup = new ComboBox();
         comboBox2 = new ComboBox();
+        ChannelPort_6 = new Button();
+        ChannelPort_5 = new Button();
+        ChannelPort_4 = new Button();
+        ChannelPort_3 = new Button();
+        ChannelPort_2 = new Button();
+        ChannelPort_1 = new Button();
+        label25 = new Label();
+        label26 = new Label();
+        label27 = new Label();
+        label28 = new Label();
+        label29 = new Label();
+        label30 = new Label();
+        contextMenuStrip2 = new ContextMenuStrip(components);
         fileMenu.SuspendLayout();
         SuspendLayout();
         // 
@@ -447,7 +460,7 @@ partial class ciscoConfigGenerator
         switchPortEnabled.AutoSize = true;
         switchPortEnabled.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
         switchPortEnabled.ForeColor = SystemColors.Control;
-        switchPortEnabled.Location = new Point(42, 123);
+        switchPortEnabled.Location = new Point(43, 99);
         switchPortEnabled.Name = "switchPortEnabled";
         switchPortEnabled.Size = new Size(91, 21);
         switchPortEnabled.TabIndex = 27;
@@ -458,7 +471,7 @@ partial class ciscoConfigGenerator
         // btnGenConfig
         // 
         btnGenConfig.Font = new Font("Comic Sans MS", 11.25F);
-        btnGenConfig.Location = new Point(1072, 78);
+        btnGenConfig.Location = new Point(1074, 72);
         btnGenConfig.Name = "btnGenConfig";
         btnGenConfig.Size = new Size(123, 30);
         btnGenConfig.TabIndex = 28;
@@ -466,24 +479,24 @@ partial class ciscoConfigGenerator
         btnGenConfig.UseVisualStyleBackColor = true;
         btnGenConfig.Click += btnGenConfig_Click;
         // 
-        // btnSubmit
+        // btnClear
         // 
-        btnSubmit.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        btnSubmit.ForeColor = SystemColors.ActiveCaptionText;
-        btnSubmit.Location = new Point(873, 315);
-        btnSubmit.Name = "btnSubmit";
-        btnSubmit.Size = new Size(75, 30);
-        btnSubmit.TabIndex = 29;
-        btnSubmit.Text = "Submit";
-        btnSubmit.UseVisualStyleBackColor = true;
-        btnSubmit.Click += btnSubmit_Click;
+        btnClear.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnClear.ForeColor = SystemColors.ActiveCaptionText;
+        btnClear.Location = new Point(802, 122);
+        btnClear.Name = "btnClear";
+        btnClear.Size = new Size(92, 30);
+        btnClear.TabIndex = 29;
+        btnClear.Text = "Clear Port";
+        btnClear.UseVisualStyleBackColor = true;
+        btnClear.Click += btnSubmit_Click;
         // 
         // lblPort
         // 
         lblPort.AutoSize = true;
         lblPort.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
         lblPort.ForeColor = SystemColors.Control;
-        lblPort.Location = new Point(219, 70);
+        lblPort.Location = new Point(220, 70);
         lblPort.Name = "lblPort";
         lblPort.Size = new Size(61, 29);
         lblPort.TabIndex = 30;
@@ -810,7 +823,7 @@ partial class ciscoConfigGenerator
         // txtDesc
         // 
         txtDesc.ForeColor = Color.Gray;
-        txtDesc.Location = new Point(42, 150);
+        txtDesc.Location = new Point(42, 126);
         txtDesc.Name = "txtDesc";
         txtDesc.Size = new Size(238, 23);
         txtDesc.TabIndex = 58;
@@ -828,7 +841,7 @@ partial class ciscoConfigGenerator
         // 
         btnDebug.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         btnDebug.ForeColor = SystemColors.ActiveCaptionText;
-        btnDebug.Location = new Point(873, 351);
+        btnDebug.Location = new Point(900, 122);
         btnDebug.Name = "btnDebug";
         btnDebug.Size = new Size(75, 30);
         btnDebug.TabIndex = 59;
@@ -841,9 +854,9 @@ partial class ciscoConfigGenerator
         clbVlans.CheckOnClick = true;
         clbVlans.Enabled = false;
         clbVlans.FormattingEnabled = true;
-        clbVlans.Location = new Point(498, 125);
+        clbVlans.Location = new Point(42, 276);
         clbVlans.Name = "clbVlans";
-        clbVlans.Size = new Size(195, 184);
+        clbVlans.Size = new Size(195, 112);
         clbVlans.TabIndex = 60;
         clbVlans.ItemCheck += clbVlans_ItemCheck;
         // 
@@ -852,7 +865,7 @@ partial class ciscoConfigGenerator
         rbtnAccess.AutoSize = true;
         rbtnAccess.Font = new Font("Comic Sans MS", 9F);
         rbtnAccess.ForeColor = SystemColors.Control;
-        rbtnAccess.Location = new Point(346, 125);
+        rbtnAccess.Location = new Point(42, 249);
         rbtnAccess.Name = "rbtnAccess";
         rbtnAccess.Size = new Size(64, 21);
         rbtnAccess.TabIndex = 61;
@@ -865,7 +878,7 @@ partial class ciscoConfigGenerator
         rbtnTrunk.AutoSize = true;
         rbtnTrunk.Font = new Font("Comic Sans MS", 9F);
         rbtnTrunk.ForeColor = SystemColors.Control;
-        rbtnTrunk.Location = new Point(346, 154);
+        rbtnTrunk.Location = new Point(144, 249);
         rbtnTrunk.Name = "rbtnTrunk";
         rbtnTrunk.Size = new Size(58, 21);
         rbtnTrunk.TabIndex = 62;
@@ -878,7 +891,7 @@ partial class ciscoConfigGenerator
         chkNonegotiate.AutoSize = true;
         chkNonegotiate.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
         chkNonegotiate.ForeColor = SystemColors.Control;
-        chkNonegotiate.Location = new Point(41, 288);
+        chkNonegotiate.Location = new Point(42, 222);
         chkNonegotiate.Name = "chkNonegotiate";
         chkNonegotiate.Size = new Size(95, 21);
         chkNonegotiate.TabIndex = 64;
@@ -891,7 +904,7 @@ partial class ciscoConfigGenerator
         chkChannelGroup.AutoSize = true;
         chkChannelGroup.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
         chkChannelGroup.ForeColor = SystemColors.Control;
-        chkChannelGroup.Location = new Point(41, 205);
+        chkChannelGroup.Location = new Point(42, 155);
         chkChannelGroup.Name = "chkChannelGroup";
         chkChannelGroup.Size = new Size(104, 21);
         chkChannelGroup.TabIndex = 65;
@@ -905,7 +918,7 @@ partial class ciscoConfigGenerator
         cmbChannelGroup.DropDownStyle = ComboBoxStyle.DropDownList;
         cmbChannelGroup.FormattingEnabled = true;
         cmbChannelGroup.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6" });
-        cmbChannelGroup.Location = new Point(41, 232);
+        cmbChannelGroup.Location = new Point(42, 182);
         cmbChannelGroup.Name = "cmbChannelGroup";
         cmbChannelGroup.Size = new Size(92, 23);
         cmbChannelGroup.TabIndex = 66;
@@ -917,10 +930,159 @@ partial class ciscoConfigGenerator
         comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBox2.FormattingEnabled = true;
         comboBox2.Items.AddRange(new object[] { "desirable", "auto" });
-        comboBox2.Location = new Point(143, 232);
+        comboBox2.Location = new Point(144, 182);
         comboBox2.Name = "comboBox2";
         comboBox2.Size = new Size(137, 23);
         comboBox2.TabIndex = 67;
+        // 
+        // ChannelPort_6
+        // 
+        ChannelPort_6.AutoSize = true;
+        ChannelPort_6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        ChannelPort_6.Image = Properties.Resources.RJ45_f;
+        ChannelPort_6.Location = new Point(878, 276);
+        ChannelPort_6.Name = "ChannelPort_6";
+        ChannelPort_6.Size = new Size(70, 70);
+        ChannelPort_6.TabIndex = 73;
+        ChannelPort_6.TextAlign = ContentAlignment.MiddleLeft;
+        ChannelPort_6.UseVisualStyleBackColor = true;
+        ChannelPort_6.Click += ChannelPort_6_Click;
+        // 
+        // ChannelPort_5
+        // 
+        ChannelPort_5.AutoSize = true;
+        ChannelPort_5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        ChannelPort_5.Image = Properties.Resources.RJ45;
+        ChannelPort_5.Location = new Point(878, 200);
+        ChannelPort_5.Name = "ChannelPort_5";
+        ChannelPort_5.Size = new Size(70, 70);
+        ChannelPort_5.TabIndex = 72;
+        ChannelPort_5.TextAlign = ContentAlignment.MiddleLeft;
+        ChannelPort_5.UseVisualStyleBackColor = true;
+        ChannelPort_5.Click += ChannelPort_5_Click;
+        // 
+        // ChannelPort_4
+        // 
+        ChannelPort_4.AutoSize = true;
+        ChannelPort_4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        ChannelPort_4.Image = Properties.Resources.RJ45_f;
+        ChannelPort_4.Location = new Point(802, 276);
+        ChannelPort_4.Name = "ChannelPort_4";
+        ChannelPort_4.Size = new Size(70, 70);
+        ChannelPort_4.TabIndex = 71;
+        ChannelPort_4.TextAlign = ContentAlignment.MiddleLeft;
+        ChannelPort_4.UseVisualStyleBackColor = true;
+        ChannelPort_4.Click += ChannelPort_4_Click;
+        // 
+        // ChannelPort_3
+        // 
+        ChannelPort_3.AutoSize = true;
+        ChannelPort_3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        ChannelPort_3.Image = Properties.Resources.RJ45;
+        ChannelPort_3.Location = new Point(802, 200);
+        ChannelPort_3.Name = "ChannelPort_3";
+        ChannelPort_3.Size = new Size(70, 70);
+        ChannelPort_3.TabIndex = 70;
+        ChannelPort_3.TextAlign = ContentAlignment.MiddleLeft;
+        ChannelPort_3.UseVisualStyleBackColor = true;
+        ChannelPort_3.Click += ChannelPort_3_Click;
+        // 
+        // ChannelPort_2
+        // 
+        ChannelPort_2.AutoSize = true;
+        ChannelPort_2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        ChannelPort_2.Image = Properties.Resources.RJ45_f;
+        ChannelPort_2.Location = new Point(726, 276);
+        ChannelPort_2.Name = "ChannelPort_2";
+        ChannelPort_2.Size = new Size(70, 70);
+        ChannelPort_2.TabIndex = 69;
+        ChannelPort_2.TextAlign = ContentAlignment.MiddleLeft;
+        ChannelPort_2.UseVisualStyleBackColor = true;
+        ChannelPort_2.Click += ChannelPort_2_Click;
+        // 
+        // ChannelPort_1
+        // 
+        ChannelPort_1.AutoSize = true;
+        ChannelPort_1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        ChannelPort_1.Image = Properties.Resources.RJ45;
+        ChannelPort_1.Location = new Point(726, 200);
+        ChannelPort_1.Name = "ChannelPort_1";
+        ChannelPort_1.Size = new Size(70, 70);
+        ChannelPort_1.TabIndex = 68;
+        ChannelPort_1.TextAlign = ContentAlignment.MiddleLeft;
+        ChannelPort_1.UseVisualStyleBackColor = true;
+        ChannelPort_1.Click += ChannelPort_1_Click;
+        // 
+        // label25
+        // 
+        label25.AutoSize = true;
+        label25.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        label25.ForeColor = SystemColors.Control;
+        label25.Location = new Point(900, 349);
+        label25.Name = "label25";
+        label25.Size = new Size(48, 29);
+        label25.TabIndex = 79;
+        label25.Text = "po6";
+        // 
+        // label26
+        // 
+        label26.AutoSize = true;
+        label26.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        label26.ForeColor = SystemColors.Control;
+        label26.Location = new Point(900, 168);
+        label26.Name = "label26";
+        label26.Size = new Size(48, 29);
+        label26.TabIndex = 78;
+        label26.Text = "po5";
+        // 
+        // label27
+        // 
+        label27.AutoSize = true;
+        label27.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        label27.ForeColor = SystemColors.Control;
+        label27.Location = new Point(824, 349);
+        label27.Name = "label27";
+        label27.Size = new Size(48, 29);
+        label27.TabIndex = 77;
+        label27.Text = "po4";
+        // 
+        // label28
+        // 
+        label28.AutoSize = true;
+        label28.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        label28.ForeColor = SystemColors.Control;
+        label28.Location = new Point(824, 168);
+        label28.Name = "label28";
+        label28.Size = new Size(48, 29);
+        label28.TabIndex = 76;
+        label28.Text = "po3";
+        // 
+        // label29
+        // 
+        label29.AutoSize = true;
+        label29.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        label29.ForeColor = SystemColors.Control;
+        label29.Location = new Point(748, 349);
+        label29.Name = "label29";
+        label29.Size = new Size(48, 29);
+        label29.TabIndex = 75;
+        label29.Text = "po2";
+        // 
+        // label30
+        // 
+        label30.AutoSize = true;
+        label30.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        label30.ForeColor = SystemColors.Control;
+        label30.Location = new Point(748, 168);
+        label30.Name = "label30";
+        label30.Size = new Size(44, 29);
+        label30.TabIndex = 74;
+        label30.Text = "po1";
+        // 
+        // contextMenuStrip2
+        // 
+        contextMenuStrip2.Name = "contextMenuStrip2";
+        contextMenuStrip2.Size = new Size(61, 4);
         // 
         // ciscoConfigGenerator
         // 
@@ -928,6 +1090,18 @@ partial class ciscoConfigGenerator
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(46, 51, 73);
         ClientSize = new Size(1291, 623);
+        Controls.Add(label25);
+        Controls.Add(label26);
+        Controls.Add(label27);
+        Controls.Add(label28);
+        Controls.Add(label29);
+        Controls.Add(label30);
+        Controls.Add(ChannelPort_6);
+        Controls.Add(ChannelPort_5);
+        Controls.Add(ChannelPort_4);
+        Controls.Add(ChannelPort_3);
+        Controls.Add(ChannelPort_2);
+        Controls.Add(ChannelPort_1);
         Controls.Add(comboBox2);
         Controls.Add(cmbChannelGroup);
         Controls.Add(chkChannelGroup);
@@ -965,7 +1139,7 @@ partial class ciscoConfigGenerator
         Controls.Add(label2);
         Controls.Add(label1);
         Controls.Add(lblPort);
-        Controls.Add(btnSubmit);
+        Controls.Add(btnClear);
         Controls.Add(btnGenConfig);
         Controls.Add(switchPortEnabled);
         Controls.Add(rtbOutput);
@@ -1037,7 +1211,7 @@ partial class ciscoConfigGenerator
     private RichTextBox rtbOutput;
     private CheckBox switchPortEnabled;
     private Button btnGenConfig;
-    private Button btnSubmit;
+    private Button btnClear;
     private Label lblPort;
     private Label label1;
     private Label label2;
@@ -1079,4 +1253,17 @@ partial class ciscoConfigGenerator
     private CheckBox chkChannelGroup;
     private ComboBox cmbChannelGroup;
     private ComboBox comboBox2;
+    private Button ChannelPort_6;
+    private Button ChannelPort_5;
+    private Button ChannelPort_4;
+    private Button ChannelPort_3;
+    private Button ChannelPort_2;
+    private Button ChannelPort_1;
+    private Label label25;
+    private Label label26;
+    private Label label27;
+    private Label label28;
+    private Label label29;
+    private Label label30;
+    private ContextMenuStrip contextMenuStrip2;
 }

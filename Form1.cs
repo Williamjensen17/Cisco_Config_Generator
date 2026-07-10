@@ -1,4 +1,4 @@
-using SwitchConfigGenerator.Core;
+﻿using SwitchConfigGenerator.Core;
 using System.ComponentModel.Design.Serialization;
 using System.Diagnostics;
 using System.Drawing.Drawing2D;
@@ -391,6 +391,47 @@ public partial class ciscoConfigGenerator : Form
 
         }
     }
+
+
+    //Channel ports
+
+    private void ChannelPort_1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ChannelPort_2_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ChannelPort_3_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ChannelPort_4_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ChannelPort_5_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ChannelPort_6_Click(object sender, EventArgs e)
+    {
+
+    }
+
+
+
+
+
+
+
+
 
     //dosent do anything yet, but will be used to submit the config to the switch in the future?
     //autocomplete above, but seems interesting
