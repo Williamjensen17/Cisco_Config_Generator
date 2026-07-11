@@ -177,18 +177,21 @@ public partial class ciscoConfigGenerator : Form
         string startPortVal = Variables.startport.ToString();
         string endPortVal = Variables.endport.ToString();
 
-        //lblPort.Text = "Port: " + portData.Number;
-        lblPort.Text = startPortVal + " - " + endPortVal;
 
-        if (string.IsNullOrWhiteSpace(portData.Description))
-        {
-            ShowDescriptionPlaceholder();
-        }
+        //Set the port label to show the start and end port, or just the start port if the end port is null or empty
+        if (string.IsNullOrWhiteSpace(endPortVal)) lblPort.Text = "Port: " + startPortVal;
+        else lblPort.Text = "Ports: " + startPortVal + " - " + endPortVal;
+
+
+
+        if (string.IsNullOrWhiteSpace(portData.Description)) ShowDescriptionPlaceholder();
         else
         {
             txtDesc.Text = portData.Description;
             txtDesc.ForeColor = Color.Black;
         }
+
+
 
         switchPortEnabled.Checked = portData.IsEnabled.GetValueOrDefault();
 
