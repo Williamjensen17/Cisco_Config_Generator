@@ -137,7 +137,7 @@ public partial class ciscoConfigGenerator : Form
 
     private void btnGenConfig_Click(object sender, EventArgs e)
     {
-        string prefix = switchPortType.SelectedItem?.ToString()?.Replace("X", "") ?? "fa0/";
+        string prefix = switchPortType.SelectedItem?.ToString()?.Replace("X", "") ?? "Fa0/";
         Generate GenerateClass = new(prefix);
         rtbOutput.Text = GenerateClass.GenerateConfig();
     }
@@ -166,12 +166,13 @@ public partial class ciscoConfigGenerator : Form
             Variables.endport = port;
         }
 
-
         Variables.currentport = port;
         Variables.isLoading = true;
 
-        Settings settings = new();
-        Port portData = settings.Load(port);
+
+        if (port < 1 || port > Variables.Ports.Length)
+            return;
+        var portData = Variables.Ports[port - 1];
 
         string startPortVal = Variables.startport.ToString();
         string endPortVal = Variables.endport.ToString();
@@ -318,8 +319,8 @@ public partial class ciscoConfigGenerator : Form
     {
         if (string.IsNullOrWhiteSpace(txtDesc.Text))
         {
-            if (Variables.currentport != null) { Variables.Ports[Variables.currentport.Value - 1].Description = null; }
-
+            foreach (var port in GetTargetPorts())
+                port.Description = null;
             ShowDescriptionPlaceholder();
         }
     }
