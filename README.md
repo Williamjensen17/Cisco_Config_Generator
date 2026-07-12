@@ -4,7 +4,8 @@ A program to semi automatically generate code for cisco devices, mainly focusing
 
 _Main page_
 
-<img width="1315" height="637" alt="image" src="https://github.com/user-attachments/assets/17da8925-b7f6-4bb2-820b-c72730712d06" />
+<img width="1326" height="651" alt="image" src="https://github.com/user-attachments/assets/855530f7-c41e-44a5-b759-a278cdd7dc9b" />
+
 
 
 _Settings_
@@ -25,7 +26,7 @@ _Settings_
 | VLAN naming               | ✅                            |
 | Access port configuration | ✅                            |
 | Trunk port configuration  | ✅                            |
-| EtherChannel              | :x:                           |
+| EtherChannel              | ✅                            |
 | ACL support               | :x:                           |
 | Port security             | :x:                           |
 | STP features              | :x:                           |
