@@ -100,12 +100,12 @@ partial class ciscoConfigGenerator
         chkChannelGroup = new CheckBox();
         cmbChannelGroup = new ComboBox();
         comboBox2 = new ComboBox();
-        ChannelPort_6 = new Button();
-        ChannelPort_5 = new Button();
-        ChannelPort_4 = new Button();
-        ChannelPort_3 = new Button();
-        ChannelPort_2 = new Button();
-        ChannelPort_1 = new Button();
+        GroupPort_6 = new Button();
+        GroupPort_5 = new Button();
+        GroupPort_4 = new Button();
+        GroupPort_3 = new Button();
+        GroupPort_2 = new Button();
+        GroupPort_1 = new Button();
         label25 = new Label();
         label26 = new Label();
         label27 = new Label();
@@ -513,7 +513,7 @@ partial class ciscoConfigGenerator
         btnClear.TabIndex = 29;
         btnClear.Text = "Clear Port";
         btnClear.UseVisualStyleBackColor = true;
-        btnClear.Click += btnSubmit_Click;
+        btnClear.Click += btnClear_Click;
         // 
         // lblPort
         // 
@@ -959,83 +959,89 @@ partial class ciscoConfigGenerator
         comboBox2.Size = new Size(137, 23);
         comboBox2.TabIndex = 67;
         // 
-        // ChannelPort_6
+        // GroupPort_6
         // 
-        ChannelPort_6.AutoSize = true;
-        ChannelPort_6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        ChannelPort_6.Image = Properties.Resources.RJ45_f;
-        ChannelPort_6.Location = new Point(878, 276);
-        ChannelPort_6.Name = "ChannelPort_6";
-        ChannelPort_6.Size = new Size(70, 70);
-        ChannelPort_6.TabIndex = 73;
-        ChannelPort_6.TextAlign = ContentAlignment.MiddleLeft;
-        ChannelPort_6.UseVisualStyleBackColor = true;
-        ChannelPort_6.Click += ChannelPort_6_Click;
+        GroupPort_6.AutoSize = true;
+        GroupPort_6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        GroupPort_6.Image = Properties.Resources.RJ45_f;
+        GroupPort_6.Location = new Point(878, 276);
+        GroupPort_6.Name = "GroupPort_6";
+        GroupPort_6.Size = new Size(70, 70);
+        GroupPort_6.TabIndex = 73;
+        GroupPort_6.Tag = "6";
+        GroupPort_6.TextAlign = ContentAlignment.MiddleLeft;
+        GroupPort_6.UseVisualStyleBackColor = true;
+        GroupPort_6.Click += groupPort_Click;
         // 
-        // ChannelPort_5
+        // GroupPort_5
         // 
-        ChannelPort_5.AutoSize = true;
-        ChannelPort_5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        ChannelPort_5.Image = Properties.Resources.RJ45;
-        ChannelPort_5.Location = new Point(878, 200);
-        ChannelPort_5.Name = "ChannelPort_5";
-        ChannelPort_5.Size = new Size(70, 70);
-        ChannelPort_5.TabIndex = 72;
-        ChannelPort_5.TextAlign = ContentAlignment.MiddleLeft;
-        ChannelPort_5.UseVisualStyleBackColor = true;
-        ChannelPort_5.Click += ChannelPort_5_Click;
+        GroupPort_5.AutoSize = true;
+        GroupPort_5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        GroupPort_5.Image = Properties.Resources.RJ45;
+        GroupPort_5.Location = new Point(878, 200);
+        GroupPort_5.Name = "GroupPort_5";
+        GroupPort_5.Size = new Size(70, 70);
+        GroupPort_5.TabIndex = 72;
+        GroupPort_5.Tag = "5";
+        GroupPort_5.TextAlign = ContentAlignment.MiddleLeft;
+        GroupPort_5.UseVisualStyleBackColor = true;
+        GroupPort_5.Click += groupPort_Click;
         // 
-        // ChannelPort_4
+        // GroupPort_4
         // 
-        ChannelPort_4.AutoSize = true;
-        ChannelPort_4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        ChannelPort_4.Image = Properties.Resources.RJ45_f;
-        ChannelPort_4.Location = new Point(802, 276);
-        ChannelPort_4.Name = "ChannelPort_4";
-        ChannelPort_4.Size = new Size(70, 70);
-        ChannelPort_4.TabIndex = 71;
-        ChannelPort_4.TextAlign = ContentAlignment.MiddleLeft;
-        ChannelPort_4.UseVisualStyleBackColor = true;
-        ChannelPort_4.Click += ChannelPort_4_Click;
+        GroupPort_4.AutoSize = true;
+        GroupPort_4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        GroupPort_4.Image = Properties.Resources.RJ45_f;
+        GroupPort_4.Location = new Point(802, 276);
+        GroupPort_4.Name = "GroupPort_4";
+        GroupPort_4.Size = new Size(70, 70);
+        GroupPort_4.TabIndex = 71;
+        GroupPort_4.Tag = "4";
+        GroupPort_4.TextAlign = ContentAlignment.MiddleLeft;
+        GroupPort_4.UseVisualStyleBackColor = true;
+        GroupPort_4.Click += groupPort_Click;
         // 
-        // ChannelPort_3
+        // GroupPort_3
         // 
-        ChannelPort_3.AutoSize = true;
-        ChannelPort_3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        ChannelPort_3.Image = Properties.Resources.RJ45;
-        ChannelPort_3.Location = new Point(802, 200);
-        ChannelPort_3.Name = "ChannelPort_3";
-        ChannelPort_3.Size = new Size(70, 70);
-        ChannelPort_3.TabIndex = 70;
-        ChannelPort_3.TextAlign = ContentAlignment.MiddleLeft;
-        ChannelPort_3.UseVisualStyleBackColor = true;
-        ChannelPort_3.Click += ChannelPort_3_Click;
+        GroupPort_3.AutoSize = true;
+        GroupPort_3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        GroupPort_3.Image = Properties.Resources.RJ45;
+        GroupPort_3.Location = new Point(802, 200);
+        GroupPort_3.Name = "GroupPort_3";
+        GroupPort_3.Size = new Size(70, 70);
+        GroupPort_3.TabIndex = 70;
+        GroupPort_3.Tag = "3";
+        GroupPort_3.TextAlign = ContentAlignment.MiddleLeft;
+        GroupPort_3.UseVisualStyleBackColor = true;
+        GroupPort_3.Click += groupPort_Click;
         // 
-        // ChannelPort_2
+        // GroupPort_2
         // 
-        ChannelPort_2.AutoSize = true;
-        ChannelPort_2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        ChannelPort_2.Image = Properties.Resources.RJ45_f;
-        ChannelPort_2.Location = new Point(726, 276);
-        ChannelPort_2.Name = "ChannelPort_2";
-        ChannelPort_2.Size = new Size(70, 70);
-        ChannelPort_2.TabIndex = 69;
-        ChannelPort_2.TextAlign = ContentAlignment.MiddleLeft;
-        ChannelPort_2.UseVisualStyleBackColor = true;
-        ChannelPort_2.Click += ChannelPort_2_Click;
+        GroupPort_2.AutoSize = true;
+        GroupPort_2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        GroupPort_2.Image = Properties.Resources.RJ45_f;
+        GroupPort_2.Location = new Point(726, 276);
+        GroupPort_2.Name = "GroupPort_2";
+        GroupPort_2.Size = new Size(70, 70);
+        GroupPort_2.TabIndex = 69;
+        GroupPort_2.Tag = "2";
+        GroupPort_2.TextAlign = ContentAlignment.MiddleLeft;
+        GroupPort_2.UseVisualStyleBackColor = true;
+        GroupPort_2.Click += groupPort_Click;
         // 
-        // ChannelPort_1
+        // GroupPort_1
         // 
-        ChannelPort_1.AutoSize = true;
-        ChannelPort_1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        ChannelPort_1.Image = Properties.Resources.RJ45;
-        ChannelPort_1.Location = new Point(726, 200);
-        ChannelPort_1.Name = "ChannelPort_1";
-        ChannelPort_1.Size = new Size(70, 70);
-        ChannelPort_1.TabIndex = 68;
-        ChannelPort_1.TextAlign = ContentAlignment.MiddleLeft;
-        ChannelPort_1.UseVisualStyleBackColor = true;
-        ChannelPort_1.Click += ChannelPort_1_Click;
+        GroupPort_1.AutoSize = true;
+        GroupPort_1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        GroupPort_1.Image = Properties.Resources.RJ45;
+        GroupPort_1.Location = new Point(726, 200);
+        GroupPort_1.Name = "GroupPort_1";
+        GroupPort_1.Size = new Size(70, 70);
+        GroupPort_1.TabIndex = 68;
+        GroupPort_1.Tag = "1";
+        GroupPort_1.TextAlign = ContentAlignment.MiddleLeft;
+        GroupPort_1.UseVisualStyleBackColor = true;
+        GroupPort_1.Click += groupPort_Click;
         // 
         // label25
         // 
@@ -1120,12 +1126,12 @@ partial class ciscoConfigGenerator
         Controls.Add(label28);
         Controls.Add(label29);
         Controls.Add(label30);
-        Controls.Add(ChannelPort_6);
-        Controls.Add(ChannelPort_5);
-        Controls.Add(ChannelPort_4);
-        Controls.Add(ChannelPort_3);
-        Controls.Add(ChannelPort_2);
-        Controls.Add(ChannelPort_1);
+        Controls.Add(GroupPort_6);
+        Controls.Add(GroupPort_5);
+        Controls.Add(GroupPort_4);
+        Controls.Add(GroupPort_3);
+        Controls.Add(GroupPort_2);
+        Controls.Add(GroupPort_1);
         Controls.Add(comboBox2);
         Controls.Add(cmbChannelGroup);
         Controls.Add(chkChannelGroup);
@@ -1277,12 +1283,12 @@ partial class ciscoConfigGenerator
     private CheckBox chkChannelGroup;
     private ComboBox cmbChannelGroup;
     private ComboBox comboBox2;
-    private Button ChannelPort_6;
-    private Button ChannelPort_5;
-    private Button ChannelPort_4;
-    private Button ChannelPort_3;
-    private Button ChannelPort_2;
-    private Button ChannelPort_1;
+    private Button GroupPort_6;
+    private Button GroupPort_5;
+    private Button GroupPort_4;
+    private Button GroupPort_3;
+    private Button GroupPort_2;
+    private Button GroupPort_1;
     private Label label25;
     private Label label26;
     private Label label27;

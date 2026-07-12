@@ -107,55 +107,25 @@ public partial class ciscoConfigGenerator : Form
     {
         if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
         {
-            if (Control.ModifierKeys.HasFlag(Keys.Shift)) LoadSettings(port, true);
-            else LoadSettings(port, false);
+            if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true);
+            else PortClick(port, false, true);
         }
     }
 
 
-    //Channel ports
 
-    private void ChannelPort_1_Click(object sender, EventArgs e)
+    private void groupPort_Click(object sender, EventArgs e)
     {
-
-    }
-
-    private void ChannelPort_2_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void ChannelPort_3_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void ChannelPort_4_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void ChannelPort_5_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void ChannelPort_6_Click(object sender, EventArgs e)
-    {
-
+        if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
+        {
+            if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true);
+            else PortClick(port, false, false);
+        }
     }
 
 
-
-
-
-
-
-
-
-    //dosent do anything yet, but will be used to submit the config to the switch in the future?
-    //autocomplete above, but seems interesting
-    private void btnSubmit_Click(object sender, EventArgs e) { }
+    //dosent do anything yet, but will be used to Clear the config of the current port(s) in the future?
+    private void btnClear_Click(object sender, EventArgs e) { }
 
 
 
@@ -193,28 +163,28 @@ public partial class ciscoConfigGenerator : Form
 
 
 
-    //loadsettings will load the settings for the port into the UI, and set the current port to the port number passed in, and set the startport or endport depending on if shift is held down or not
-
-    private void LoadSettings(int port, bool startPort)
+    private void PortClick(int port, bool startPort, bool switchPort) 
     {
-        if (!startPort)
-        {
-            Variables.startport = port;
-            Variables.endport = null;
-        }
-        else
-        {
-            Variables.endport = port;
-        }
+        //if switchport is true, then we are clicking on a switchport button
+        //Otherwise we know its thegroupport, and therefore we should set the GroupPort values instead of Port values
 
-        Variables.currentport = port;
+
+        portstuff(port, startPort);
+        LoadSettings(port);
+    }
+
+    private void LoadSettings(int port)
+    {
+        // setLoading to true to prevent event handlers from firing while we update the UI
         Variables.isLoading = true;
 
 
+        //check if the port number is valid, if not return
         if (port < 1 || port > Variables.Ports.Length)
             return;
-        var portData = Variables.Ports[port - 1];
 
+        //initialize the variables used
+        var portData = Variables.Ports[port - 1];
         string startPortVal = Variables.startport.ToString();
         string endPortVal = Variables.endport.ToString();
 
@@ -233,18 +203,20 @@ public partial class ciscoConfigGenerator : Form
         }
 
 
-
+        //check if the port is enabled, and set the switchPortEnabled checkbox accordingly. If the port is null or empty, set the checkbox to unchecked.
         switchPortEnabled.Checked = portData.IsEnabled.GetValueOrDefault();
 
+        //set the access button to checked if the port mode is access, and unchecked if it is not
         rbtnAccess.CheckedChanged -= rbtnAccess_CheckedChanged;
-        rbtnTrunk.CheckedChanged -= rbtnTrunk_CheckedChanged;
-
         rbtnAccess.Checked = portData.Mode == PortMode.Mode.Access;
-        rbtnTrunk.Checked = portData.Mode == PortMode.Mode.Trunk;
-
         rbtnAccess.CheckedChanged += rbtnAccess_CheckedChanged;
+
+        //set the trunk button to checked if the port mode is trunk, and unchecked if it is not
+        rbtnTrunk.CheckedChanged -= rbtnTrunk_CheckedChanged;
+        rbtnTrunk.Checked = portData.Mode == PortMode.Mode.Trunk;
         rbtnTrunk.CheckedChanged += rbtnTrunk_CheckedChanged;
 
+        //set the vlans in the checkedlistbox to checked if they are in the port's vlans, and unchecked if they are not. This is done by first unchecking all items, then checking the items that are in the port's vlans.
         clbVlans.ItemCheck -= clbVlans_ItemCheck;
         for (int i = 0; i < clbVlans.Items.Count; i++)
             clbVlans.SetItemChecked(i, false);
@@ -260,23 +232,39 @@ public partial class ciscoConfigGenerator : Form
                 }
             }
         }
+
+
         clbVlans.ItemCheck += clbVlans_ItemCheck;
 
+        //Enables the vlans checkbox if the port mode is access or trunk.
+        clbVlans.Enabled = rbtnAccess.Checked || rbtnTrunk.Checked;
 
-        if (rbtnAccess.Checked) { clbVlans.Enabled = true; }
-        else if (rbtnTrunk.Checked) { clbVlans.Enabled = true; }
-        else { clbVlans.Enabled = false; }
-
-        // Load new checkbox and combobox values
+        
         chkNonegotiate.Checked = portData.NoNegotiate.GetValueOrDefault();
         chkChannelGroup.Checked = portData.IsGrouped.GetValueOrDefault();
-
         cmbChannelGroup.SelectedIndexChanged -= cmbChannelGroup_SelectedIndexChanged;
         cmbChannelGroup.SelectedItem = portData.GroupID.HasValue ? portData.GroupID.ToString() : null;
         cmbChannelGroup.SelectedIndexChanged += cmbChannelGroup_SelectedIndexChanged;
 
+        //finished loading the settings, set isLoading to false to allow event handlers to fire again
         Variables.isLoading = false;
     }
+
+
+    private void portstuff(int port, bool startPort)
+    {
+        if (!startPort)
+        {
+            Variables.startport = port;
+            Variables.endport = null;
+        }
+        else
+        {
+            Variables.endport = port;
+        }
+        Variables.currentport = port;
+    }
+
 
 
 
