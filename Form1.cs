@@ -107,7 +107,7 @@ public partial class ciscoConfigGenerator : Form
     {
         if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
         {
-            if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true);
+            if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true, true);
             else PortClick(port, false, true);
         }
     }
@@ -115,10 +115,10 @@ public partial class ciscoConfigGenerator : Form
 
 
     private void groupPort_Click(object sender, EventArgs e)
-    {
+    { 
         if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
         {
-            if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true);
+            if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true, false);
             else PortClick(port, false, false);
         }
     }
