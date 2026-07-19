@@ -107,6 +107,8 @@ public partial class ciscoConfigGenerator : Form
     {
         if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
         {
+            Variables.isGroupPort = false;
+            SetGroupPortControlsVisible(false);
             if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true, true);
             else PortClick(port, false, true);
         }
@@ -118,8 +120,9 @@ public partial class ciscoConfigGenerator : Form
     { 
         if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
         {
-            if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true, false);
-            else PortClick(port, false, false);
+            Variables.isGroupPort = true;
+            SetGroupPortControlsVisible(false);
+            GroupPortClick(port);
         }
     }
 
@@ -165,12 +168,14 @@ public partial class ciscoConfigGenerator : Form
 
     private void PortClick(int port, bool startPort, bool switchPort) 
     {
-        //if switchport is true, then we are clicking on a switchport button
-        //Otherwise we know its thegroupport, and therefore we should set the GroupPort values instead of Port values
-
-
         portstuff(port, startPort);
         LoadSettings(port);
+    }
+
+    private void GroupPortClick(int port)
+    {
+        GroupPortStuff(port);
+        LoadGroupPortSettings(port);
     }
 
     private void LoadSettings(int port)
@@ -265,6 +270,79 @@ public partial class ciscoConfigGenerator : Form
         Variables.currentport = port;
     }
 
+    private void GroupPortStuff(int port)
+    {
+        Variables.startGroupPort = port;
+        Variables.endGroupPort = null;
+        Variables.currentGroupPort = port;
+    }
+
+    private void SetGroupPortControlsVisible(bool visible)
+    {
+        chkChannelGroup.Visible = visible;
+        cmbChannelGroup.Visible = visible;
+        comboBox2.Visible = visible;
+    }
+
+    private void LoadGroupPortSettings(int port)
+    {
+        Variables.isLoading = true;
+
+        if (port < 1 || port > Variables.GroupPorts.Length)
+            return;
+
+        var groupPortData = Variables.GroupPorts[port - 1];
+        lblPort.Text = "Port-Channel: " + port;
+
+        if (string.IsNullOrWhiteSpace(groupPortData.Description)) ShowDescriptionPlaceholder();
+        else
+        {
+            txtDesc.Text = groupPortData.Description;
+            txtDesc.ForeColor = Color.Black;
+        }
+
+        switchPortEnabled.Checked = groupPortData.IsEnabled.GetValueOrDefault();
+
+        rbtnAccess.CheckedChanged -= rbtnAccess_CheckedChanged;
+        rbtnAccess.Checked = groupPortData.Mode == PortMode.Mode.Access;
+        rbtnAccess.CheckedChanged += rbtnAccess_CheckedChanged;
+
+        rbtnTrunk.CheckedChanged -= rbtnTrunk_CheckedChanged;
+        rbtnTrunk.Checked = groupPortData.Mode == PortMode.Mode.Trunk;
+        rbtnTrunk.CheckedChanged += rbtnTrunk_CheckedChanged;
+
+        clbVlans.ItemCheck -= clbVlans_ItemCheck;
+        for (int i = 0; i < clbVlans.Items.Count; i++)
+            clbVlans.SetItemChecked(i, false);
+
+        foreach (var vlan in groupPortData.Vlans)
+        {
+            for (int i = 0; i < clbVlans.Items.Count; i++)
+            {
+                if (clbVlans.Items[i] is Vlan listVlan && listVlan.ID == vlan.ID)
+                {
+                    clbVlans.SetItemChecked(i, true);
+                    break;
+                }
+            }
+        }
+
+        clbVlans.ItemCheck += clbVlans_ItemCheck;
+        clbVlans.Enabled = rbtnAccess.Checked || rbtnTrunk.Checked;
+
+        chkNonegotiate.Checked = groupPortData.NoNegotiate.GetValueOrDefault();
+
+        Variables.isLoading = false;
+    }
+
+    private IEnumerable<GroupPort> GetTargetGroupPorts()
+    {
+        if (Variables.startGroupPort.HasValue)
+        {
+            yield return Variables.GroupPorts[Variables.startGroupPort.Value - 1];
+        }
+    }
+
 
 
 
@@ -276,30 +354,63 @@ public partial class ciscoConfigGenerator : Form
         if (clbVlans.Items[e.Index] is not Vlan vlan)
             return;
 
-        foreach (var port in GetTargetPorts())
+        if (Variables.isGroupPort)
         {
-            if (rbtnAccess.Checked)
+            foreach (var groupPort in GetTargetGroupPorts())
             {
-                if (e.NewValue == CheckState.Checked)
+                if (rbtnAccess.Checked)
                 {
-                    port.Vlans.Clear();
-                    port.Vlans.Add(vlan);
+                    if (e.NewValue == CheckState.Checked)
+                    {
+                        groupPort.Vlans.Clear();
+                        groupPort.Vlans.Add(vlan);
+                    }
+                    else if (e.NewValue == CheckState.Unchecked)
+                    {
+                        groupPort.Vlans.RemoveAll(v => v.ID == vlan.ID);
+                    }
                 }
-                else if (e.NewValue == CheckState.Unchecked)
+                else if (rbtnTrunk.Checked)
                 {
-                    port.Vlans.RemoveAll(v => v.ID == vlan.ID);
+                    if (e.NewValue == CheckState.Checked)
+                    {
+                        if (!groupPort.Vlans.Any(v => v.ID == vlan.ID))
+                            groupPort.Vlans.Add(vlan);
+                    }
+                    else if (e.NewValue == CheckState.Unchecked)
+                    {
+                        groupPort.Vlans.RemoveAll(v => v.ID == vlan.ID);
+                    }
                 }
             }
-            else if (rbtnTrunk.Checked)
+        }
+        else
+        {
+            foreach (var port in GetTargetPorts())
             {
-                if (e.NewValue == CheckState.Checked)
+                if (rbtnAccess.Checked)
                 {
-                    if (!port.Vlans.Any(v => v.ID == vlan.ID))
+                    if (e.NewValue == CheckState.Checked)
+                    {
+                        port.Vlans.Clear();
                         port.Vlans.Add(vlan);
+                    }
+                    else if (e.NewValue == CheckState.Unchecked)
+                    {
+                        port.Vlans.RemoveAll(v => v.ID == vlan.ID);
+                    }
                 }
-                else if (e.NewValue == CheckState.Unchecked)
+                else if (rbtnTrunk.Checked)
                 {
-                    port.Vlans.RemoveAll(v => v.ID == vlan.ID);
+                    if (e.NewValue == CheckState.Checked)
+                    {
+                        if (!port.Vlans.Any(v => v.ID == vlan.ID))
+                            port.Vlans.Add(vlan);
+                    }
+                    else if (e.NewValue == CheckState.Unchecked)
+                    {
+                        port.Vlans.RemoveAll(v => v.ID == vlan.ID);
+                    }
                 }
             }
         }
@@ -320,9 +431,15 @@ public partial class ciscoConfigGenerator : Form
         if (!rbtnTrunk.Checked)
             return;
 
-        foreach (var port in GetTargetPorts())
+        if (Variables.isGroupPort)
         {
-            port.Mode = PortMode.Mode.Trunk;
+            foreach (var groupPort in GetTargetGroupPorts())
+                groupPort.Mode = PortMode.Mode.Trunk;
+        }
+        else
+        {
+            foreach (var port in GetTargetPorts())
+                port.Mode = PortMode.Mode.Trunk;
         }
 
         clbVlans.Enabled = true;
@@ -336,10 +453,21 @@ public partial class ciscoConfigGenerator : Form
         if (!rbtnAccess.Checked)
             return;
 
-        foreach (var port in GetTargetPorts())
+        if (Variables.isGroupPort)
         {
-            port.Mode = PortMode.Mode.Access;
-            port.Vlans.Clear();
+            foreach (var groupPort in GetTargetGroupPorts())
+            {
+                groupPort.Mode = PortMode.Mode.Access;
+                groupPort.Vlans.Clear();
+            }
+        }
+        else
+        {
+            foreach (var port in GetTargetPorts())
+            {
+                port.Mode = PortMode.Mode.Access;
+                port.Vlans.Clear();
+            }
         }
 
         clbVlans.Enabled = true;
@@ -351,8 +479,16 @@ public partial class ciscoConfigGenerator : Form
     {
         if (string.IsNullOrWhiteSpace(txtDesc.Text))
         {
-            foreach (var port in GetTargetPorts())
-                port.Description = null;
+            if (Variables.isGroupPort)
+            {
+                foreach (var groupPort in GetTargetGroupPorts())
+                    groupPort.Description = null;
+            }
+            else
+            {
+                foreach (var port in GetTargetPorts())
+                    port.Description = null;
+            }
             ShowDescriptionPlaceholder();
         }
     }
@@ -365,9 +501,15 @@ public partial class ciscoConfigGenerator : Form
         if (txtDesc.ForeColor == Color.Gray)
             return;
 
-        foreach (var port in GetTargetPorts())
+        if (Variables.isGroupPort)
         {
-            port.Description = txtDesc.Text;
+            foreach (var groupPort in GetTargetGroupPorts())
+                groupPort.Description = txtDesc.Text;
+        }
+        else
+        {
+            foreach (var port in GetTargetPorts())
+                port.Description = txtDesc.Text;
         }
     }
 
@@ -391,9 +533,15 @@ public partial class ciscoConfigGenerator : Form
         if (Variables.isLoading)
             return;
 
-        foreach (var port in GetTargetPorts())
+        if (Variables.isGroupPort)
         {
-            port.IsEnabled = switchPortEnabled.Checked;
+            foreach (var groupPort in GetTargetGroupPorts())
+                groupPort.IsEnabled = switchPortEnabled.Checked;
+        }
+        else
+        {
+            foreach (var port in GetTargetPorts())
+                port.IsEnabled = switchPortEnabled.Checked;
         }
     }
 
@@ -401,9 +549,16 @@ public partial class ciscoConfigGenerator : Form
     {
         if (Variables.isLoading)
             return;
-        foreach (var port in GetTargetPorts())
+
+        if (Variables.isGroupPort)
         {
-            port.NoNegotiate = chkNonegotiate.Checked;
+            foreach (var groupPort in GetTargetGroupPorts())
+                groupPort.NoNegotiate = chkNonegotiate.Checked;
+        }
+        else
+        {
+            foreach (var port in GetTargetPorts())
+                port.NoNegotiate = chkNonegotiate.Checked;
         }
     }
 

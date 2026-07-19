@@ -8,6 +8,7 @@ public class Port
     public bool? IsGrouped { get; set; }
     public int? GroupID { get; set; }
     public bool? NoNegotiate { get; set; }
+    public string? ChannelGroupMode { get; set; }
 
     public PortMode.Mode Mode { get; set; } = PortMode.Mode.Null;
 
