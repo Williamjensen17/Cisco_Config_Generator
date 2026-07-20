@@ -29,6 +29,7 @@ partial class ciscoConfigGenerator
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ciscoConfigGenerator));
         switchPort_01 = new Button();
         switchPort_02 = new Button();
         switchPort_14 = new Button();
@@ -851,7 +852,7 @@ partial class ciscoConfigGenerator
         txtDesc.Name = "txtDesc";
         txtDesc.Size = new Size(238, 23);
         txtDesc.TabIndex = 58;
-        txtDesc.Text = "Port description";
+        txtDesc.Text = "Port Description";
         txtDesc.TextChanged += txtDesc_TextChanged;
         txtDesc.Enter += txtDesc_Enter;
         txtDesc.Leave += txtDesc_Leave;
@@ -1201,6 +1202,7 @@ partial class ciscoConfigGenerator
         Controls.Add(switchPort_01);
         ForeColor = SystemColors.ControlText;
         FormBorderStyle = FormBorderStyle.None;
+        Icon = (Icon)resources.GetObject("$this.Icon");
         Name = "ciscoConfigGenerator";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Cisco Config Generator";
