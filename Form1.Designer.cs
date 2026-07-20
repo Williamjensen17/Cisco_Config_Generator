@@ -29,6 +29,7 @@ partial class ciscoConfigGenerator
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ciscoConfigGenerator));
         switchPort_01 = new Button();
         switchPort_02 = new Button();
         switchPort_14 = new Button();
@@ -1201,6 +1202,7 @@ partial class ciscoConfigGenerator
         Controls.Add(switchPort_01);
         ForeColor = SystemColors.ControlText;
         FormBorderStyle = FormBorderStyle.None;
+        Icon = (Icon)resources.GetObject("$this.Icon");
         Name = "ciscoConfigGenerator";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Cisco Config Generator";
