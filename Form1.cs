@@ -108,9 +108,9 @@ public partial class ciscoConfigGenerator : Form
         if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
         {
             Variables.isGroupPort = false;
-            //SetGroupPortControlsVisible(false);
-            if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true, true);
-            else PortClick(port, false, true);
+            SetGroupPortControlsEnabled(true);
+            if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true);
+            else PortClick(port, false);
         }
     }
 
@@ -121,8 +121,9 @@ public partial class ciscoConfigGenerator : Form
         if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
         {
             Variables.isGroupPort = true;
-            //SetGroupPortControlsVisible(false);
-            GroupPortClick(port);
+            SetGroupPortControlsEnabled(false);
+            if (Control.ModifierKeys.HasFlag(Keys.Shift)) GroupPortClick(port, true);
+            else GroupPortClick(port, false);
         }
     }
 
@@ -166,15 +167,15 @@ public partial class ciscoConfigGenerator : Form
 
 
 
-    private void PortClick(int port, bool startPort, bool switchPort) 
+    private void PortClick(int port, bool startPort) 
     {
         portstuff(port, startPort);
         LoadSettings(port);
     }
 
-    private void GroupPortClick(int port)
+    private void GroupPortClick(int port, bool startPort)
     {
-        GroupPortStuff(port);
+        GroupPortStuff(port, startPort);
         LoadGroupPortSettings(port);
     }
 
@@ -270,19 +271,19 @@ public partial class ciscoConfigGenerator : Form
         Variables.currentport = port;
     }
 
-    private void GroupPortStuff(int port)
+    private void GroupPortStuff(int port, bool startPort)
     {
         Variables.startGroupPort = port;
         Variables.endGroupPort = null;
         Variables.currentGroupPort = port;
     }
 
-    //private void SetGroupPortControlsVisible(bool visible)
-    //{
-    //    chkChannelGroup.Visible = visible;
-    //    cmbChannelGroup.Visible = visible;
-    //    comboBox2.Visible = visible;
-    //}
+    private void SetGroupPortControlsEnabled(bool visible)
+    {
+        chkChannelGroup.Enabled = visible;
+        cmbChannelGroup.Enabled = visible;
+        comboBox2.Enabled = visible;
+    }
 
     private void LoadGroupPortSettings(int port)
     {

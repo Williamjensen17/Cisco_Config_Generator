@@ -851,7 +851,7 @@ partial class ciscoConfigGenerator
         txtDesc.Name = "txtDesc";
         txtDesc.Size = new Size(238, 23);
         txtDesc.TabIndex = 58;
-        txtDesc.Text = "Port description";
+        txtDesc.Text = "Port Description";
         txtDesc.TextChanged += txtDesc_TextChanged;
         txtDesc.Enter += txtDesc_Enter;
         txtDesc.Leave += txtDesc_Leave;
