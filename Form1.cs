@@ -108,7 +108,7 @@ public partial class ciscoConfigGenerator : Form
         if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
         {
             Variables.isGroupPort = false;
-            SetGroupPortControlsVisible(false);
+            //SetGroupPortControlsVisible(false);
             if (Control.ModifierKeys.HasFlag(Keys.Shift)) PortClick(port, true, true);
             else PortClick(port, false, true);
         }
@@ -121,7 +121,7 @@ public partial class ciscoConfigGenerator : Form
         if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
         {
             Variables.isGroupPort = true;
-            SetGroupPortControlsVisible(false);
+            //SetGroupPortControlsVisible(false);
             GroupPortClick(port);
         }
     }
@@ -277,12 +277,12 @@ public partial class ciscoConfigGenerator : Form
         Variables.currentGroupPort = port;
     }
 
-    private void SetGroupPortControlsVisible(bool visible)
-    {
-        chkChannelGroup.Visible = visible;
-        cmbChannelGroup.Visible = visible;
-        comboBox2.Visible = visible;
-    }
+    //private void SetGroupPortControlsVisible(bool visible)
+    //{
+    //    chkChannelGroup.Visible = visible;
+    //    cmbChannelGroup.Visible = visible;
+    //    comboBox2.Visible = visible;
+    //}
 
     private void LoadGroupPortSettings(int port)
     {
