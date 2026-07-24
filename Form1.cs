@@ -117,7 +117,7 @@ public partial class ciscoConfigGenerator : Form
 
 
     private void groupPort_Click(object sender, EventArgs e)
-    { 
+    {
         if (sender is Button btn && int.TryParse(btn.Tag?.ToString(), out int port))
         {
             Variables.isGroupPort = true;
@@ -167,7 +167,7 @@ public partial class ciscoConfigGenerator : Form
 
 
 
-    private void PortClick(int port, bool startPort) 
+    private void PortClick(int port, bool startPort)
     {
         portstuff(port, startPort);
         LoadSettings(port);
@@ -245,7 +245,7 @@ public partial class ciscoConfigGenerator : Form
         //Enables the vlans checkbox if the port mode is access or trunk.
         clbVlans.Enabled = rbtnAccess.Checked || rbtnTrunk.Checked;
 
-        
+
         chkNonegotiate.Checked = portData.NoNegotiate.GetValueOrDefault();
         chkChannelGroup.Checked = portData.IsGrouped.GetValueOrDefault();
         cmbChannelGroup.SelectedIndexChanged -= cmbChannelGroup_SelectedIndexChanged;
@@ -282,7 +282,7 @@ public partial class ciscoConfigGenerator : Form
     {
         chkChannelGroup.Enabled = visible;
         cmbChannelGroup.Enabled = visible;
-        comboBox2.Enabled = visible;
+        cmbChannelGroupMode.Enabled = visible;
     }
 
     private void LoadGroupPortSettings(int port)
@@ -582,6 +582,18 @@ public partial class ciscoConfigGenerator : Form
         foreach (var port in GetTargetPorts())
         {
             port.GroupID = Convert.ToInt32(cmbChannelGroup.SelectedItem);
+        }
+    }
+
+    private void cmbChannelGroupMode_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (Variables.isLoading)
+            return;
+        if (cmbChannelGroupMode.SelectedItem == null)
+            return;
+        foreach (var port in GetTargetPorts())
+        {
+            port.ChannelGroupMode = Convert.ToString(cmbChannelGroupMode.SelectedItem);
         }
     }
 }

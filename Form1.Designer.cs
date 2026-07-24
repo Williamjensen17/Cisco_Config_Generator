@@ -100,7 +100,7 @@ partial class ciscoConfigGenerator
         chkNonegotiate = new CheckBox();
         chkChannelGroup = new CheckBox();
         cmbChannelGroup = new ComboBox();
-        comboBox2 = new ComboBox();
+        cmbChannelGroupMode = new ComboBox();
         GroupPort_6 = new Button();
         GroupPort_5 = new Button();
         GroupPort_4 = new Button();
@@ -951,16 +951,17 @@ partial class ciscoConfigGenerator
         cmbChannelGroup.TabIndex = 66;
         cmbChannelGroup.SelectedIndexChanged += cmbChannelGroup_SelectedIndexChanged;
         // 
-        // comboBox2
+        // cmbChannelGroupMode
         // 
-        comboBox2.BackColor = SystemColors.WindowFrame;
-        comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-        comboBox2.FormattingEnabled = true;
-        comboBox2.Items.AddRange(new object[] { "desirable", "auto" });
-        comboBox2.Location = new Point(144, 182);
-        comboBox2.Name = "comboBox2";
-        comboBox2.Size = new Size(137, 23);
-        comboBox2.TabIndex = 67;
+        cmbChannelGroupMode.BackColor = SystemColors.WindowFrame;
+        cmbChannelGroupMode.DropDownStyle = ComboBoxStyle.DropDownList;
+        cmbChannelGroupMode.FormattingEnabled = true;
+        cmbChannelGroupMode.Items.AddRange(new object[] { "active", "passive", "desirable", "auto", "on" });
+        cmbChannelGroupMode.Location = new Point(144, 182);
+        cmbChannelGroupMode.Name = "cmbChannelGroupMode";
+        cmbChannelGroupMode.Size = new Size(137, 23);
+        cmbChannelGroupMode.TabIndex = 67;
+        cmbChannelGroupMode.SelectedIndexChanged += cmbChannelGroupMode_SelectedIndexChanged;
         // 
         // GroupPort_6
         // 
@@ -1135,7 +1136,7 @@ partial class ciscoConfigGenerator
         Controls.Add(GroupPort_3);
         Controls.Add(GroupPort_2);
         Controls.Add(GroupPort_1);
-        Controls.Add(comboBox2);
+        Controls.Add(cmbChannelGroupMode);
         Controls.Add(cmbChannelGroup);
         Controls.Add(chkChannelGroup);
         Controls.Add(chkNonegotiate);
@@ -1286,7 +1287,7 @@ partial class ciscoConfigGenerator
     private CheckBox chkNonegotiate;
     private CheckBox chkChannelGroup;
     private ComboBox cmbChannelGroup;
-    private ComboBox comboBox2;
+    private ComboBox cmbChannelGroupMode;
     private Button GroupPort_6;
     private Button GroupPort_5;
     private Button GroupPort_4;
