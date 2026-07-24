@@ -29,6 +29,5 @@ public class Port
         if (vlans != null)
             Vlans = vlans.ToList();
         NoNegotiate = nonegotiate;
-        //GroupID = groupID;
     }
 }
