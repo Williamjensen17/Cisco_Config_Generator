@@ -27,6 +27,7 @@ _Settings_
 | Access port configuration | ✅                            |
 | Trunk port configuration  | ✅                            |
 | EtherChannel              | ✅                            |
+| Basic Identity            | Next up                       |
 | ACL support               | :x:                           |
 | Port security             | :x:                           |
 | STP features              | :x:                           |
