@@ -35,24 +35,42 @@ namespace SwitchConfigGenerator.Core
 
             foreach (var port in Variables.Ports)
             {
+                bool isGrouped = port.IsGrouped == true && port.GroupID.HasValue;
+
                 bool hasDesc = !string.IsNullOrWhiteSpace(port.Description);
                 bool hasEnabled = port.IsEnabled.HasValue;
                 bool hasNegotiate = port.NoNegotiate.HasValue;
                 bool hasMode = port.Mode != PortMode.Mode.Null;
-                bool hasGroup = port.IsGrouped.HasValue;
-                bool hasGroupID = port.GroupID.HasValue;
 
-                //when ready, add this back to the if statement
-                //&& !hasGroup && !hasGroupID
-                if (!hasDesc && !hasNegotiate && !hasMode && !hasEnabled ) continue;
+                // If nothing is configured at all, skip
+                if (!hasDesc && !hasNegotiate && !hasMode && !hasEnabled && !isGrouped)
+                    continue;
 
                 sb.AppendLine($"  interface {_interfacePrefix}{port.Number}");
+
+                // ✅ If grouped → ONLY generate channel membership
+                if (isGrouped)
+                {
+                    string mode = port.ChannelGroupMode ?? "active";
+                    sb.AppendLine($"    channel-group {port.GroupID.Value} mode {mode}");
+
+                    if (hasEnabled)
+                        sb.AppendLine(port.IsEnabled == true
+                            ? "    no shutdown"
+                            : "    shutdown");
+
+                    continue; // 🔥 Skip the rest of the config
+                }
+
+                // ✅ Normal (non-grouped) port config below
 
                 if (hasDesc)
                     sb.AppendLine($"    description {port.Description}");
 
                 if (hasEnabled)
-                    sb.AppendLine(port.IsEnabled == true ? "    no shutdown" : "    shutdown");
+                    sb.AppendLine(port.IsEnabled == true
+                        ? "    no shutdown"
+                        : "    shutdown");
 
                 if (port.Mode == PortMode.Mode.Access)
                 {
@@ -72,20 +90,55 @@ namespace SwitchConfigGenerator.Core
                     }
                 }
 
-                //if (port.IsGrouped == true && port.GroupID.HasValue)
-                //{
-                //    sb.AppendLine($"    channel-group {port.GroupID.Value} mode active");
-                //}
-                //else if (port.IsGrouped == false && port.GroupID.HasValue)
-                //{
-                //    sb.AppendLine($"    no channel-group {port.GroupID.Value} mode active");
-                //}
+                if (hasNegotiate)
+                {
+                    sb.AppendLine(port.NoNegotiate == true
+                        ? "    switchport nonegotiate"
+                        : "    no switchport nonegotiate");
+                }
+            }
 
+            sb.AppendLine();
+            sb.AppendLine("!Setup Port-Channels");
 
+            foreach (var groupPort in Variables.GroupPorts)
+            {
+                bool hasDesc = !string.IsNullOrWhiteSpace(groupPort.Description);
+                bool hasEnabled = groupPort.IsEnabled.HasValue;
+                bool hasNegotiate = groupPort.NoNegotiate.HasValue;
+                bool hasMode = groupPort.Mode != PortMode.Mode.Null;
+
+                if (!hasDesc && !hasNegotiate && !hasMode && !hasEnabled) continue;
+
+                sb.AppendLine($"  interface Port-channel {groupPort.Number}");
+
+                if (hasDesc)
+                    sb.AppendLine($"    description {groupPort.Description}");
+
+                if (hasEnabled)
+                    sb.AppendLine(groupPort.IsEnabled == true ? "    no shutdown" : "    shutdown");
+
+                if (groupPort.Mode == PortMode.Mode.Access)
+                {
+                    sb.AppendLine("    switchport mode access");
+
+                    if (groupPort.Vlans.Count > 0)
+                        sb.AppendLine($"    switchport access vlan {groupPort.Vlans[0].ID}");
+                }
+                else if (groupPort.Mode == PortMode.Mode.Trunk)
+                {
+                    sb.AppendLine("    switchport mode trunk");
+
+                    if (groupPort.Vlans.Count > 0)
+                    {
+                        var vlanIds = string.Join(",", groupPort.Vlans.Select(v => v.ID));
+                        sb.AppendLine($"    switchport trunk allowed vlan {vlanIds}");
+                    }
+                }
 
                 if (hasNegotiate)
                 {
-                    sb.AppendLine(port.NoNegotiate == true ? "    switchport nonegotiate" : "    no switchport nonegotiate");
+                    sb.AppendLine(groupPort.NoNegotiate == true ? "    switchport nonegotiate" : "    no switchport nonegotiate");
                 }
             }
 
