@@ -793,7 +793,9 @@ partial class ciscoConfigGenerator
         // 
         // btnFile
         // 
+        btnFile.Enabled = false;
         btnFile.Font = new Font("Comic Sans MS", 11.5F);
+        btnFile.ForeColor = Color.Gray;
         btnFile.Location = new Point(12, 12);
         btnFile.Name = "btnFile";
         btnFile.Size = new Size(75, 30);
