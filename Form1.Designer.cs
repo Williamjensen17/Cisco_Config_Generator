@@ -92,7 +92,6 @@ partial class ciscoConfigGenerator
         exportFileToolStripMenuItem = new ToolStripMenuItem();
         btnQuit = new Button();
         txtDesc = new TextBox();
-        contextMenuStrip1 = new ContextMenuStrip(components);
         btnDebug = new Button();
         clbVlans = new CheckedListBox();
         rbtnAccess = new RadioButton();
@@ -113,7 +112,6 @@ partial class ciscoConfigGenerator
         label28 = new Label();
         label29 = new Label();
         label30 = new Label();
-        contextMenuStrip2 = new ContextMenuStrip(components);
         fileMenu.SuspendLayout();
         SuspendLayout();
         // 
@@ -859,11 +857,6 @@ partial class ciscoConfigGenerator
         txtDesc.Enter += txtDesc_Enter;
         txtDesc.Leave += txtDesc_Leave;
         // 
-        // contextMenuStrip1
-        // 
-        contextMenuStrip1.Name = "contextMenuStrip1";
-        contextMenuStrip1.Size = new Size(61, 4);
-        // 
         // btnDebug
         // 
         btnDebug.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1113,11 +1106,6 @@ partial class ciscoConfigGenerator
         label30.TabIndex = 74;
         label30.Text = "po1";
         // 
-        // contextMenuStrip2
-        // 
-        contextMenuStrip2.Name = "contextMenuStrip2";
-        contextMenuStrip2.Size = new Size(61, 4);
-        // 
         // ciscoConfigGenerator
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1279,7 +1267,6 @@ partial class ciscoConfigGenerator
     private ToolStripMenuItem exportFileToolStripMenuItem;
     private Button btnQuit;
     private TextBox txtDesc;
-    private ContextMenuStrip contextMenuStrip1;
     private Button btnDebug;
     private CheckedListBox clbVlans;
     private RadioButton rbtnAccess;
@@ -1300,5 +1287,4 @@ partial class ciscoConfigGenerator
     private Label label28;
     private Label label29;
     private Label label30;
-    private ContextMenuStrip contextMenuStrip2;
 }
