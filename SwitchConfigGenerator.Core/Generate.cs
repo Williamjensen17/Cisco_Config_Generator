@@ -19,9 +19,21 @@ namespace SwitchConfigGenerator.Core
             sb.AppendLine("enable");
             sb.AppendLine("  configure terminal");
 
+            //Basic identity
+            sb.AppendLine("!");
+            sb.AppendLine("!Setup Basic Identity");
+            if (!string.IsNullOrWhiteSpace(Variables.hostname))
+            {
+                sb.AppendLine("    hostname " + Variables.hostname);
+            }
+            if (!string.IsNullOrWhiteSpace(Variables.domainname))
+            {
+                sb.AppendLine("    ip domain-name " + Variables.domainname);
+            }
+
             //Here we make the vlans
-            sb.AppendLine();
-            sb.AppendLine("!Initialize Vlans");
+            sb.AppendLine("!");
+            sb.AppendLine("!Setup Vlans");
 
             foreach (var vlan in Vlan.Vlans)
             {
@@ -30,7 +42,7 @@ namespace SwitchConfigGenerator.Core
             }
 
 
-            sb.AppendLine();
+            sb.AppendLine("!");
             sb.AppendLine("!Setup Ports");
 
             foreach (var port in Variables.Ports)
@@ -98,7 +110,7 @@ namespace SwitchConfigGenerator.Core
                 }
             }
 
-            sb.AppendLine();
+            sb.AppendLine("!");
             sb.AppendLine("!Setup Port-Channels");
 
             foreach (var groupPort in Variables.GroupPorts)
