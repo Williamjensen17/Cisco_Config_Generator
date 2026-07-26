@@ -250,6 +250,7 @@
             chkEnableSSH.TabIndex = 26;
             chkEnableSSH.Text = "Enable SSH";
             chkEnableSSH.UseVisualStyleBackColor = true;
+            chkEnableSSH.CheckedChanged += chkEnableSSH_CheckedChanged;
             // 
             // chkEnableTelnet
             // 
@@ -262,6 +263,7 @@
             chkEnableTelnet.TabIndex = 27;
             chkEnableTelnet.Text = "Enable Telnet";
             chkEnableTelnet.UseVisualStyleBackColor = true;
+            chkEnableTelnet.CheckedChanged += chkEnableTelnet_CheckedChanged;
             // 
             // chkEnableAAA
             // 
@@ -274,6 +276,7 @@
             chkEnableAAA.TabIndex = 28;
             chkEnableAAA.Text = "Enable AAA";
             chkEnableAAA.UseVisualStyleBackColor = true;
+            chkEnableAAA.CheckedChanged += chkEnableAAA_CheckedChanged;
             // 
             // GeneralSettingsControl
             // 

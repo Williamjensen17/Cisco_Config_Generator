@@ -62,5 +62,20 @@ namespace SwitchConfigGenerator
         {
             Variables.timeoutSeconds = int.TryParse(txtTimeoutSec.Text, out int seconds) ? seconds : 0;
         }
+
+        private void chkEnableAAA_CheckedChanged(object sender, EventArgs e)
+        {
+            Variables.AAAEnabled = chkEnableAAA.Checked;
+        }
+
+        private void chkEnableSSH_CheckedChanged(object sender, EventArgs e)
+        {
+            Variables.SSHEnabled = chkEnableSSH.Checked;
+        }
+
+        private void chkEnableTelnet_CheckedChanged(object sender, EventArgs e)
+        {
+            Variables.TelnetEnabled = chkEnableTelnet.Checked;
+        }
     }
 }
