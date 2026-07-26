@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panelSidebar = new Panel();
+            button1 = new Button();
             btnVlan = new Button();
             btnGeneral = new Button();
             panelContent = new Panel();
-            button1 = new Button();
             panelSidebar.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,6 +46,17 @@
             panelSidebar.Name = "panelSidebar";
             panelSidebar.Size = new Size(103, 572);
             panelSidebar.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Red;
+            button1.Location = new Point(12, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(33, 32);
+            button1.TabIndex = 0;
+            button1.Text = "X";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // btnVlan
             // 
@@ -76,17 +87,6 @@
             panelContent.Name = "panelContent";
             panelContent.Size = new Size(387, 572);
             panelContent.TabIndex = 1;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Red;
-            button1.Location = new Point(12, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(33, 32);
-            button1.TabIndex = 0;
-            button1.Text = "X";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // SettingsForm
             // 

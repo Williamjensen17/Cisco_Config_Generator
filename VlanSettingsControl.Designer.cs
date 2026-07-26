@@ -31,7 +31,6 @@
             dgvVlans = new DataGridView();
             VlanId = new DataGridViewTextBoxColumn();
             VlanName = new DataGridViewTextBoxColumn();
-            lblUC = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvVlans).BeginInit();
             SuspendLayout();
             // 
@@ -58,33 +57,20 @@
             VlanName.HeaderText = "VlanName";
             VlanName.Name = "VlanName";
             // 
-            // lblUC
-            // 
-            lblUC.AutoSize = true;
-            lblUC.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblUC.ForeColor = Color.Red;
-            lblUC.Location = new Point(48, 93);
-            lblUC.Name = "lblUC";
-            lblUC.Size = new Size(283, 29);
-            lblUC.TabIndex = 2;
-            lblUC.Text = "UNDER CONSTRUCTION!!!";
-            // 
             // VlanSettingsControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(lblUC);
+            BackColor = Color.FromArgb(46, 51, 73);
             Controls.Add(dgvVlans);
             Name = "VlanSettingsControl";
             Size = new Size(371, 569);
             ((System.ComponentModel.ISupportInitialize)dgvVlans).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private DataGridView dgvVlans;
-        private Label lblUC;
         private DataGridViewTextBoxColumn VlanId;
         private DataGridViewTextBoxColumn VlanName;
     }
