@@ -3,6 +3,11 @@ namespace SwitchConfigGenerator.Core;
 
 public static class Variables
 {
+
+    //Basic identity
+    public static string? hostname = null;
+    public static string? domainname = null;
+
     public static int? startport = null;
     public static int? endport = null;
     public static int? currentport = null;
