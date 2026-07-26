@@ -308,6 +308,7 @@
             Controls.Add(lblHostname);
             Name = "GeneralSettingsControl";
             Size = new Size(374, 721);
+            Load += GeneralSettingsControl_Load;
             ResumeLayout(false);
             PerformLayout();
         }

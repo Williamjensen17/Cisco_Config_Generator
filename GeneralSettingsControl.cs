@@ -77,5 +77,21 @@ namespace SwitchConfigGenerator
         {
             Variables.TelnetEnabled = chkEnableTelnet.Checked;
         }
+
+        private void GeneralSettingsControl_Load(object sender, EventArgs e)
+        {
+            txtHostname.Text = Variables.hostname ?? "";
+            txtDomainName.Text = Variables.domainname ?? "";
+            txtUname.Text = Variables.username ?? "";
+            txtPasswd.Text = Variables.password ?? "";
+            txtVtyStart.Text = Variables.vtyStart.ToString();
+            txtVtyEnd.Text = Variables.vtyEnd.ToString();
+            txtRsaSize.Text = Variables.rsaSize.ToString();
+            txtTimeoutMin.Text = Variables.timeoutMinutes.ToString();
+            txtTimeoutSec.Text = Variables.timeoutSeconds.ToString();
+            chkEnableAAA.Checked = Variables.AAAEnabled;
+            chkEnableSSH.Checked = Variables.SSHEnabled;
+            chkEnableTelnet.Checked = Variables.TelnetEnabled;
+        }
     }
 }
