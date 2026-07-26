@@ -65,6 +65,7 @@
             Controls.Add(dgvVlans);
             Name = "VlanSettingsControl";
             Size = new Size(371, 569);
+            Load += VlanSettingsControl_Load;
             ((System.ComponentModel.ISupportInitialize)dgvVlans).EndInit();
             ResumeLayout(false);
         }
