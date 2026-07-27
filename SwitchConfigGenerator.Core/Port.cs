@@ -18,7 +18,7 @@ public class Port
 
     public Port() { }
 
-    public Port(int number, bool? isEnabled = null, bool? isgrouped = null, int? groupid = null, string? description = null, Vlan?[] vlan = null, IEnumerable<Vlan>? vlans = null, bool? nonegotiate = null, int? groupID = null)
+    public Port(int number, bool? isEnabled = null, bool? isgrouped = null, int? groupid = null, string? description = null, Vlan?[] vlan = null, IEnumerable<Vlan>? vlans = null, bool? nonegotiate = null)
     {
         Number = number;
         IsEnabled = isEnabled;
