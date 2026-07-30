@@ -31,6 +31,32 @@ namespace SwitchConfigGenerator.Core
                 sb.AppendLine("    ip domain-name " + Variables.domainname);
             }
 
+            //AAA configuration
+            if (Variables.AAAEnabled)
+            {
+                sb.AppendLine("!");
+                sb.AppendLine("!Setup AAA");
+                sb.AppendLine("    aaa new-model");
+            }
+
+            //Username and password
+            if (!string.IsNullOrWhiteSpace(Variables.username) && !string.IsNullOrWhiteSpace(Variables.password))
+            {
+                sb.AppendLine("    username " + Variables.username + " privilege 15 password 0 " + Variables.password);
+            }
+
+            //RSA key and SSH
+            if (Variables.SSHEnabled)
+            {
+                sb.AppendLine("!");
+                sb.AppendLine("!Setup SSH");
+                if (!string.IsNullOrWhiteSpace(Variables.domainname))
+                {
+                    sb.AppendLine("    crypto key generate rsa modulus " + Variables.rsaSize);
+                }
+                sb.AppendLine("    ip ssh version 2");
+            }
+
             //Here we make the vlans
             sb.AppendLine("!");
             sb.AppendLine("!Setup Vlans");
@@ -152,6 +178,26 @@ namespace SwitchConfigGenerator.Core
                 {
                     sb.AppendLine(groupPort.NoNegotiate == true ? "    switchport nonegotiate" : "    no switchport nonegotiate");
                 }
+            }
+
+            //VTY line configuration
+            sb.AppendLine("!");
+            sb.AppendLine("!Setup VTY Lines");
+            sb.AppendLine("  line vty " + Variables.vtyStart + " " + Variables.vtyEnd);
+            sb.AppendLine("    exec-timeout " + Variables.timeoutMinutes + " " + Variables.timeoutSeconds);
+
+            if (!string.IsNullOrWhiteSpace(Variables.username) && !string.IsNullOrWhiteSpace(Variables.password))
+            {
+                sb.AppendLine("    login local");
+            }
+
+            var transportInputs = new List<string>();
+            if (Variables.SSHEnabled) transportInputs.Add("ssh");
+            if (Variables.TelnetEnabled) transportInputs.Add("telnet");
+
+            if (transportInputs.Count > 0)
+            {
+                sb.AppendLine("    transport input " + string.Join(" ", transportInputs));
             }
 
             return sb.ToString();

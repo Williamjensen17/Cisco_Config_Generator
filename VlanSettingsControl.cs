@@ -18,8 +18,22 @@ namespace SwitchConfigGenerator
             InitializeComponent();
         }
 
+        private void VlanSettingsControl_Load(object sender, EventArgs e)
+        {
+            Variables.isLoading = true;
+
+            foreach (var vlan in Vlan.Vlans)
+            {
+                dgvVlans.Rows.Add(vlan.ID, vlan.Name);
+            }
+
+            Variables.isLoading = false;
+        }
+
         private void dgvVlans_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
+            if (Variables.isLoading) return;
+
             string columnName = dgvVlans.Columns[e.ColumnIndex].HeaderText;
             string input = e.FormattedValue?.ToString() ?? "";
 

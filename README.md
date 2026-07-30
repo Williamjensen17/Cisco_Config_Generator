@@ -8,11 +8,14 @@ _Main page_
 
 
 
-_Settings_
+_VLAN Settings_
 
 <img width="493" height="560" alt="Skærmbillede 2026-06-21 224447" src="https://github.com/user-attachments/assets/c0e2acf5-eb13-4e84-b606-4d215a28d16d" />
 
 
+_General Settings_
+
+<img width="495" height="571" alt="image" src="https://github.com/user-attachments/assets/349e3bac-bec8-41ba-a794-bc6909efc485" />
 
 
 
@@ -27,13 +30,13 @@ _Settings_
 | Access port configuration | ✅                            |
 | Trunk port configuration  | ✅                            |
 | EtherChannel              | ✅                            |
-| Basic Identity            | Next up                       |
+| Basic Identity            | ✅                            |
 | ACL support               | :x:                           |
 | Port security             | :x:                           |
 | STP features              | :x:                           |
 | Management VLAN           | :x:                           |
 | SVI configuration         | :x:                           |
-| SSH / remote access       | :x:                           |
+| SSH / remote access       | ✅                            |
 | Export config             | :x:                           |
 
 
