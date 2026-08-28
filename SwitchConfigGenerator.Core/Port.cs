@@ -14,6 +14,7 @@ public class Port
 
 
     public List<Vlan> Vlans { get; set; } = new();
+    public Vlan? NativeVlan { get; set; }
 
 
     public Port() { }

@@ -156,6 +156,9 @@ namespace SwitchConfigGenerator.Core
                         var vlanIds = string.Join(",", port.Vlans.Select(v => v.ID));
                         sb.AppendLine($"    switchport trunk allowed vlan {vlanIds}");
                     }
+
+                    if (port.NativeVlan != null)
+                        sb.AppendLine($"    switchport trunk native vlan {port.NativeVlan.ID}");
                 }
 
                 if (hasNegotiate)
@@ -202,6 +205,9 @@ namespace SwitchConfigGenerator.Core
                         var vlanIds = string.Join(",", groupPort.Vlans.Select(v => v.ID));
                         sb.AppendLine($"    switchport trunk allowed vlan {vlanIds}");
                     }
+
+                    if (groupPort.NativeVlan != null)
+                        sb.AppendLine($"    switchport trunk native vlan {groupPort.NativeVlan.ID}");
                 }
 
                 if (hasNegotiate)
