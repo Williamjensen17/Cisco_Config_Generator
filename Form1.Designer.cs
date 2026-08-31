@@ -112,6 +112,8 @@ partial class ciscoConfigGenerator
         label28 = new Label();
         label29 = new Label();
         label30 = new Label();
+        cmbNative = new ComboBox();
+        lblNative = new Label();
         fileMenu.SuspendLayout();
         SuspendLayout();
         // 
@@ -1106,12 +1108,36 @@ partial class ciscoConfigGenerator
         label30.TabIndex = 74;
         label30.Text = "po1";
         // 
+        // cmbNative
+        // 
+        cmbNative.BackColor = SystemColors.WindowFrame;
+        cmbNative.DropDownStyle = ComboBoxStyle.DropDownList;
+        cmbNative.FormattingEnabled = true;
+        cmbNative.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6" });
+        cmbNative.Location = new Point(248, 276);
+        cmbNative.Name = "cmbNative";
+        cmbNative.Size = new Size(92, 23);
+        cmbNative.TabIndex = 80;
+        // 
+        // lblNative
+        // 
+        lblNative.AutoSize = true;
+        lblNative.Font = new Font("Comic Sans MS", 9F);
+        lblNative.ForeColor = SystemColors.Control;
+        lblNative.Location = new Point(248, 251);
+        lblNative.Name = "lblNative";
+        lblNative.Size = new Size(78, 17);
+        lblNative.TabIndex = 81;
+        lblNative.Text = "Native Vlan:";
+        // 
         // ciscoConfigGenerator
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(46, 51, 73);
         ClientSize = new Size(1291, 623);
+        Controls.Add(lblNative);
+        Controls.Add(cmbNative);
         Controls.Add(label25);
         Controls.Add(label26);
         Controls.Add(label27);
@@ -1287,4 +1313,7 @@ partial class ciscoConfigGenerator
     private Label label28;
     private Label label29;
     private Label label30;
+    private ComboBox comboBox2;
+    private ComboBox cmbNative;
+    private Label lblNative;
 }

@@ -67,6 +67,36 @@ namespace SwitchConfigGenerator.Core
                 sb.AppendLine("    name " + vlan.Name);
             }
 
+            //Management VLAN interface config
+            bool hasMgmtVlan = false;
+            foreach (var vlan in Vlan.Vlans)
+            {
+                if (string.IsNullOrWhiteSpace(vlan.ManagementIP)) continue;
+                hasMgmtVlan = true;
+                break;
+            }
+
+            if (hasMgmtVlan)
+            {
+                sb.AppendLine("!");
+                sb.AppendLine("!Setup Management VLAN");
+
+                foreach (var vlan in Vlan.Vlans)
+                {
+                    if (string.IsNullOrWhiteSpace(vlan.ManagementIP)) continue;
+
+                    sb.AppendLine("  interface vlan " + vlan.ID);
+                    sb.AppendLine("    ip address " + vlan.ManagementIP + " " + (vlan.ManagementMask ?? "255.255.255.0"));
+                    sb.AppendLine(vlan.ManagementEnabled ? "    no shutdown" : "    shutdown");
+                }
+
+                foreach (var vlan in Vlan.Vlans)
+                {
+                    if (string.IsNullOrWhiteSpace(vlan.DefaultGateway)) continue;
+                    sb.AppendLine("  ip default-gateway " + vlan.DefaultGateway);
+                    break;
+                }
+            }
 
             sb.AppendLine("!");
             sb.AppendLine("!Setup Ports");
@@ -126,6 +156,9 @@ namespace SwitchConfigGenerator.Core
                         var vlanIds = string.Join(",", port.Vlans.Select(v => v.ID));
                         sb.AppendLine($"    switchport trunk allowed vlan {vlanIds}");
                     }
+
+                    if (port.NativeVlan != null)
+                        sb.AppendLine($"    switchport trunk native vlan {port.NativeVlan.ID}");
                 }
 
                 if (hasNegotiate)
@@ -172,6 +205,9 @@ namespace SwitchConfigGenerator.Core
                         var vlanIds = string.Join(",", groupPort.Vlans.Select(v => v.ID));
                         sb.AppendLine($"    switchport trunk allowed vlan {vlanIds}");
                     }
+
+                    if (groupPort.NativeVlan != null)
+                        sb.AppendLine($"    switchport trunk native vlan {groupPort.NativeVlan.ID}");
                 }
 
                 if (hasNegotiate)

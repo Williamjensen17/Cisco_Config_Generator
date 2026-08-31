@@ -85,7 +85,7 @@
             panelContent.AutoScroll = true;
             panelContent.Location = new Point(109, 0);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(387, 572);
+            panelContent.Size = new Size(500, 572);
             panelContent.TabIndex = 1;
             // 
             // SettingsForm
@@ -93,7 +93,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(495, 571);
+            ClientSize = new Size(609, 571);
             Controls.Add(panelContent);
             Controls.Add(panelSidebar);
             FormBorderStyle = FormBorderStyle.None;

@@ -10,6 +10,10 @@ namespace SwitchConfigGenerator.Core
     {
         public int ID { get; set; }
         public string? Name { get; set; }
+        public string? ManagementIP { get; set; }
+        public string? ManagementMask { get; set; }
+        public bool ManagementEnabled { get; set; } = true;
+        public string? DefaultGateway { get; set; }
 
         //event stuff
 

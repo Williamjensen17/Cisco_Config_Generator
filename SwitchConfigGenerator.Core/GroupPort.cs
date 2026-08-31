@@ -8,6 +8,7 @@ public class GroupPort
     public bool? NoNegotiate { get; set; }
     public PortMode.Mode Mode { get; set; } = PortMode.Mode.Null;
     public List<Vlan> Vlans { get; set; } = new();
+    public Vlan? NativeVlan { get; set; }
 
     public GroupPort() { }
 

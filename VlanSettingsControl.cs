@@ -24,17 +24,27 @@ namespace SwitchConfigGenerator
 
             foreach (var vlan in Vlan.Vlans)
             {
-                dgvVlans.Rows.Add(vlan.ID, vlan.Name);
+                dgvVlans.Rows.Add(vlan.ID, vlan.Name, vlan.ManagementIP, vlan.ManagementMask, vlan.ManagementEnabled, vlan.DefaultGateway);
             }
 
             Variables.isLoading = false;
+        }
+
+        private Vlan GetVlanFromRow(DataGridViewRow row)
+        {
+            string vlanIdText = row.Cells["VlanId"].Value?.ToString();
+            if (int.TryParse(vlanIdText, out int vlanId))
+            {
+                return Vlan.Vlans.FirstOrDefault(v => v.ID == vlanId);
+            }
+            return null;
         }
 
         private void dgvVlans_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (Variables.isLoading) return;
 
-            string columnName = dgvVlans.Columns[e.ColumnIndex].HeaderText;
+            string columnName = dgvVlans.Columns[e.ColumnIndex].Name;
             string input = e.FormattedValue?.ToString() ?? "";
 
             var row = dgvVlans.Rows[e.RowIndex];
@@ -81,6 +91,33 @@ namespace SwitchConfigGenerator
                     Vlan.AddVlan(vlanId, input);
                 }
             }
+            else if (columnName == "ManagementIP")
+            {
+                row.ErrorText = "";
+                var vlan = GetVlanFromRow(row);
+                if (vlan != null)
+                {
+                    vlan.ManagementIP = string.IsNullOrWhiteSpace(input) ? null : input;
+                }
+            }
+            else if (columnName == "ManagementMask")
+            {
+                row.ErrorText = "";
+                var vlan = GetVlanFromRow(row);
+                if (vlan != null)
+                {
+                    vlan.ManagementMask = string.IsNullOrWhiteSpace(input) ? null : input;
+                }
+            }
+            else if (columnName == "DefaultGateway")
+            {
+                row.ErrorText = "";
+                var vlan = GetVlanFromRow(row);
+                if (vlan != null)
+                {
+                    vlan.DefaultGateway = string.IsNullOrWhiteSpace(input) ? null : input;
+                }
+            }
         }
 
         private void dgvVlans_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -91,7 +128,27 @@ namespace SwitchConfigGenerator
 
         private void dgvVlans_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+            if (dgvVlans.Columns[e.ColumnIndex].Name == "ManagementEnabled")
+            {
+                dgvVlans.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
 
+        private void dgvVlans_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Variables.isLoading) return;
+            if (e.RowIndex < 0) return;
+
+            if (dgvVlans.Columns[e.ColumnIndex].Name == "ManagementEnabled")
+            {
+                var row = dgvVlans.Rows[e.RowIndex];
+                var vlan = GetVlanFromRow(row);
+                if (vlan != null)
+                {
+                    vlan.ManagementEnabled = (bool)(row.Cells["ManagementEnabled"].Value ?? true);
+                }
+            }
         }
     }
 }

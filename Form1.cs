@@ -45,6 +45,7 @@ public partial class ciscoConfigGenerator : Form
         }
 
         clbVlans.Items.Add(vlan, true);
+        cmbNative.Items.Add(vlan);
     }
 
 
@@ -77,10 +78,12 @@ public partial class ciscoConfigGenerator : Form
     private void RefreshVlanList()
     {
         clbVlans.Items.Clear();
+        cmbNative.Items.Clear();
 
         foreach (var vlan in Vlan.Vlans)
         {
             clbVlans.Items.Add(vlan, true);
+            cmbNative.Items.Add(vlan);
         }
     }
 
@@ -239,11 +242,14 @@ public partial class ciscoConfigGenerator : Form
             }
         }
 
-
         clbVlans.ItemCheck += clbVlans_ItemCheck;
 
         //Enables the vlans checkbox if the port mode is access or trunk.
         clbVlans.Enabled = rbtnAccess.Checked || rbtnTrunk.Checked;
+
+        cmbNative.SelectedIndexChanged -= cmbNative_SelectedIndexChanged;
+        cmbNative.SelectedItem = portData.NativeVlan;
+        cmbNative.SelectedIndexChanged += cmbNative_SelectedIndexChanged;
 
 
         chkNonegotiate.Checked = portData.NoNegotiate.GetValueOrDefault();
@@ -331,6 +337,10 @@ public partial class ciscoConfigGenerator : Form
         clbVlans.ItemCheck += clbVlans_ItemCheck;
         clbVlans.Enabled = rbtnAccess.Checked || rbtnTrunk.Checked;
 
+        cmbNative.SelectedIndexChanged -= cmbNative_SelectedIndexChanged;
+        cmbNative.SelectedItem = groupPortData.NativeVlan;
+        cmbNative.SelectedIndexChanged += cmbNative_SelectedIndexChanged;
+
         chkNonegotiate.Checked = groupPortData.NoNegotiate.GetValueOrDefault();
 
         Variables.isLoading = false;
@@ -354,6 +364,15 @@ public partial class ciscoConfigGenerator : Form
 
         if (clbVlans.Items[e.Index] is not Vlan vlan)
             return;
+
+        if (rbtnAccess.Checked && e.NewValue == CheckState.Checked)
+        {
+            clbVlans.ItemCheck -= clbVlans_ItemCheck;
+            for (int i = 0; i < clbVlans.Items.Count; i++)
+                if (i != e.Index)
+                    clbVlans.SetItemChecked(i, false);
+            clbVlans.ItemCheck += clbVlans_ItemCheck;
+        }
 
         if (Variables.isGroupPort)
         {
@@ -594,6 +613,23 @@ public partial class ciscoConfigGenerator : Form
         foreach (var port in GetTargetPorts())
         {
             port.ChannelGroupMode = Convert.ToString(cmbChannelGroupMode.SelectedItem);
+        }
+    }
+
+    private void cmbNative_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (Variables.isLoading)
+            return;
+        var vlan = cmbNative.SelectedItem as Vlan;
+        if (Variables.isGroupPort)
+        {
+            foreach (var groupPort in GetTargetGroupPorts())
+                groupPort.NativeVlan = vlan;
+        }
+        else
+        {
+            foreach (var port in GetTargetPorts())
+                port.NativeVlan = vlan;
         }
     }
 }
