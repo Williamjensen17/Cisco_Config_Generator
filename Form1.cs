@@ -22,6 +22,7 @@ public partial class ciscoConfigGenerator : Form
     {
         DrawForm();
         RefreshVlanList();
+        InsertStandardValues();
     }
 
     //To avoid memory leaks:
@@ -66,6 +67,12 @@ public partial class ciscoConfigGenerator : Form
         this.Region = new Region(path);
     }
 
+
+    private void InsertStandardValues()
+    {
+        cmbPortCount.SelectedIndex = 2; // Default to 48 ports
+        switchPortType.SelectedIndex = 5; // Default to Fa0/X
+    }
 
 
     private void ShowDescriptionPlaceholder()
@@ -630,6 +637,87 @@ public partial class ciscoConfigGenerator : Form
         {
             foreach (var port in GetTargetPorts())
                 port.NativeVlan = vlan;
+        }
+    }
+
+    private void cmbPortCount_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        // og size 1291; 623
+        // 48 port 1291, 823
+
+        int portCount = Convert.ToInt32(cmbPortCount.SelectedItem);
+
+        if (portCount == 12) { hideSecondRow(true, true); }
+        if (portCount == 24) { hideSecondRow(true, false); }
+        if (portCount == 48) { hideSecondRow(false, false); }
+    }
+
+    private void hideSecondRow(bool hidden, bool hideTwo)
+    {
+        if (hidden == true)
+        {
+            foreach (var button in this.Controls.OfType<Button>().Where(b => b.Tag is string tag && int.TryParse(tag, out int port) && port > 24))
+            {
+                button.Visible = false;
+            }
+        }
+        else
+        {
+            foreach (var button in this.Controls.OfType<Button>().Where(b => b.Tag is string tag && int.TryParse(tag, out int port) && port > 24))
+            {
+                button.Visible = true;
+            }
+        }                     
+            lblPort25.Visible = !hidden;
+            lblPort26.Visible = !hidden;
+            lblPort27.Visible = !hidden;
+            lblPort28.Visible = !hidden;
+            lblPort29.Visible = !hidden;
+            lblPort30.Visible = !hidden;
+            lblPort31.Visible = !hidden;
+            lblPort32.Visible = !hidden;
+            lblPort33.Visible = !hidden;
+            lblPort34.Visible = !hidden;
+            lblPort35.Visible = !hidden;
+            lblPort36.Visible = !hidden;
+            lblPort37.Visible = !hidden;
+            lblPort38.Visible = !hidden;
+            lblPort39.Visible = !hidden;
+            lblPort40.Visible = !hidden;
+            lblPort41.Visible = !hidden;
+            lblPort42.Visible = !hidden;
+            lblPort43.Visible = !hidden;
+            lblPort44.Visible = !hidden;
+            lblPort45.Visible = !hidden;
+            lblPort46.Visible = !hidden;
+            lblPort47.Visible = !hidden;
+            lblPort48.Visible = !hidden;
+
+        hideSectionTwo(hideTwo);
+
+        if (hidden == true) {Size = new Size(1291, 623); rtbOutput.Size = new Size(249, 454); }
+        else {Size = new Size(1291, 823); rtbOutput.Size = new Size(249, 654); }
+
+        DrawForm();
+    }
+
+    private void hideSectionTwo(bool hidden)
+    {
+        lblPort13.Visible = !hidden;
+        lblPort14.Visible = !hidden;
+        lblPort15.Visible = !hidden;
+        lblPort16.Visible = !hidden;
+        lblPort17.Visible = !hidden;
+        lblPort18.Visible = !hidden;
+        lblPort19.Visible = !hidden;
+        lblPort20.Visible = !hidden;
+        lblPort21.Visible = !hidden;
+        lblPort22.Visible = !hidden;
+        lblPort23.Visible = !hidden;
+        lblPort24.Visible = !hidden;
+        foreach (var button in this.Controls.OfType<Button>().Where(b => b.Tag is string tag && int.TryParse(tag, out int port) && port >= 13 && port <= 24))
+        {
+            button.Visible = !hidden;
         }
     }
 }

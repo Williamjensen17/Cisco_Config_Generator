@@ -61,30 +61,30 @@ partial class ciscoConfigGenerator
         btnGenConfig = new Button();
         btnClear = new Button();
         lblPort = new Label();
-        label1 = new Label();
-        label2 = new Label();
-        label3 = new Label();
-        label4 = new Label();
-        label5 = new Label();
-        label6 = new Label();
-        label7 = new Label();
-        label8 = new Label();
-        label9 = new Label();
-        label10 = new Label();
-        label11 = new Label();
-        label12 = new Label();
-        label13 = new Label();
-        label14 = new Label();
-        label15 = new Label();
-        label16 = new Label();
-        label17 = new Label();
-        label18 = new Label();
-        label19 = new Label();
-        label20 = new Label();
-        label21 = new Label();
-        label22 = new Label();
-        label23 = new Label();
-        label24 = new Label();
+        lblPort1 = new Label();
+        lblPort2 = new Label();
+        lblPort3 = new Label();
+        lblPort4 = new Label();
+        lblPort5 = new Label();
+        lblPort6 = new Label();
+        lblPort7 = new Label();
+        lblPort8 = new Label();
+        lblPort9 = new Label();
+        lblPort10 = new Label();
+        lblPort11 = new Label();
+        lblPort12 = new Label();
+        lblPort13 = new Label();
+        lblPort14 = new Label();
+        lblPort15 = new Label();
+        lblPort16 = new Label();
+        lblPort17 = new Label();
+        lblPort18 = new Label();
+        lblPort19 = new Label();
+        lblPort20 = new Label();
+        lblPort21 = new Label();
+        lblPort22 = new Label();
+        lblPort23 = new Label();
+        lblPort24 = new Label();
         btnFile = new Button();
         btnSettings = new Button();
         fileMenu = new ContextMenuStrip(components);
@@ -114,6 +114,55 @@ partial class ciscoConfigGenerator
         label30 = new Label();
         cmbNative = new ComboBox();
         lblNative = new Label();
+        cmbPortCount = new ComboBox();
+        lblPort48 = new Label();
+        lblPort47 = new Label();
+        lblPort46 = new Label();
+        lblPort45 = new Label();
+        lblPort44 = new Label();
+        lblPort43 = new Label();
+        lblPort42 = new Label();
+        lblPort41 = new Label();
+        lblPort40 = new Label();
+        lblPort39 = new Label();
+        lblPort38 = new Label();
+        lblPort37 = new Label();
+        lblPort36 = new Label();
+        lblPort35 = new Label();
+        lblPort34 = new Label();
+        lblPort33 = new Label();
+        lblPort32 = new Label();
+        lblPort31 = new Label();
+        lblPort30 = new Label();
+        lblPort29 = new Label();
+        lblPort28 = new Label();
+        lblPort27 = new Label();
+        lblPort26 = new Label();
+        lblPort25 = new Label();
+        switchPort_48 = new Button();
+        switchPort_47 = new Button();
+        switchPort_46 = new Button();
+        switchPort_45 = new Button();
+        switchPort_44 = new Button();
+        switchPort_43 = new Button();
+        switchPort_42 = new Button();
+        switchPort_41 = new Button();
+        switchPort_40 = new Button();
+        switchPort_39 = new Button();
+        switchPort_36 = new Button();
+        switchPort_35 = new Button();
+        switchPort_34 = new Button();
+        switchPort_33 = new Button();
+        switchPort_32 = new Button();
+        switchPort_31 = new Button();
+        switchPort_30 = new Button();
+        switchPort_29 = new Button();
+        switchPort_28 = new Button();
+        switchPort_27 = new Button();
+        switchPort_38 = new Button();
+        switchPort_37 = new Button();
+        switchPort_26 = new Button();
+        switchPort_25 = new Button();
         fileMenu.SuspendLayout();
         SuspendLayout();
         // 
@@ -476,7 +525,7 @@ partial class ciscoConfigGenerator
         // 
         rtbOutput.Location = new Point(1009, 122);
         rtbOutput.Name = "rtbOutput";
-        rtbOutput.Size = new Size(249, 454);
+        rtbOutput.Size = new Size(249, 654);
         rtbOutput.TabIndex = 26;
         rtbOutput.Text = "";
         // 
@@ -527,269 +576,269 @@ partial class ciscoConfigGenerator
         lblPort.TabIndex = 30;
         lblPort.Text = "Port:";
         // 
-        // label1
+        // lblPort1
         // 
-        label1.AutoSize = true;
-        label1.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label1.ForeColor = SystemColors.Control;
-        label1.Location = new Point(67, 398);
-        label1.Name = "label1";
-        label1.Size = new Size(22, 29);
-        label1.TabIndex = 31;
-        label1.Text = "1";
+        lblPort1.AutoSize = true;
+        lblPort1.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort1.ForeColor = SystemColors.Control;
+        lblPort1.Location = new Point(67, 398);
+        lblPort1.Name = "lblPort1";
+        lblPort1.Size = new Size(22, 29);
+        lblPort1.TabIndex = 31;
+        lblPort1.Text = "1";
         // 
-        // label2
+        // lblPort2
         // 
-        label2.AutoSize = true;
-        label2.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label2.ForeColor = SystemColors.Control;
-        label2.Location = new Point(67, 579);
-        label2.Name = "label2";
-        label2.Size = new Size(26, 29);
-        label2.TabIndex = 32;
-        label2.Text = "2";
+        lblPort2.AutoSize = true;
+        lblPort2.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort2.ForeColor = SystemColors.Control;
+        lblPort2.Location = new Point(67, 579);
+        lblPort2.Name = "lblPort2";
+        lblPort2.Size = new Size(26, 29);
+        lblPort2.TabIndex = 32;
+        lblPort2.Text = "2";
         // 
-        // label3
+        // lblPort3
         // 
-        label3.AutoSize = true;
-        label3.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label3.ForeColor = SystemColors.Control;
-        label3.Location = new Point(143, 398);
-        label3.Name = "label3";
-        label3.Size = new Size(26, 29);
-        label3.TabIndex = 33;
-        label3.Text = "3";
+        lblPort3.AutoSize = true;
+        lblPort3.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort3.ForeColor = SystemColors.Control;
+        lblPort3.Location = new Point(143, 398);
+        lblPort3.Name = "lblPort3";
+        lblPort3.Size = new Size(26, 29);
+        lblPort3.TabIndex = 33;
+        lblPort3.Text = "3";
         // 
-        // label4
+        // lblPort4
         // 
-        label4.AutoSize = true;
-        label4.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label4.ForeColor = SystemColors.Control;
-        label4.Location = new Point(143, 579);
-        label4.Name = "label4";
-        label4.Size = new Size(26, 29);
-        label4.TabIndex = 34;
-        label4.Text = "4";
+        lblPort4.AutoSize = true;
+        lblPort4.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort4.ForeColor = SystemColors.Control;
+        lblPort4.Location = new Point(143, 579);
+        lblPort4.Name = "lblPort4";
+        lblPort4.Size = new Size(26, 29);
+        lblPort4.TabIndex = 34;
+        lblPort4.Text = "4";
         // 
-        // label5
+        // lblPort5
         // 
-        label5.AutoSize = true;
-        label5.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label5.ForeColor = SystemColors.Control;
-        label5.Location = new Point(219, 398);
-        label5.Name = "label5";
-        label5.Size = new Size(26, 29);
-        label5.TabIndex = 35;
-        label5.Text = "5";
+        lblPort5.AutoSize = true;
+        lblPort5.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort5.ForeColor = SystemColors.Control;
+        lblPort5.Location = new Point(219, 398);
+        lblPort5.Name = "lblPort5";
+        lblPort5.Size = new Size(26, 29);
+        lblPort5.TabIndex = 35;
+        lblPort5.Text = "5";
         // 
-        // label6
+        // lblPort6
         // 
-        label6.AutoSize = true;
-        label6.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label6.ForeColor = SystemColors.Control;
-        label6.Location = new Point(219, 579);
-        label6.Name = "label6";
-        label6.Size = new Size(26, 29);
-        label6.TabIndex = 36;
-        label6.Text = "6";
+        lblPort6.AutoSize = true;
+        lblPort6.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort6.ForeColor = SystemColors.Control;
+        lblPort6.Location = new Point(219, 579);
+        lblPort6.Name = "lblPort6";
+        lblPort6.Size = new Size(26, 29);
+        lblPort6.TabIndex = 36;
+        lblPort6.Text = "6";
         // 
-        // label7
+        // lblPort7
         // 
-        label7.AutoSize = true;
-        label7.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label7.ForeColor = SystemColors.Control;
-        label7.Location = new Point(294, 398);
-        label7.Name = "label7";
-        label7.Size = new Size(26, 29);
-        label7.TabIndex = 37;
-        label7.Text = "7";
+        lblPort7.AutoSize = true;
+        lblPort7.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort7.ForeColor = SystemColors.Control;
+        lblPort7.Location = new Point(294, 398);
+        lblPort7.Name = "lblPort7";
+        lblPort7.Size = new Size(26, 29);
+        lblPort7.TabIndex = 37;
+        lblPort7.Text = "7";
         // 
-        // label8
+        // lblPort8
         // 
-        label8.AutoSize = true;
-        label8.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label8.ForeColor = SystemColors.Control;
-        label8.Location = new Point(294, 579);
-        label8.Name = "label8";
-        label8.Size = new Size(26, 29);
-        label8.TabIndex = 38;
-        label8.Text = "8";
+        lblPort8.AutoSize = true;
+        lblPort8.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort8.ForeColor = SystemColors.Control;
+        lblPort8.Location = new Point(294, 579);
+        lblPort8.Name = "lblPort8";
+        lblPort8.Size = new Size(26, 29);
+        lblPort8.TabIndex = 38;
+        lblPort8.Text = "8";
         // 
-        // label9
+        // lblPort9
         // 
-        label9.AutoSize = true;
-        label9.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label9.ForeColor = SystemColors.Control;
-        label9.Location = new Point(370, 398);
-        label9.Name = "label9";
-        label9.Size = new Size(26, 29);
-        label9.TabIndex = 39;
-        label9.Text = "9";
+        lblPort9.AutoSize = true;
+        lblPort9.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort9.ForeColor = SystemColors.Control;
+        lblPort9.Location = new Point(370, 398);
+        lblPort9.Name = "lblPort9";
+        lblPort9.Size = new Size(26, 29);
+        lblPort9.TabIndex = 39;
+        lblPort9.Text = "9";
         // 
-        // label10
+        // lblPort10
         // 
-        label10.AutoSize = true;
-        label10.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label10.ForeColor = SystemColors.Control;
-        label10.Location = new Point(370, 579);
-        label10.Name = "label10";
-        label10.Size = new Size(35, 29);
-        label10.TabIndex = 40;
-        label10.Text = "10";
+        lblPort10.AutoSize = true;
+        lblPort10.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort10.ForeColor = SystemColors.Control;
+        lblPort10.Location = new Point(370, 579);
+        lblPort10.Name = "lblPort10";
+        lblPort10.Size = new Size(35, 29);
+        lblPort10.TabIndex = 40;
+        lblPort10.Text = "10";
         // 
-        // label11
+        // lblPort11
         // 
-        label11.AutoSize = true;
-        label11.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label11.ForeColor = SystemColors.Control;
-        label11.Location = new Point(447, 398);
-        label11.Name = "label11";
-        label11.Size = new Size(31, 29);
-        label11.TabIndex = 41;
-        label11.Text = "11";
+        lblPort11.AutoSize = true;
+        lblPort11.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort11.ForeColor = SystemColors.Control;
+        lblPort11.Location = new Point(447, 398);
+        lblPort11.Name = "lblPort11";
+        lblPort11.Size = new Size(31, 29);
+        lblPort11.TabIndex = 41;
+        lblPort11.Text = "11";
         // 
-        // label12
+        // lblPort12
         // 
-        label12.AutoSize = true;
-        label12.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label12.ForeColor = SystemColors.Control;
-        label12.Location = new Point(447, 579);
-        label12.Name = "label12";
-        label12.Size = new Size(35, 29);
-        label12.TabIndex = 42;
-        label12.Text = "12";
+        lblPort12.AutoSize = true;
+        lblPort12.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort12.ForeColor = SystemColors.Control;
+        lblPort12.Location = new Point(447, 579);
+        lblPort12.Name = "lblPort12";
+        lblPort12.Size = new Size(35, 29);
+        lblPort12.TabIndex = 42;
+        lblPort12.Text = "12";
         // 
-        // label13
+        // lblPort13
         // 
-        label13.AutoSize = true;
-        label13.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label13.ForeColor = SystemColors.Control;
-        label13.Location = new Point(521, 398);
-        label13.Name = "label13";
-        label13.Size = new Size(35, 29);
-        label13.TabIndex = 43;
-        label13.Text = "13";
+        lblPort13.AutoSize = true;
+        lblPort13.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort13.ForeColor = SystemColors.Control;
+        lblPort13.Location = new Point(521, 398);
+        lblPort13.Name = "lblPort13";
+        lblPort13.Size = new Size(35, 29);
+        lblPort13.TabIndex = 43;
+        lblPort13.Text = "13";
         // 
-        // label14
+        // lblPort14
         // 
-        label14.AutoSize = true;
-        label14.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label14.ForeColor = SystemColors.Control;
-        label14.Location = new Point(521, 579);
-        label14.Name = "label14";
-        label14.Size = new Size(35, 29);
-        label14.TabIndex = 44;
-        label14.Text = "14";
+        lblPort14.AutoSize = true;
+        lblPort14.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort14.ForeColor = SystemColors.Control;
+        lblPort14.Location = new Point(521, 579);
+        lblPort14.Name = "lblPort14";
+        lblPort14.Size = new Size(35, 29);
+        lblPort14.TabIndex = 44;
+        lblPort14.Text = "14";
         // 
-        // label15
+        // lblPort15
         // 
-        label15.AutoSize = true;
-        label15.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label15.ForeColor = SystemColors.Control;
-        label15.Location = new Point(598, 398);
-        label15.Name = "label15";
-        label15.Size = new Size(35, 29);
-        label15.TabIndex = 45;
-        label15.Text = "15";
+        lblPort15.AutoSize = true;
+        lblPort15.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort15.ForeColor = SystemColors.Control;
+        lblPort15.Location = new Point(598, 398);
+        lblPort15.Name = "lblPort15";
+        lblPort15.Size = new Size(35, 29);
+        lblPort15.TabIndex = 45;
+        lblPort15.Text = "15";
         // 
-        // label16
+        // lblPort16
         // 
-        label16.AutoSize = true;
-        label16.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label16.ForeColor = SystemColors.Control;
-        label16.Location = new Point(598, 579);
-        label16.Name = "label16";
-        label16.Size = new Size(35, 29);
-        label16.TabIndex = 46;
-        label16.Text = "16";
+        lblPort16.AutoSize = true;
+        lblPort16.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort16.ForeColor = SystemColors.Control;
+        lblPort16.Location = new Point(598, 579);
+        lblPort16.Name = "lblPort16";
+        lblPort16.Size = new Size(35, 29);
+        lblPort16.TabIndex = 46;
+        lblPort16.Text = "16";
         // 
-        // label17
+        // lblPort17
         // 
-        label17.AutoSize = true;
-        label17.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label17.ForeColor = SystemColors.Control;
-        label17.Location = new Point(675, 398);
-        label17.Name = "label17";
-        label17.Size = new Size(35, 29);
-        label17.TabIndex = 47;
-        label17.Text = "17";
+        lblPort17.AutoSize = true;
+        lblPort17.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort17.ForeColor = SystemColors.Control;
+        lblPort17.Location = new Point(675, 398);
+        lblPort17.Name = "lblPort17";
+        lblPort17.Size = new Size(35, 29);
+        lblPort17.TabIndex = 47;
+        lblPort17.Text = "17";
         // 
-        // label18
+        // lblPort18
         // 
-        label18.AutoSize = true;
-        label18.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label18.ForeColor = SystemColors.Control;
-        label18.Location = new Point(675, 579);
-        label18.Name = "label18";
-        label18.Size = new Size(35, 29);
-        label18.TabIndex = 48;
-        label18.Text = "18";
+        lblPort18.AutoSize = true;
+        lblPort18.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort18.ForeColor = SystemColors.Control;
+        lblPort18.Location = new Point(675, 579);
+        lblPort18.Name = "lblPort18";
+        lblPort18.Size = new Size(35, 29);
+        lblPort18.TabIndex = 48;
+        lblPort18.Text = "18";
         // 
-        // label19
+        // lblPort19
         // 
-        label19.AutoSize = true;
-        label19.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label19.ForeColor = SystemColors.Control;
-        label19.Location = new Point(748, 398);
-        label19.Name = "label19";
-        label19.Size = new Size(35, 29);
-        label19.TabIndex = 49;
-        label19.Text = "19";
+        lblPort19.AutoSize = true;
+        lblPort19.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort19.ForeColor = SystemColors.Control;
+        lblPort19.Location = new Point(748, 398);
+        lblPort19.Name = "lblPort19";
+        lblPort19.Size = new Size(35, 29);
+        lblPort19.TabIndex = 49;
+        lblPort19.Text = "19";
         // 
-        // label20
+        // lblPort20
         // 
-        label20.AutoSize = true;
-        label20.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label20.ForeColor = SystemColors.Control;
-        label20.Location = new Point(748, 579);
-        label20.Name = "label20";
-        label20.Size = new Size(39, 29);
-        label20.TabIndex = 50;
-        label20.Text = "20";
+        lblPort20.AutoSize = true;
+        lblPort20.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort20.ForeColor = SystemColors.Control;
+        lblPort20.Location = new Point(748, 579);
+        lblPort20.Name = "lblPort20";
+        lblPort20.Size = new Size(39, 29);
+        lblPort20.TabIndex = 50;
+        lblPort20.Text = "20";
         // 
-        // label21
+        // lblPort21
         // 
-        label21.AutoSize = true;
-        label21.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label21.ForeColor = SystemColors.Control;
-        label21.Location = new Point(824, 398);
-        label21.Name = "label21";
-        label21.Size = new Size(35, 29);
-        label21.TabIndex = 51;
-        label21.Text = "21";
+        lblPort21.AutoSize = true;
+        lblPort21.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort21.ForeColor = SystemColors.Control;
+        lblPort21.Location = new Point(824, 398);
+        lblPort21.Name = "lblPort21";
+        lblPort21.Size = new Size(35, 29);
+        lblPort21.TabIndex = 51;
+        lblPort21.Text = "21";
         // 
-        // label22
+        // lblPort22
         // 
-        label22.AutoSize = true;
-        label22.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label22.ForeColor = SystemColors.Control;
-        label22.Location = new Point(824, 579);
-        label22.Name = "label22";
-        label22.Size = new Size(39, 29);
-        label22.TabIndex = 52;
-        label22.Text = "22";
+        lblPort22.AutoSize = true;
+        lblPort22.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort22.ForeColor = SystemColors.Control;
+        lblPort22.Location = new Point(824, 579);
+        lblPort22.Name = "lblPort22";
+        lblPort22.Size = new Size(39, 29);
+        lblPort22.TabIndex = 52;
+        lblPort22.Text = "22";
         // 
-        // label23
+        // lblPort23
         // 
-        label23.AutoSize = true;
-        label23.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label23.ForeColor = SystemColors.Control;
-        label23.Location = new Point(900, 398);
-        label23.Name = "label23";
-        label23.Size = new Size(39, 29);
-        label23.TabIndex = 53;
-        label23.Text = "23";
+        lblPort23.AutoSize = true;
+        lblPort23.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort23.ForeColor = SystemColors.Control;
+        lblPort23.Location = new Point(900, 398);
+        lblPort23.Name = "lblPort23";
+        lblPort23.Size = new Size(39, 29);
+        lblPort23.TabIndex = 53;
+        lblPort23.Text = "23";
         // 
-        // label24
+        // lblPort24
         // 
-        label24.AutoSize = true;
-        label24.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label24.ForeColor = SystemColors.Control;
-        label24.Location = new Point(900, 579);
-        label24.Name = "label24";
-        label24.Size = new Size(39, 29);
-        label24.TabIndex = 54;
-        label24.Text = "24";
+        lblPort24.AutoSize = true;
+        lblPort24.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort24.ForeColor = SystemColors.Control;
+        lblPort24.Location = new Point(900, 579);
+        lblPort24.Name = "lblPort24";
+        lblPort24.Size = new Size(39, 29);
+        lblPort24.TabIndex = 54;
+        lblPort24.Text = "24";
         // 
         // btnFile
         // 
@@ -1130,12 +1179,672 @@ partial class ciscoConfigGenerator
         lblNative.TabIndex = 81;
         lblNative.Text = "Native Vlan:";
         // 
+        // cmbPortCount
+        // 
+        cmbPortCount.DropDownStyle = ComboBoxStyle.DropDownList;
+        cmbPortCount.FormattingEnabled = true;
+        cmbPortCount.Items.AddRange(new object[] { "12", "24", "48" });
+        cmbPortCount.Location = new Point(275, 18);
+        cmbPortCount.Name = "cmbPortCount";
+        cmbPortCount.Size = new Size(121, 23);
+        cmbPortCount.TabIndex = 82;
+        cmbPortCount.SelectedIndexChanged += cmbPortCount_SelectedIndexChanged;
+        // 
+        // lblPort48
+        // 
+        lblPort48.AutoSize = true;
+        lblPort48.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort48.ForeColor = SystemColors.Control;
+        lblPort48.Location = new Point(900, 790);
+        lblPort48.Name = "lblPort48";
+        lblPort48.Size = new Size(39, 29);
+        lblPort48.TabIndex = 130;
+        lblPort48.Text = "48";
+        // 
+        // lblPort47
+        // 
+        lblPort47.AutoSize = true;
+        lblPort47.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort47.ForeColor = SystemColors.Control;
+        lblPort47.Location = new Point(900, 609);
+        lblPort47.Name = "lblPort47";
+        lblPort47.Size = new Size(39, 29);
+        lblPort47.TabIndex = 129;
+        lblPort47.Text = "47";
+        // 
+        // lblPort46
+        // 
+        lblPort46.AutoSize = true;
+        lblPort46.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort46.ForeColor = SystemColors.Control;
+        lblPort46.Location = new Point(824, 790);
+        lblPort46.Name = "lblPort46";
+        lblPort46.Size = new Size(39, 29);
+        lblPort46.TabIndex = 128;
+        lblPort46.Text = "46";
+        // 
+        // lblPort45
+        // 
+        lblPort45.AutoSize = true;
+        lblPort45.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort45.ForeColor = SystemColors.Control;
+        lblPort45.Location = new Point(824, 609);
+        lblPort45.Name = "lblPort45";
+        lblPort45.Size = new Size(39, 29);
+        lblPort45.TabIndex = 127;
+        lblPort45.Text = "45";
+        // 
+        // lblPort44
+        // 
+        lblPort44.AutoSize = true;
+        lblPort44.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort44.ForeColor = SystemColors.Control;
+        lblPort44.Location = new Point(748, 790);
+        lblPort44.Name = "lblPort44";
+        lblPort44.Size = new Size(39, 29);
+        lblPort44.TabIndex = 126;
+        lblPort44.Text = "44";
+        // 
+        // lblPort43
+        // 
+        lblPort43.AutoSize = true;
+        lblPort43.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort43.ForeColor = SystemColors.Control;
+        lblPort43.Location = new Point(748, 609);
+        lblPort43.Name = "lblPort43";
+        lblPort43.Size = new Size(39, 29);
+        lblPort43.TabIndex = 125;
+        lblPort43.Text = "43";
+        // 
+        // lblPort42
+        // 
+        lblPort42.AutoSize = true;
+        lblPort42.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort42.ForeColor = SystemColors.Control;
+        lblPort42.Location = new Point(675, 790);
+        lblPort42.Name = "lblPort42";
+        lblPort42.Size = new Size(39, 29);
+        lblPort42.TabIndex = 124;
+        lblPort42.Text = "42";
+        // 
+        // lblPort41
+        // 
+        lblPort41.AutoSize = true;
+        lblPort41.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort41.ForeColor = SystemColors.Control;
+        lblPort41.Location = new Point(675, 609);
+        lblPort41.Name = "lblPort41";
+        lblPort41.Size = new Size(35, 29);
+        lblPort41.TabIndex = 123;
+        lblPort41.Text = "41";
+        // 
+        // lblPort40
+        // 
+        lblPort40.AutoSize = true;
+        lblPort40.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort40.ForeColor = SystemColors.Control;
+        lblPort40.Location = new Point(598, 790);
+        lblPort40.Name = "lblPort40";
+        lblPort40.Size = new Size(39, 29);
+        lblPort40.TabIndex = 122;
+        lblPort40.Text = "40";
+        // 
+        // lblPort39
+        // 
+        lblPort39.AutoSize = true;
+        lblPort39.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort39.ForeColor = SystemColors.Control;
+        lblPort39.Location = new Point(598, 609);
+        lblPort39.Name = "lblPort39";
+        lblPort39.Size = new Size(39, 29);
+        lblPort39.TabIndex = 121;
+        lblPort39.Text = "39";
+        // 
+        // lblPort38
+        // 
+        lblPort38.AutoSize = true;
+        lblPort38.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort38.ForeColor = SystemColors.Control;
+        lblPort38.Location = new Point(521, 790);
+        lblPort38.Name = "lblPort38";
+        lblPort38.Size = new Size(39, 29);
+        lblPort38.TabIndex = 120;
+        lblPort38.Text = "38";
+        // 
+        // lblPort37
+        // 
+        lblPort37.AutoSize = true;
+        lblPort37.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort37.ForeColor = SystemColors.Control;
+        lblPort37.Location = new Point(521, 609);
+        lblPort37.Name = "lblPort37";
+        lblPort37.Size = new Size(39, 29);
+        lblPort37.TabIndex = 119;
+        lblPort37.Text = "37";
+        // 
+        // lblPort36
+        // 
+        lblPort36.AutoSize = true;
+        lblPort36.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort36.ForeColor = SystemColors.Control;
+        lblPort36.Location = new Point(447, 790);
+        lblPort36.Name = "lblPort36";
+        lblPort36.Size = new Size(39, 29);
+        lblPort36.TabIndex = 118;
+        lblPort36.Text = "36";
+        // 
+        // lblPort35
+        // 
+        lblPort35.AutoSize = true;
+        lblPort35.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort35.ForeColor = SystemColors.Control;
+        lblPort35.Location = new Point(447, 609);
+        lblPort35.Name = "lblPort35";
+        lblPort35.Size = new Size(39, 29);
+        lblPort35.TabIndex = 117;
+        lblPort35.Text = "35";
+        // 
+        // lblPort34
+        // 
+        lblPort34.AutoSize = true;
+        lblPort34.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort34.ForeColor = SystemColors.Control;
+        lblPort34.Location = new Point(370, 790);
+        lblPort34.Name = "lblPort34";
+        lblPort34.Size = new Size(39, 29);
+        lblPort34.TabIndex = 116;
+        lblPort34.Text = "34";
+        // 
+        // lblPort33
+        // 
+        lblPort33.AutoSize = true;
+        lblPort33.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort33.ForeColor = SystemColors.Control;
+        lblPort33.Location = new Point(370, 609);
+        lblPort33.Name = "lblPort33";
+        lblPort33.Size = new Size(39, 29);
+        lblPort33.TabIndex = 115;
+        lblPort33.Text = "33";
+        // 
+        // lblPort32
+        // 
+        lblPort32.AutoSize = true;
+        lblPort32.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort32.ForeColor = SystemColors.Control;
+        lblPort32.Location = new Point(294, 790);
+        lblPort32.Name = "lblPort32";
+        lblPort32.Size = new Size(39, 29);
+        lblPort32.TabIndex = 114;
+        lblPort32.Text = "32";
+        // 
+        // lblPort31
+        // 
+        lblPort31.AutoSize = true;
+        lblPort31.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort31.ForeColor = SystemColors.Control;
+        lblPort31.Location = new Point(294, 609);
+        lblPort31.Name = "lblPort31";
+        lblPort31.Size = new Size(35, 29);
+        lblPort31.TabIndex = 113;
+        lblPort31.Text = "31";
+        // 
+        // lblPort30
+        // 
+        lblPort30.AutoSize = true;
+        lblPort30.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort30.ForeColor = SystemColors.Control;
+        lblPort30.Location = new Point(219, 790);
+        lblPort30.Name = "lblPort30";
+        lblPort30.Size = new Size(39, 29);
+        lblPort30.TabIndex = 112;
+        lblPort30.Text = "30";
+        // 
+        // lblPort29
+        // 
+        lblPort29.AutoSize = true;
+        lblPort29.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort29.ForeColor = SystemColors.Control;
+        lblPort29.Location = new Point(219, 609);
+        lblPort29.Name = "lblPort29";
+        lblPort29.Size = new Size(39, 29);
+        lblPort29.TabIndex = 111;
+        lblPort29.Text = "29";
+        // 
+        // lblPort28
+        // 
+        lblPort28.AutoSize = true;
+        lblPort28.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort28.ForeColor = SystemColors.Control;
+        lblPort28.Location = new Point(143, 790);
+        lblPort28.Name = "lblPort28";
+        lblPort28.Size = new Size(39, 29);
+        lblPort28.TabIndex = 110;
+        lblPort28.Text = "28";
+        // 
+        // lblPort27
+        // 
+        lblPort27.AutoSize = true;
+        lblPort27.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort27.ForeColor = SystemColors.Control;
+        lblPort27.Location = new Point(143, 609);
+        lblPort27.Name = "lblPort27";
+        lblPort27.Size = new Size(39, 29);
+        lblPort27.TabIndex = 109;
+        lblPort27.Text = "27";
+        // 
+        // lblPort26
+        // 
+        lblPort26.AutoSize = true;
+        lblPort26.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort26.ForeColor = SystemColors.Control;
+        lblPort26.Location = new Point(67, 790);
+        lblPort26.Name = "lblPort26";
+        lblPort26.Size = new Size(39, 29);
+        lblPort26.TabIndex = 108;
+        lblPort26.Text = "26";
+        // 
+        // lblPort25
+        // 
+        lblPort25.AutoSize = true;
+        lblPort25.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lblPort25.ForeColor = SystemColors.Control;
+        lblPort25.Location = new Point(67, 609);
+        lblPort25.Name = "lblPort25";
+        lblPort25.Size = new Size(39, 29);
+        lblPort25.TabIndex = 107;
+        lblPort25.Text = "25";
+        // 
+        // switchPort_48
+        // 
+        switchPort_48.AutoSize = true;
+        switchPort_48.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_48.Image = Properties.Resources.RJ45_f;
+        switchPort_48.Location = new Point(878, 717);
+        switchPort_48.Name = "switchPort_48";
+        switchPort_48.Size = new Size(70, 70);
+        switchPort_48.TabIndex = 106;
+        switchPort_48.Tag = "48";
+        switchPort_48.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_48.UseVisualStyleBackColor = true;
+        switchPort_48.Click += switchPort_Click;
+        // 
+        // switchPort_47
+        // 
+        switchPort_47.AutoSize = true;
+        switchPort_47.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_47.Image = Properties.Resources.RJ45;
+        switchPort_47.Location = new Point(878, 641);
+        switchPort_47.Name = "switchPort_47";
+        switchPort_47.Size = new Size(70, 70);
+        switchPort_47.TabIndex = 105;
+        switchPort_47.Tag = "47";
+        switchPort_47.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_47.UseVisualStyleBackColor = true;
+        switchPort_47.Click += switchPort_Click;
+        // 
+        // switchPort_46
+        // 
+        switchPort_46.AutoSize = true;
+        switchPort_46.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_46.Image = Properties.Resources.RJ45_f;
+        switchPort_46.Location = new Point(802, 717);
+        switchPort_46.Name = "switchPort_46";
+        switchPort_46.Size = new Size(70, 70);
+        switchPort_46.TabIndex = 104;
+        switchPort_46.Tag = "46";
+        switchPort_46.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_46.UseVisualStyleBackColor = true;
+        switchPort_46.Click += switchPort_Click;
+        // 
+        // switchPort_45
+        // 
+        switchPort_45.AutoSize = true;
+        switchPort_45.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_45.Image = Properties.Resources.RJ45;
+        switchPort_45.Location = new Point(802, 641);
+        switchPort_45.Name = "switchPort_45";
+        switchPort_45.Size = new Size(70, 70);
+        switchPort_45.TabIndex = 103;
+        switchPort_45.Tag = "45";
+        switchPort_45.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_45.UseVisualStyleBackColor = true;
+        switchPort_45.Click += switchPort_Click;
+        // 
+        // switchPort_44
+        // 
+        switchPort_44.AutoSize = true;
+        switchPort_44.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_44.Image = Properties.Resources.RJ45_f;
+        switchPort_44.Location = new Point(726, 717);
+        switchPort_44.Name = "switchPort_44";
+        switchPort_44.Size = new Size(70, 70);
+        switchPort_44.TabIndex = 102;
+        switchPort_44.Tag = "44";
+        switchPort_44.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_44.UseVisualStyleBackColor = true;
+        switchPort_44.Click += switchPort_Click;
+        // 
+        // switchPort_43
+        // 
+        switchPort_43.AutoSize = true;
+        switchPort_43.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_43.Image = Properties.Resources.RJ45;
+        switchPort_43.Location = new Point(726, 641);
+        switchPort_43.Name = "switchPort_43";
+        switchPort_43.Size = new Size(70, 70);
+        switchPort_43.TabIndex = 101;
+        switchPort_43.Tag = "43";
+        switchPort_43.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_43.UseVisualStyleBackColor = true;
+        switchPort_43.Click += switchPort_Click;
+        // 
+        // switchPort_42
+        // 
+        switchPort_42.AutoSize = true;
+        switchPort_42.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_42.Image = Properties.Resources.RJ45_f;
+        switchPort_42.Location = new Point(650, 717);
+        switchPort_42.Name = "switchPort_42";
+        switchPort_42.Size = new Size(70, 70);
+        switchPort_42.TabIndex = 100;
+        switchPort_42.Tag = "42";
+        switchPort_42.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_42.UseVisualStyleBackColor = true;
+        switchPort_42.Click += switchPort_Click;
+        // 
+        // switchPort_41
+        // 
+        switchPort_41.AutoSize = true;
+        switchPort_41.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_41.Image = Properties.Resources.RJ45;
+        switchPort_41.Location = new Point(650, 641);
+        switchPort_41.Name = "switchPort_41";
+        switchPort_41.Size = new Size(70, 70);
+        switchPort_41.TabIndex = 99;
+        switchPort_41.Tag = "41";
+        switchPort_41.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_41.UseVisualStyleBackColor = true;
+        switchPort_41.Click += switchPort_Click;
+        // 
+        // switchPort_40
+        // 
+        switchPort_40.AutoSize = true;
+        switchPort_40.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_40.Image = Properties.Resources.RJ45_f;
+        switchPort_40.Location = new Point(574, 717);
+        switchPort_40.Name = "switchPort_40";
+        switchPort_40.Size = new Size(70, 70);
+        switchPort_40.TabIndex = 98;
+        switchPort_40.Tag = "40";
+        switchPort_40.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_40.UseVisualStyleBackColor = true;
+        switchPort_40.Click += switchPort_Click;
+        // 
+        // switchPort_39
+        // 
+        switchPort_39.AutoSize = true;
+        switchPort_39.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_39.Image = Properties.Resources.RJ45;
+        switchPort_39.Location = new Point(574, 641);
+        switchPort_39.Name = "switchPort_39";
+        switchPort_39.Size = new Size(70, 70);
+        switchPort_39.TabIndex = 97;
+        switchPort_39.Tag = "39";
+        switchPort_39.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_39.UseVisualStyleBackColor = true;
+        switchPort_39.Click += switchPort_Click;
+        // 
+        // switchPort_36
+        // 
+        switchPort_36.AutoSize = true;
+        switchPort_36.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_36.Image = Properties.Resources.RJ45_f;
+        switchPort_36.Location = new Point(422, 717);
+        switchPort_36.Name = "switchPort_36";
+        switchPort_36.Size = new Size(70, 70);
+        switchPort_36.TabIndex = 96;
+        switchPort_36.Tag = "36";
+        switchPort_36.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_36.UseVisualStyleBackColor = true;
+        switchPort_36.Click += switchPort_Click;
+        // 
+        // switchPort_35
+        // 
+        switchPort_35.AutoSize = true;
+        switchPort_35.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_35.Image = Properties.Resources.RJ45;
+        switchPort_35.Location = new Point(422, 641);
+        switchPort_35.Name = "switchPort_35";
+        switchPort_35.Size = new Size(70, 70);
+        switchPort_35.TabIndex = 95;
+        switchPort_35.Tag = "35";
+        switchPort_35.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_35.UseVisualStyleBackColor = true;
+        switchPort_35.Click += switchPort_Click;
+        // 
+        // switchPort_34
+        // 
+        switchPort_34.AutoSize = true;
+        switchPort_34.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_34.Image = Properties.Resources.RJ45_f;
+        switchPort_34.Location = new Point(346, 717);
+        switchPort_34.Name = "switchPort_34";
+        switchPort_34.Size = new Size(70, 70);
+        switchPort_34.TabIndex = 94;
+        switchPort_34.Tag = "34";
+        switchPort_34.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_34.UseVisualStyleBackColor = true;
+        switchPort_34.Click += switchPort_Click;
+        // 
+        // switchPort_33
+        // 
+        switchPort_33.AutoSize = true;
+        switchPort_33.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_33.Image = Properties.Resources.RJ45;
+        switchPort_33.Location = new Point(346, 641);
+        switchPort_33.Name = "switchPort_33";
+        switchPort_33.Size = new Size(70, 70);
+        switchPort_33.TabIndex = 93;
+        switchPort_33.Tag = "33";
+        switchPort_33.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_33.UseVisualStyleBackColor = true;
+        switchPort_33.Click += switchPort_Click;
+        // 
+        // switchPort_32
+        // 
+        switchPort_32.AutoSize = true;
+        switchPort_32.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_32.Image = Properties.Resources.RJ45_f;
+        switchPort_32.Location = new Point(270, 717);
+        switchPort_32.Name = "switchPort_32";
+        switchPort_32.Size = new Size(70, 70);
+        switchPort_32.TabIndex = 92;
+        switchPort_32.Tag = "32";
+        switchPort_32.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_32.UseVisualStyleBackColor = true;
+        switchPort_32.Click += switchPort_Click;
+        // 
+        // switchPort_31
+        // 
+        switchPort_31.AutoSize = true;
+        switchPort_31.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_31.Image = Properties.Resources.RJ45;
+        switchPort_31.Location = new Point(270, 641);
+        switchPort_31.Name = "switchPort_31";
+        switchPort_31.Size = new Size(70, 70);
+        switchPort_31.TabIndex = 91;
+        switchPort_31.Tag = "31";
+        switchPort_31.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_31.UseVisualStyleBackColor = true;
+        switchPort_31.Click += switchPort_Click;
+        // 
+        // switchPort_30
+        // 
+        switchPort_30.AutoSize = true;
+        switchPort_30.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_30.Image = Properties.Resources.RJ45_f;
+        switchPort_30.Location = new Point(194, 717);
+        switchPort_30.Name = "switchPort_30";
+        switchPort_30.Size = new Size(70, 70);
+        switchPort_30.TabIndex = 90;
+        switchPort_30.Tag = "30";
+        switchPort_30.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_30.UseVisualStyleBackColor = true;
+        switchPort_30.Click += switchPort_Click;
+        // 
+        // switchPort_29
+        // 
+        switchPort_29.AutoSize = true;
+        switchPort_29.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_29.Image = Properties.Resources.RJ45;
+        switchPort_29.Location = new Point(194, 641);
+        switchPort_29.Name = "switchPort_29";
+        switchPort_29.Size = new Size(70, 70);
+        switchPort_29.TabIndex = 89;
+        switchPort_29.Tag = "29";
+        switchPort_29.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_29.UseVisualStyleBackColor = true;
+        switchPort_29.Click += switchPort_Click;
+        // 
+        // switchPort_28
+        // 
+        switchPort_28.AutoSize = true;
+        switchPort_28.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_28.Image = Properties.Resources.RJ45_f;
+        switchPort_28.Location = new Point(118, 717);
+        switchPort_28.Name = "switchPort_28";
+        switchPort_28.Size = new Size(70, 70);
+        switchPort_28.TabIndex = 88;
+        switchPort_28.Tag = "28";
+        switchPort_28.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_28.UseVisualStyleBackColor = true;
+        switchPort_28.Click += switchPort_Click;
+        // 
+        // switchPort_27
+        // 
+        switchPort_27.AutoSize = true;
+        switchPort_27.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_27.Image = Properties.Resources.RJ45;
+        switchPort_27.Location = new Point(118, 641);
+        switchPort_27.Name = "switchPort_27";
+        switchPort_27.Size = new Size(70, 70);
+        switchPort_27.TabIndex = 87;
+        switchPort_27.Tag = "27";
+        switchPort_27.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_27.UseVisualStyleBackColor = true;
+        switchPort_27.Click += switchPort_Click;
+        // 
+        // switchPort_38
+        // 
+        switchPort_38.AutoSize = true;
+        switchPort_38.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_38.Image = Properties.Resources.RJ45_f;
+        switchPort_38.Location = new Point(498, 717);
+        switchPort_38.Name = "switchPort_38";
+        switchPort_38.Size = new Size(70, 70);
+        switchPort_38.TabIndex = 86;
+        switchPort_38.Tag = "38";
+        switchPort_38.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_38.UseVisualStyleBackColor = true;
+        switchPort_38.Click += switchPort_Click;
+        // 
+        // switchPort_37
+        // 
+        switchPort_37.AutoSize = true;
+        switchPort_37.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_37.Image = Properties.Resources.RJ45;
+        switchPort_37.Location = new Point(498, 641);
+        switchPort_37.Name = "switchPort_37";
+        switchPort_37.Size = new Size(70, 70);
+        switchPort_37.TabIndex = 85;
+        switchPort_37.Tag = "37";
+        switchPort_37.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_37.UseVisualStyleBackColor = true;
+        switchPort_37.Click += switchPort_Click;
+        // 
+        // switchPort_26
+        // 
+        switchPort_26.AutoSize = true;
+        switchPort_26.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_26.Image = Properties.Resources.RJ45_f;
+        switchPort_26.Location = new Point(42, 717);
+        switchPort_26.Name = "switchPort_26";
+        switchPort_26.Size = new Size(70, 70);
+        switchPort_26.TabIndex = 84;
+        switchPort_26.Tag = "26";
+        switchPort_26.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_26.UseVisualStyleBackColor = true;
+        switchPort_26.Click += switchPort_Click;
+        // 
+        // switchPort_25
+        // 
+        switchPort_25.AutoSize = true;
+        switchPort_25.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        switchPort_25.Image = Properties.Resources.RJ45;
+        switchPort_25.Location = new Point(42, 641);
+        switchPort_25.Name = "switchPort_25";
+        switchPort_25.Size = new Size(70, 70);
+        switchPort_25.TabIndex = 83;
+        switchPort_25.Tag = "25";
+        switchPort_25.TextAlign = ContentAlignment.MiddleLeft;
+        switchPort_25.UseVisualStyleBackColor = true;
+        switchPort_25.Click += switchPort_Click;
+        // 
         // ciscoConfigGenerator
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(46, 51, 73);
-        ClientSize = new Size(1291, 623);
+        ClientSize = new Size(1292, 823);
+        Controls.Add(lblPort48);
+        Controls.Add(lblPort47);
+        Controls.Add(lblPort46);
+        Controls.Add(lblPort45);
+        Controls.Add(lblPort44);
+        Controls.Add(lblPort43);
+        Controls.Add(lblPort42);
+        Controls.Add(lblPort41);
+        Controls.Add(lblPort40);
+        Controls.Add(lblPort39);
+        Controls.Add(lblPort38);
+        Controls.Add(lblPort37);
+        Controls.Add(lblPort36);
+        Controls.Add(lblPort35);
+        Controls.Add(lblPort34);
+        Controls.Add(lblPort33);
+        Controls.Add(lblPort32);
+        Controls.Add(lblPort31);
+        Controls.Add(lblPort30);
+        Controls.Add(lblPort29);
+        Controls.Add(lblPort28);
+        Controls.Add(lblPort27);
+        Controls.Add(lblPort26);
+        Controls.Add(lblPort25);
+        Controls.Add(switchPort_48);
+        Controls.Add(switchPort_47);
+        Controls.Add(switchPort_46);
+        Controls.Add(switchPort_45);
+        Controls.Add(switchPort_44);
+        Controls.Add(switchPort_43);
+        Controls.Add(switchPort_42);
+        Controls.Add(switchPort_41);
+        Controls.Add(switchPort_40);
+        Controls.Add(switchPort_39);
+        Controls.Add(switchPort_36);
+        Controls.Add(switchPort_35);
+        Controls.Add(switchPort_34);
+        Controls.Add(switchPort_33);
+        Controls.Add(switchPort_32);
+        Controls.Add(switchPort_31);
+        Controls.Add(switchPort_30);
+        Controls.Add(switchPort_29);
+        Controls.Add(switchPort_28);
+        Controls.Add(switchPort_27);
+        Controls.Add(switchPort_38);
+        Controls.Add(switchPort_37);
+        Controls.Add(switchPort_26);
+        Controls.Add(switchPort_25);
+        Controls.Add(cmbPortCount);
         Controls.Add(lblNative);
         Controls.Add(cmbNative);
         Controls.Add(label25);
@@ -1162,30 +1871,30 @@ partial class ciscoConfigGenerator
         Controls.Add(btnQuit);
         Controls.Add(btnSettings);
         Controls.Add(btnFile);
-        Controls.Add(label24);
-        Controls.Add(label23);
-        Controls.Add(label22);
-        Controls.Add(label21);
-        Controls.Add(label20);
-        Controls.Add(label19);
-        Controls.Add(label18);
-        Controls.Add(label17);
-        Controls.Add(label16);
-        Controls.Add(label15);
-        Controls.Add(label14);
-        Controls.Add(label13);
-        Controls.Add(label12);
-        Controls.Add(label11);
-        Controls.Add(label10);
-        Controls.Add(label9);
-        Controls.Add(label8);
-        Controls.Add(label7);
-        Controls.Add(label6);
-        Controls.Add(label5);
-        Controls.Add(label4);
-        Controls.Add(label3);
-        Controls.Add(label2);
-        Controls.Add(label1);
+        Controls.Add(lblPort24);
+        Controls.Add(lblPort23);
+        Controls.Add(lblPort22);
+        Controls.Add(lblPort21);
+        Controls.Add(lblPort20);
+        Controls.Add(lblPort19);
+        Controls.Add(lblPort18);
+        Controls.Add(lblPort17);
+        Controls.Add(lblPort16);
+        Controls.Add(lblPort15);
+        Controls.Add(lblPort14);
+        Controls.Add(lblPort13);
+        Controls.Add(lblPort12);
+        Controls.Add(lblPort11);
+        Controls.Add(lblPort10);
+        Controls.Add(lblPort9);
+        Controls.Add(lblPort8);
+        Controls.Add(lblPort7);
+        Controls.Add(lblPort6);
+        Controls.Add(lblPort5);
+        Controls.Add(lblPort4);
+        Controls.Add(lblPort3);
+        Controls.Add(lblPort2);
+        Controls.Add(lblPort1);
         Controls.Add(lblPort);
         Controls.Add(btnClear);
         Controls.Add(btnGenConfig);
@@ -1262,30 +1971,30 @@ partial class ciscoConfigGenerator
     private Button btnGenConfig;
     private Button btnClear;
     private Label lblPort;
-    private Label label1;
-    private Label label2;
-    private Label label3;
-    private Label label4;
-    private Label label5;
-    private Label label6;
-    private Label label7;
-    private Label label8;
-    private Label label9;
-    private Label label10;
-    private Label label11;
-    private Label label12;
-    private Label label13;
-    private Label label14;
-    private Label label15;
-    private Label label16;
-    private Label label17;
-    private Label label18;
-    private Label label19;
-    private Label label20;
-    private Label label21;
-    private Label label22;
-    private Label label23;
-    private Label label24;
+    private Label lblPort1;
+    private Label lblPort2;
+    private Label lblPort3;
+    private Label lblPort4;
+    private Label lblPort5;
+    private Label lblPort6;
+    private Label lblPort7;
+    private Label lblPort8;
+    private Label lblPort9;
+    private Label lblPort10;
+    private Label lblPort11;
+    private Label lblPort12;
+    private Label lblPort13;
+    private Label lblPort14;
+    private Label lblPort15;
+    private Label lblPort16;
+    private Label lblPort17;
+    private Label lblPort18;
+    private Label lblPort19;
+    private Label lblPort20;
+    private Label lblPort21;
+    private Label lblPort22;
+    private Label lblPort23;
+    private Label lblPort24;
     private Button btnFile;
     private Button btnSettings;
     private ContextMenuStrip fileMenu;
@@ -1313,7 +2022,55 @@ partial class ciscoConfigGenerator
     private Label label28;
     private Label label29;
     private Label label30;
-    private ComboBox comboBox2;
+    private ComboBox cmbPortCount;
     private ComboBox cmbNative;
     private Label lblNative;
+    private Label lblPort48;
+    private Label lblPort47;
+    private Label lblPort46;
+    private Label lblPort45;
+    private Label lblPort44;
+    private Label lblPort43;
+    private Label lblPort42;
+    private Label lblPort41;
+    private Label lblPort40;
+    private Label lblPort39;
+    private Label lblPort38;
+    private Label lblPort37;
+    private Label lblPort36;
+    private Label lblPort35;
+    private Label lblPort34;
+    private Label lblPort33;
+    private Label lblPort32;
+    private Label lblPort31;
+    private Label lblPort30;
+    private Label lblPort29;
+    private Label lblPort28;
+    private Label lblPort27;
+    private Label lblPort26;
+    private Label lblPort25;
+    private Button switchPort_48;
+    private Button switchPort_47;
+    private Button switchPort_46;
+    private Button switchPort_45;
+    private Button switchPort_44;
+    private Button switchPort_43;
+    private Button switchPort_42;
+    private Button switchPort_41;
+    private Button switchPort_40;
+    private Button switchPort_39;
+    private Button switchPort_36;
+    private Button switchPort_35;
+    private Button switchPort_34;
+    private Button switchPort_33;
+    private Button switchPort_32;
+    private Button switchPort_31;
+    private Button switchPort_30;
+    private Button switchPort_29;
+    private Button switchPort_28;
+    private Button switchPort_27;
+    private Button switchPort_38;
+    private Button switchPort_37;
+    private Button switchPort_26;
+    private Button switchPort_25;
 }
