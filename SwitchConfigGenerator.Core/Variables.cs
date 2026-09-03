@@ -43,6 +43,6 @@ public static class Variables
 
     public static bool isLoading = false;
 
-    public static Port[] Ports = Enumerable.Range(1, 24).Select(i => new Port(i)).ToArray();
+    public static Port[] Ports = Enumerable.Range(1, 48).Select(i => new Port(i)).ToArray();
     public static GroupPort[] GroupPorts = Enumerable.Range(1, 6).Select(i => new GroupPort(i)).ToArray();
 }
