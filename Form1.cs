@@ -72,6 +72,8 @@ public partial class ciscoConfigGenerator : Form
     {
         cmbPortCount.SelectedIndex = 2; // Default to 48 ports
         switchPortType.SelectedIndex = 5; // Default to Fa0/X
+        portstuff(1, false); // Default to port 1
+        LoadSettings(1); // Load settings for port 1
     }
 
 
