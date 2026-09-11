@@ -10,7 +10,8 @@ _Main page_
 
 _VLAN Settings_
 
-<img width="493" height="560" alt="Skærmbillede 2026-06-21 224447" src="https://github.com/user-attachments/assets/c0e2acf5-eb13-4e84-b606-4d215a28d16d" />
+<img width="584" height="551" alt="billede" src="https://github.com/user-attachments/assets/b075eaf9-dd44-4b50-933c-8db11da71a9e" />
+
 
 
 _General Settings_
