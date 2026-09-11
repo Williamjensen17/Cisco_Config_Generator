@@ -4,7 +4,7 @@ A program to semi automatically generate code for cisco devices, mainly focusing
 
 _Main page_
 
-<img width="1326" height="651" alt="image" src="https://github.com/user-attachments/assets/855530f7-c41e-44a5-b759-a278cdd7dc9b" />
+<img width="1318" height="847" alt="billede" src="https://github.com/user-attachments/assets/98966fa8-141f-4b1c-8772-c2cef7df2ed6" />
 
 
 
@@ -34,7 +34,7 @@ _General Settings_
 | ACL support               | :x:                           |
 | Port security             | :x:                           |
 | STP features              | :x:                           |
-| Management VLAN           | :x:                           |
+| Management VLAN           | ✅                           |
 | SVI configuration         | :x:                           |
 | SSH / remote access       | ✅                            |
 | Export config             | :x:                           |
