@@ -93,5 +93,10 @@ namespace SwitchConfigGenerator
             chkEnableSSH.Checked = Variables.SSHEnabled;
             chkEnableTelnet.Checked = Variables.TelnetEnabled;
         }
+
+        private void txtBanner_TextChanged(object sender, EventArgs e)
+        {
+            Variables.banner = txtBanner.Text;
+        }
     }
 }

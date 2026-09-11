@@ -30,6 +30,10 @@ namespace SwitchConfigGenerator.Core
             {
                 sb.AppendLine("    ip domain-name " + Variables.domainname);
             }
+            if (!string.IsNullOrWhiteSpace(Variables.banner))
+            {
+                sb.AppendLine("    banner motd #" + Variables.banner + "#");
+            }
 
             //AAA configuration
             if (Variables.AAAEnabled)

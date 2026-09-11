@@ -717,6 +717,7 @@ public partial class ciscoConfigGenerator : Form
         lblPort22.Visible = !hidden;
         lblPort23.Visible = !hidden;
         lblPort24.Visible = !hidden;
+
         foreach (var button in this.Controls.OfType<Button>().Where(b => b.Tag is string tag && int.TryParse(tag, out int port) && port >= 13 && port <= 24))
         {
             button.Visible = !hidden;

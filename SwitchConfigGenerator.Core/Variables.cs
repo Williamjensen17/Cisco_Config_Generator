@@ -7,6 +7,7 @@ public static class Variables
     //Basic identity
     public static string? hostname = null;
     public static string? domainname = null;
+    public static string? banner = null;
 
     //Security settings
     public static string? username = null;

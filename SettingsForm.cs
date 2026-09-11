@@ -45,7 +45,7 @@ namespace SwitchConfigGenerator
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
-            ShowPage(vlanPage);
+            ShowPage(generalPage);
 
 
             int radius = 20;

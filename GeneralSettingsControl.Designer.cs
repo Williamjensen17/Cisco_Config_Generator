@@ -50,6 +50,8 @@
             chkEnableSSH = new CheckBox();
             chkEnableTelnet = new CheckBox();
             chkEnableAAA = new CheckBox();
+            txtBanner = new TextBox();
+            lblBanner = new Label();
             SuspendLayout();
             // 
             // lblHostname
@@ -278,12 +280,33 @@
             chkEnableAAA.UseVisualStyleBackColor = true;
             chkEnableAAA.CheckedChanged += chkEnableAAA_CheckedChanged;
             // 
+            // txtBanner
+            // 
+            txtBanner.Location = new Point(156, 595);
+            txtBanner.Name = "txtBanner";
+            txtBanner.Size = new Size(173, 23);
+            txtBanner.TabIndex = 30;
+            txtBanner.TextChanged += txtBanner_TextChanged;
+            // 
+            // lblBanner
+            // 
+            lblBanner.AutoSize = true;
+            lblBanner.Font = new Font("Comic Sans MS", 9.75F);
+            lblBanner.ForeColor = SystemColors.Control;
+            lblBanner.Location = new Point(39, 596);
+            lblBanner.Name = "lblBanner";
+            lblBanner.Size = new Size(89, 18);
+            lblBanner.TabIndex = 29;
+            lblBanner.Text = "Motd Banner:";
+            // 
             // GeneralSettingsControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(46, 51, 73);
+            Controls.Add(txtBanner);
+            Controls.Add(lblBanner);
             Controls.Add(chkEnableAAA);
             Controls.Add(chkEnableTelnet);
             Controls.Add(chkEnableSSH);
@@ -336,5 +359,7 @@
         private CheckBox chkEnableSSH;
         private CheckBox chkEnableTelnet;
         private CheckBox chkEnableAAA;
+        private TextBox txtBanner;
+        private Label lblBanner;
     }
 }
