@@ -34,7 +34,10 @@ namespace SwitchConfigGenerator.Core
             {
                 sb.AppendLine("    banner motd #" + Variables.banner + "#");
             }
-
+            if (Variables.domainLookup.HasValue)
+            {
+                sb.AppendLine("     " + (Variables.domainLookup.Value ? "no" : "") + " ip domain-lookup");
+            }
             //AAA configuration
             if (Variables.AAAEnabled)
             {

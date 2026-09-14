@@ -92,11 +92,18 @@ namespace SwitchConfigGenerator
             chkEnableAAA.Checked = Variables.AAAEnabled;
             chkEnableSSH.Checked = Variables.SSHEnabled;
             chkEnableTelnet.Checked = Variables.TelnetEnabled;
+            txtBanner.Text = Variables.banner;
+            btnDomainLookup.Checked = Variables.domainLookup ?? false;
         }
 
         private void txtBanner_TextChanged(object sender, EventArgs e)
         {
             Variables.banner = txtBanner.Text;
+        }
+
+        private void btnDomainLookup_CheckedChanged(object sender, EventArgs e)
+        {
+            Variables.domainLookup = btnDomainLookup.Checked;
         }
     }
 }
