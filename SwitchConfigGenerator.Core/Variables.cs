@@ -8,6 +8,7 @@ public static class Variables
     public static string? hostname = null;
     public static string? domainname = null;
     public static string? banner = null;
+    public static bool? domainLookup = null;
 
     //Security settings
     public static string? username = null;

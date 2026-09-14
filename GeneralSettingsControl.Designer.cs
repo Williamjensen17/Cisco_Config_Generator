@@ -52,6 +52,7 @@
             chkEnableAAA = new CheckBox();
             txtBanner = new TextBox();
             lblBanner = new Label();
+            btnDomainLookup = new CheckBox();
             SuspendLayout();
             // 
             // lblHostname
@@ -299,12 +300,26 @@
             lblBanner.TabIndex = 29;
             lblBanner.Text = "Motd Banner:";
             // 
+            // btnDomainLookup
+            // 
+            btnDomainLookup.AutoSize = true;
+            btnDomainLookup.Font = new Font("Comic Sans MS", 9.75F);
+            btnDomainLookup.ForeColor = SystemColors.Control;
+            btnDomainLookup.Location = new Point(156, 148);
+            btnDomainLookup.Name = "btnDomainLookup";
+            btnDomainLookup.Size = new Size(145, 22);
+            btnDomainLookup.TabIndex = 31;
+            btnDomainLookup.Text = "no ip domain lookup";
+            btnDomainLookup.UseVisualStyleBackColor = true;
+            btnDomainLookup.CheckedChanged += btnDomainLookup_CheckedChanged;
+            // 
             // GeneralSettingsControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(46, 51, 73);
+            Controls.Add(btnDomainLookup);
             Controls.Add(txtBanner);
             Controls.Add(lblBanner);
             Controls.Add(chkEnableAAA);
@@ -361,5 +376,6 @@
         private CheckBox chkEnableAAA;
         private TextBox txtBanner;
         private Label lblBanner;
+        private CheckBox btnDomainLookup;
     }
 }
