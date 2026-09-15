@@ -59,7 +59,8 @@ namespace SwitchConfigGenerator.Core
                 sb.AppendLine("!Setup SSH");
                 if (!string.IsNullOrWhiteSpace(Variables.domainname))
                 {
-                    sb.AppendLine("    crypto key generate rsa modulus " + Variables.rsaSize);
+                    sb.AppendLine("    crypto key generate rsa");
+                    sb.AppendLine("    " + Variables.rsaSize);
                 }
                 sb.AppendLine("    ip ssh version 2");
             }
