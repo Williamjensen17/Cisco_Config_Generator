@@ -53,6 +53,8 @@
             txtBanner = new TextBox();
             lblBanner = new Label();
             btnDomainLookup = new CheckBox();
+            chkConsoleLogging = new CheckBox();
+            cmbSynchronousLogging = new CheckBox();
             SuspendLayout();
             // 
             // lblHostname
@@ -95,7 +97,7 @@
             // 
             // txtPasswd
             // 
-            txtPasswd.Location = new Point(156, 238);
+            txtPasswd.Location = new Point(156, 273);
             txtPasswd.Name = "txtPasswd";
             txtPasswd.Size = new Size(173, 23);
             txtPasswd.TabIndex = 11;
@@ -103,7 +105,7 @@
             // 
             // txtUname
             // 
-            txtUname.Location = new Point(156, 209);
+            txtUname.Location = new Point(156, 244);
             txtUname.Name = "txtUname";
             txtUname.Size = new Size(173, 23);
             txtUname.TabIndex = 10;
@@ -114,7 +116,7 @@
             lblPasswd.AutoSize = true;
             lblPasswd.Font = new Font("Comic Sans MS", 9.75F);
             lblPasswd.ForeColor = SystemColors.Control;
-            lblPasswd.Location = new Point(39, 239);
+            lblPasswd.Location = new Point(39, 274);
             lblPasswd.Name = "lblPasswd";
             lblPasswd.Size = new Size(65, 18);
             lblPasswd.TabIndex = 9;
@@ -125,7 +127,7 @@
             lblUname.AutoSize = true;
             lblUname.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblUname.ForeColor = SystemColors.Control;
-            lblUname.Location = new Point(39, 210);
+            lblUname.Location = new Point(39, 245);
             lblUname.Name = "lblUname";
             lblUname.Size = new Size(71, 18);
             lblUname.TabIndex = 8;
@@ -133,7 +135,7 @@
             // 
             // txtVtyStart
             // 
-            txtVtyStart.Location = new Point(156, 291);
+            txtVtyStart.Location = new Point(156, 326);
             txtVtyStart.Name = "txtVtyStart";
             txtVtyStart.Size = new Size(173, 23);
             txtVtyStart.TabIndex = 14;
@@ -145,7 +147,7 @@
             lblVtyStart.AutoSize = true;
             lblVtyStart.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblVtyStart.ForeColor = SystemColors.Control;
-            lblVtyStart.Location = new Point(39, 292);
+            lblVtyStart.Location = new Point(39, 327);
             lblVtyStart.Name = "lblVtyStart";
             lblVtyStart.Size = new Size(74, 18);
             lblVtyStart.TabIndex = 12;
@@ -153,7 +155,7 @@
             // 
             // txtVtyEnd
             // 
-            txtVtyEnd.Location = new Point(156, 320);
+            txtVtyEnd.Location = new Point(156, 355);
             txtVtyEnd.Name = "txtVtyEnd";
             txtVtyEnd.Size = new Size(173, 23);
             txtVtyEnd.TabIndex = 16;
@@ -165,7 +167,7 @@
             lblVtyEnd.AutoSize = true;
             lblVtyEnd.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblVtyEnd.ForeColor = SystemColors.Control;
-            lblVtyEnd.Location = new Point(39, 321);
+            lblVtyEnd.Location = new Point(39, 356);
             lblVtyEnd.Name = "lblVtyEnd";
             lblVtyEnd.Size = new Size(65, 18);
             lblVtyEnd.TabIndex = 15;
@@ -173,7 +175,7 @@
             // 
             // txtRsaSize
             // 
-            txtRsaSize.Location = new Point(156, 405);
+            txtRsaSize.Location = new Point(156, 440);
             txtRsaSize.Name = "txtRsaSize";
             txtRsaSize.Size = new Size(173, 23);
             txtRsaSize.TabIndex = 18;
@@ -185,7 +187,7 @@
             lblRsaSize.AutoSize = true;
             lblRsaSize.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRsaSize.ForeColor = SystemColors.Control;
-            lblRsaSize.Location = new Point(39, 406);
+            lblRsaSize.Location = new Point(39, 441);
             lblRsaSize.Name = "lblRsaSize";
             lblRsaSize.Size = new Size(64, 18);
             lblRsaSize.TabIndex = 17;
@@ -193,7 +195,7 @@
             // 
             // txtTimeoutMin
             // 
-            txtTimeoutMin.Location = new Point(156, 349);
+            txtTimeoutMin.Location = new Point(156, 384);
             txtTimeoutMin.Name = "txtTimeoutMin";
             txtTimeoutMin.Size = new Size(45, 23);
             txtTimeoutMin.TabIndex = 20;
@@ -205,7 +207,7 @@
             lblTimeout.AutoSize = true;
             lblTimeout.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTimeout.ForeColor = SystemColors.Control;
-            lblTimeout.Location = new Point(39, 350);
+            lblTimeout.Location = new Point(39, 385);
             lblTimeout.Name = "lblTimeout";
             lblTimeout.Size = new Size(56, 18);
             lblTimeout.TabIndex = 19;
@@ -216,7 +218,7 @@
             lblTimeoutMin.AutoSize = true;
             lblTimeoutMin.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTimeoutMin.ForeColor = SystemColors.Control;
-            lblTimeoutMin.Location = new Point(207, 350);
+            lblTimeoutMin.Location = new Point(207, 385);
             lblTimeoutMin.Name = "lblTimeoutMin";
             lblTimeoutMin.Size = new Size(30, 18);
             lblTimeoutMin.TabIndex = 23;
@@ -227,7 +229,7 @@
             lblTimeoutSec.AutoSize = true;
             lblTimeoutSec.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTimeoutSec.ForeColor = SystemColors.Control;
-            lblTimeoutSec.Location = new Point(294, 350);
+            lblTimeoutSec.Location = new Point(294, 385);
             lblTimeoutSec.Name = "lblTimeoutSec";
             lblTimeoutSec.Size = new Size(31, 18);
             lblTimeoutSec.TabIndex = 24;
@@ -235,7 +237,7 @@
             // 
             // txtTimeoutSec
             // 
-            txtTimeoutSec.Location = new Point(243, 349);
+            txtTimeoutSec.Location = new Point(243, 384);
             txtTimeoutSec.Name = "txtTimeoutSec";
             txtTimeoutSec.Size = new Size(45, 23);
             txtTimeoutSec.TabIndex = 25;
@@ -247,7 +249,7 @@
             chkEnableSSH.AutoSize = true;
             chkEnableSSH.Font = new Font("Comic Sans MS", 9.75F);
             chkEnableSSH.ForeColor = SystemColors.Control;
-            chkEnableSSH.Location = new Point(156, 481);
+            chkEnableSSH.Location = new Point(156, 516);
             chkEnableSSH.Name = "chkEnableSSH";
             chkEnableSSH.Size = new Size(100, 22);
             chkEnableSSH.TabIndex = 26;
@@ -260,7 +262,7 @@
             chkEnableTelnet.AutoSize = true;
             chkEnableTelnet.Font = new Font("Comic Sans MS", 9.75F);
             chkEnableTelnet.ForeColor = SystemColors.Control;
-            chkEnableTelnet.Location = new Point(156, 509);
+            chkEnableTelnet.Location = new Point(156, 544);
             chkEnableTelnet.Name = "chkEnableTelnet";
             chkEnableTelnet.Size = new Size(111, 22);
             chkEnableTelnet.TabIndex = 27;
@@ -273,7 +275,7 @@
             chkEnableAAA.AutoSize = true;
             chkEnableAAA.Font = new Font("Comic Sans MS", 9.75F);
             chkEnableAAA.ForeColor = SystemColors.Control;
-            chkEnableAAA.Location = new Point(156, 453);
+            chkEnableAAA.Location = new Point(156, 488);
             chkEnableAAA.Name = "chkEnableAAA";
             chkEnableAAA.Size = new Size(99, 22);
             chkEnableAAA.TabIndex = 28;
@@ -307,11 +309,38 @@
             btnDomainLookup.ForeColor = SystemColors.Control;
             btnDomainLookup.Location = new Point(156, 148);
             btnDomainLookup.Name = "btnDomainLookup";
-            btnDomainLookup.Size = new Size(145, 22);
+            btnDomainLookup.Size = new Size(161, 22);
             btnDomainLookup.TabIndex = 31;
-            btnDomainLookup.Text = "no ip domain lookup";
+            btnDomainLookup.Text = "Disable domain lookup";
             btnDomainLookup.UseVisualStyleBackColor = true;
             btnDomainLookup.CheckedChanged += btnDomainLookup_CheckedChanged;
+            // 
+            // chkConsoleLogging
+            // 
+            chkConsoleLogging.AutoSize = true;
+            chkConsoleLogging.Font = new Font("Comic Sans MS", 9.75F);
+            chkConsoleLogging.ForeColor = SystemColors.Control;
+            chkConsoleLogging.Location = new Point(157, 176);
+            chkConsoleLogging.Name = "chkConsoleLogging";
+            chkConsoleLogging.Size = new Size(172, 22);
+            chkConsoleLogging.TabIndex = 32;
+            chkConsoleLogging.Text = "Disable Console Logging";
+            chkConsoleLogging.UseVisualStyleBackColor = true;
+            chkConsoleLogging.CheckedChanged += chkConsoleLogging_CheckedChanged;
+            // 
+            // cmbSynchronousLogging
+            // 
+            cmbSynchronousLogging.AutoSize = true;
+            cmbSynchronousLogging.Enabled = false;
+            cmbSynchronousLogging.Font = new Font("Comic Sans MS", 9.75F);
+            cmbSynchronousLogging.ForeColor = SystemColors.Control;
+            cmbSynchronousLogging.Location = new Point(156, 204);
+            cmbSynchronousLogging.Name = "cmbSynchronousLogging";
+            cmbSynchronousLogging.Size = new Size(203, 22);
+            cmbSynchronousLogging.TabIndex = 33;
+            cmbSynchronousLogging.Text = "Disable Synchronous Logging";
+            cmbSynchronousLogging.UseVisualStyleBackColor = true;
+            cmbSynchronousLogging.CheckedChanged += cmbSynchronousLogging_CheckedChanged;
             // 
             // GeneralSettingsControl
             // 
@@ -319,6 +348,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(46, 51, 73);
+            Controls.Add(cmbSynchronousLogging);
+            Controls.Add(chkConsoleLogging);
             Controls.Add(btnDomainLookup);
             Controls.Add(txtBanner);
             Controls.Add(lblBanner);
@@ -377,5 +408,7 @@
         private TextBox txtBanner;
         private Label lblBanner;
         private CheckBox btnDomainLookup;
+        private CheckBox chkConsoleLogging;
+        private CheckBox cmbSynchronousLogging;
     }
 }

@@ -9,6 +9,8 @@ public static class Variables
     public static string? domainname = null;
     public static string? banner = null;
     public static bool? domainLookup = null;
+    public static bool? loggingConsole = null;
+    public static bool? loggingSynchronous = null;
 
     //Security settings
     public static string? username = null;

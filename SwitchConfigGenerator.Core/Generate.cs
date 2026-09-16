@@ -38,6 +38,10 @@ namespace SwitchConfigGenerator.Core
             {
                 sb.AppendLine("     " + (Variables.domainLookup.Value ? "no" : "") + " ip domain-lookup");
             }
+            if (Variables.loggingConsole.HasValue)
+            {
+                sb.AppendLine("     " + (Variables.loggingConsole.Value ? "no" : "") + " logging console");
+            }
             //AAA configuration
             if (Variables.AAAEnabled)
             {

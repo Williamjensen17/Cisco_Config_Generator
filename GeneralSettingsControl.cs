@@ -94,6 +94,8 @@ namespace SwitchConfigGenerator
             chkEnableTelnet.Checked = Variables.TelnetEnabled;
             txtBanner.Text = Variables.banner;
             btnDomainLookup.Checked = Variables.domainLookup ?? false;
+            chkConsoleLogging.Checked = Variables.loggingConsole ?? false;
+            cmbSynchronousLogging.Checked = Variables.loggingSynchronous ?? false;
         }
 
         private void txtBanner_TextChanged(object sender, EventArgs e)
@@ -104,6 +106,16 @@ namespace SwitchConfigGenerator
         private void btnDomainLookup_CheckedChanged(object sender, EventArgs e)
         {
             Variables.domainLookup = btnDomainLookup.Checked;
+        }
+
+        private void chkConsoleLogging_CheckedChanged(object sender, EventArgs e)
+        {
+            Variables.loggingConsole = chkConsoleLogging.Checked;
+        }
+
+        private void cmbSynchronousLogging_CheckedChanged(object sender, EventArgs e)
+        {
+            Variables.loggingSynchronous = cmbSynchronousLogging.Checked;
         }
     }
 }
