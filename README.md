@@ -1,5 +1,5 @@
-# Cisco_Config_Generator
-A program to semi automatically generate code for cisco devices, mainly focusing on switches
+# Network_Config_Generator
+A program to semi automatically generate code for Network devices.
 
 
 _Main page_
